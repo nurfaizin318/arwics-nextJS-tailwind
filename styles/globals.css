@@ -3,3 +3,56 @@
 @tailwind utilities;
 
 
+ /* index */
+ .licensed{
+  clip-path: polygon(0% 20%,100% 0%,100% 100%,0.00% 80.00%);
+  min-height: 984px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+  
+  } 
+
+  .gradient-background1{
+    background: #39B4F3;
+    background: linear-gradient(0deg,#FF3838 48%, rgba(255,255,255,1) 49%);
+  }
+  .gradient-background2{
+    background: #39B4F3;
+    background: linear-gradient(0deg,#39B4F3 48%, #FF3838 49%);
+  }
+
+
+
+
+.bisnis-model{
+  clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 93%);
+}
+/* ====================================================== */
+
+
+
+/* Contact */
+.contact{
+ background-image: url('/background.jpeg');
+ background-size: cover;
+  
+}
+.learning{
+  clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
+
+
+}
+/* =========================================================== */
+
+@media only screen and (max-width: 1440px) {
+  .licensed{
+
+    clip-path: polygon(0% 4%,100% 0%,100% 100%,0% 95%);
+  
+    } 
+}
+@media only screen and (max-width: 640px) {
+  .licensed{
+
+    clip-path: polygon(0% 4%,100% 0%,100% 100%,0% 95%);
+  
+    } 
+}
