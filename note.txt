@@ -1,0 +1,5 @@
+package json{
+     // "dev": "nodemon server/server.js",
+    // "build": "next build",
+    // "start": "NODE_ENV=production nodemon server/server.js"
+}

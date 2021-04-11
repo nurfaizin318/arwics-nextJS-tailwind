@@ -4,43 +4,49 @@
 
 
  /* index */
- .licensed{
-  clip-path: polygon(0% 20%,100% 0%,100% 100%,0.00% 80.00%);
-  min-height: 984px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+  .home-row1{
+
+    background-image: url('/assets/bg-vector.png');
+    
+  }
   
-  } 
-
-  .gradient-background1{
-    background: #39B4F3;
-    background: linear-gradient(0deg,#FF3838 48%, rgba(255,255,255,1) 49%);
-  }
-  .gradient-background2{
-    background: #39B4F3;
-    background: linear-gradient(0deg,#39B4F3 48%, #FF3838 49%);
-  }
-
-
-
-
-.bisnis-model{
-  clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 93%);
-}
 /* ====================================================== */
 
 
 
 /* Contact */
 .contact{
- background-image: url('/background.jpeg');
- background-size: cover;
-  
+background-image: url('/assets/bg-contact.png');
+background-size: cover;
+background-color: rgba(255,202,40 ,1);
 }
 .learning{
   clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
+  border:none;
+  outline: none;
 
 
 }
 /* =========================================================== */
+
+.product{
+  background-image: url('/assets/background-product.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Abbaout */
+.about{
+  background-image: url('/assets/bg-about.png');
+  background-size: 100% 100%;
+  }
+
+  .background-about{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+  }
+  /* =========================================================== */
+
 
 @media only screen and (max-width: 1440px) {
   .licensed{
@@ -54,5 +60,10 @@
 
     clip-path: polygon(0% 4%,100% 0%,100% 100%,0% 95%);
   
+
     } 
+    
+    .background-about{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+    }
 }

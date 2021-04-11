@@ -27,17 +27,13 @@ module.exports = {
         'width':'width',
       },
       colors: {
-        'custom-yellow':'#FFDC41',
-        'custom-blue': '#39B4F3',
-        'custom-red':'#FF3838'
+        "darkBlue":"#0F70A1",
+        "mediumBlue":"#2592CB",
+        "softBlue":"#39B4F3",
+        "softWhite" : "rgba(250,250,250 ,0.8)"
       }
     },
-    boxShadow:{
-      blue:'0 4px 30px 0 rgba(48,63,159 ,0.2)',
-      strongBlue:'0 4px 15px 0 rgba(48,63,159 ,0.5)',
-      yellow:'0 4px 30px 0 rgba(255,179,0 ,0.5)',
-      red:'0 4px 30px 0 rgba(229,57,53 ,0.5)'
-    }
+ 
   },
   variants: {
     extend: {

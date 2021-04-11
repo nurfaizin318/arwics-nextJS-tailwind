@@ -8,10 +8,10 @@ const Layout = ({ children,title }) => {
           <div className="flex flex-col h-full justify-between">
                <Head>
                     <title>{title}</title>
-                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="icon" href='/favicon.png' />
                </Head>
                <Navbar  />
-               <div className="z-5" >
+               <div className="z-5 " >
                     {children}
                </div>
                <Footer />

@@ -5,8 +5,8 @@ import Image from 'next/image';
 const Contact = () => {
     return (
         <Layout title="Contact">
-            <div className="contact flex justify-center items-center " style={{minHeight:"90.7vh"}} >
-                <div className="w-11/12 h-5/6 bg-gray-50 rounded-lg flex flex-wrap">
+            <div className="contact flex justify-center items-center mx-1 mt-16 " style={{minHeight:"90.7vh"}} >
+                <div className="w-11/12 h-5/6 bg-softWhite flex flex-wrap mb-10" style={{borderRadius:0}}>
                     <div className=" xs:w-full lg:w-1/2 h-full  flex justify-center">
                         <div className="w-11/12 h-full p-3">
                         <input type="text" placeholder="name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 "  />
@@ -22,13 +22,26 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="xs:w-full lg:w-1/2 xs:h-96 lg:h-auto flex justify-center items-center ">
-                            <div className="w-2/4 h-2/4 flex flex-col justify-center items-center ">
-                                    <div className="text-yellow-200 text-4xl ">
+                            <div className="w-3/4  flex flex-col justify-center items-center    ">
+                                    <div className="text-yellow-400 text-6xl font-bold ">
                                         Contact
                                     </div>
-                                    <div className=" text-1xl ">
-                                        name : sdbakdbaksjbl
+                                    <div className="text-xl font-bold  text-center mt-10">
+                                       <span>PT. ARWICS TECHNOLOGY SOLUSINDO</span>
                                     </div>
+                                    <div className="text-xl font-bold  text-center mt-5">
+                                       <span>The CEO Building , 9th Floor jl. Tb Simatupang N0. 18C Jakarta 12430</span>
+                                    </div>
+                                    <div className="text-xl font-bold  text-center mt-10">
+                                       <span>02129222999</span>
+                                    </div>
+                                    <div className="text-xl font-bold   text-center mt-10">
+                                       <span>info@arwics.com</span>
+                                    </div>
+                                    <div className="text-xl font-bold   text-center ">
+                                       <span>arwics.com</span>
+                                    </div>
+                                    
                                    
                             </div>
                     </div>
