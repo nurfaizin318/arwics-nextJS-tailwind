@@ -16,30 +16,45 @@ const Product = () => {
 
     return (
         <Layout title="Product">
-            <div className=" flex items-center h-5/6 mx-1 product h-screen"  >
-                <div className="w-1/3 h-full  flex flex-col justify-center items-center p-10">
-                    <div className="text-5xl">
-                        Product
-                        </div>
-                    <div className="mt-5">
-                        We are information technology company with our speciality is data processing. Combined with artificial intelligance technology.
-                        </div>
+              <div
+            style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
+            className="home-row1 w-full min-h-screen md:h-2/3 lg:h-1/2  grid grid-cols-1 lg:grid-cols-3 product  bg-gray-200 ">
+            <div className="w-full min-h-full flex justify-center items-center  py-5  ">
+              <div className="w-4/5 h-2/3 p-5 ">
+                <div>
+                  <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold">
+                  Products
+              </div>
+                  <div className="text-gray-500 mt-10">
+                    Think that all of your company’s sales processes have been digitalized so that potential
+                    client have easy accsess for obtaining the product. The sales process has become better
+                    and more efficient, the marketing employe serve the clients confidently.
+                    The company’s decision maker can see entire sales process anytime ,
+                    company costs become more efficient and company profits increase immediately.
+              </div>
+               
+
                 </div>
-                <div className="w-2/3 h-full     flex justify-center items-center ">
-                    <Image
-                        src='/assets/product-vector.png'
-                        width={700}
-                        height={600}
-                        objectFit="cover"
-                    />
-                </div>
-            </div >
+              </div>
+            </div>
+            <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  col-span-2">
+              <div className=" ml-52 mt-6  xs:hidden md:hidden lg:block xl:block  " >
+                <Image
+                  src="/assets/product-vector.png"
+                  alt="Picture of url"
+                  width={700}
+                  height={600}
+                />
+              </div>
+            </div>
+
+          </div>
             <div className="bg-gray-800 mx-1">
                 <div className="bg-green-200"
                     style={{ clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)" }}
                 >
                     <div className="bg-gray-200">
-                        <div className="w-full h-screen bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue grid xs:grid-cols-1  lg:grid-cols-2"
+                        <div className="xs:py-20 lg:p-0 w-full min-h-screen bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue grid xs:grid-cols-1   lg:grid-cols-2"
                             style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 85%)" }}
                         >
                             <div className=" flex justify-center items-center flex">
@@ -65,11 +80,11 @@ const Product = () => {
                             </div>
                             <div className=" flex justify-center items-center">
                                 <div className="w-5/6 h-5/6  flex items-center p-10">
-                                <div>
+                                <div className="">
 
                                     <span className="text-3xl text-gray-50  font-bold">I-Sales</span><br/>
-                                    <span className="text-gray-50">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br/>
-                                    <div className="w-full h-24  flex justify-center items-center text-gray-50">
+                                    <span className="text-gray-50 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br/>
+                                    <div className="w-full h-24  flex justify-center items-center text-gray-700">
                                         <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
 
                                     </div>
@@ -85,13 +100,13 @@ const Product = () => {
                             <div className="w-full h-24 bg-ray-100  text-4xl flex items-center  p-4 font-bold text-gray-800f">
                                 Isales Product
                             </div>
-                            <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full ">
-                                <div className="h-11/122   flex justify-center items-center">
+                            <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3 ">
+                                <div className="h-11/122   flex justify-center items-center ">
                                     <Image
                                         src='/assets/data-werehouse-product.png'
                                         width={450}
                                         height={450}
-                                        objectFit="cover"
+                                        objectFit="contain"
                                     />
                                 </div>
                                 <div className="flex justify-center items-center min-h-screen">
@@ -103,7 +118,7 @@ const Product = () => {
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                         </div>
                                         <div>
-                                            <button className="w-40 h-12 bg-blue-400 rounded-md text-gray-50">More Info</button>
+                                            <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
                                         </div>
 
                                     </div>
@@ -112,7 +127,7 @@ const Product = () => {
                         </div>
                         {/* section */}
                         <div className="bg-gray-800  ">
-                            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200  min-h-screen  ">
+                            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200  min-h-screen p-5 ">
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
 
@@ -125,7 +140,7 @@ const Product = () => {
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                 </div>
                                                 <div>
-                                                    <button className="w-40 h-12 bg-blue-400  text-gray-50 rounded-md">More Info</button>
+                                                    <button className="w-40 h-12 bg-yellow-400  text-gray-700 rounded-md">More Info</button>
                                                 </div>
 
                                             </div>
@@ -135,7 +150,7 @@ const Product = () => {
                                                 src='/assets/resource-management.png'
                                                 width={450}
                                                 height={450}
-                                                objectFit="cover"
+                                                objectFit="contain"
                                             />
                                         </div>
                                     </div>
@@ -146,7 +161,7 @@ const Product = () => {
 
                         {/* section */}
                         <div className="bg-gray-800  ">
-                            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200  min-h-screen" style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
+                            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200 p-3 min-h-screen" style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
                                         <div className="  flex justify-center items-center">
@@ -154,7 +169,7 @@ const Product = () => {
                                                 src='/assets/application-development-product.png'
                                                 width={450}
                                                 height={450}
-                                                objectFit="cover"
+                                                objectFit="contain"
                                             />
                                         </div>
                                         <div className="h-full  flex items-center">
@@ -166,7 +181,7 @@ const Product = () => {
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                     </div>
                                                 <div>
-                                                    <button className="w-40 h-12 bg-blue-400  text-gray-50 rounded-md">More Info</button>
+                                                    <button className="w-40 h-12 bg-yellow-400  text-gray-700 rounded-md">More Info</button>
                                                 </div>
 
                                             </div>

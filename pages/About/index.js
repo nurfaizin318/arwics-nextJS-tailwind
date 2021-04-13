@@ -40,21 +40,23 @@ const About = () => {
           { logo: "/kerjasama/xl.png" },
      ];
 
+
      return (
           <Layout title="About">
-               <div className=" about h-screen  flex items-center mx-1"  >
-                    <div className="h-4/6 w-1/2  flex items-center justify-center">
-                         <div className="text-9xl">
+               <div className=" about xs:bg-gray-100 lg:bg-gray-50 min-h-screen  grid xs:grid-cols-1 lg:grid-cols-2"  >
+                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center  ">
+                         <div className="">
                               <Image
                                    src="/favicon.png"
                                    alt="Picture of the author"
                                    width={480}
                                    height={480}
+                                   objectFit="contain"
                               />
                          </div>
                     </div>
-                    <div className="h-4/6 w-1/2  text-4xl flex items-center justify-center text-sm">
-                         <div className="text-xl w-3/4 ">
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-10  ">
+                         <div className="text-xl w-3/4 text-gray-600 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                          Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -161,15 +163,21 @@ const About = () => {
 
                               </div>
                               <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-4 mt-5  ">
-                                   <div className=" xs:h-80 xs:w-full lg:w-96  bg-gray-200 rounded-lg mx-auto" >
-
-                                   </div>
-                                   <div className="xs:h-80 xs:w-full lg:w-96  bg-gray-300 rounded-lg mx-auto" >
-                                        q
-                                   </div>
-                                   <div className="xs:h-80 xs:w-full lg:w-96  bg-gray-400 rounded-lg mx-auto" >
-                                        q
-                                   </div>
+                                   {[1, 2, 3].map((data, index) => {
+                                        return (
+                                             <div className="text-center " >
+                                                  <div className="xs:w-62  xs:h-80  lg:w-96 bg-gray-400 rounded-lg mx-auto" >
+                                                       q
+                                               </div>
+                                               <div className="xs:w-62 lg:w-96 p-5 b mx-auto">
+                                                    <span className="font-bold">Name</span>
+                                             </div>
+                                             <div className="xs:w-62 lg:w-96 p-3  mx-auto">
+                                                    <span>position</span>
+                                             </div>
+                                             </div>
+                                        )
+                                   })}
 
 
                               </div>
@@ -184,22 +192,22 @@ const About = () => {
                          </div>
                          <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
                               style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
-                                   <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
+                              <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
                                    {cooperation.map((data, index) => {
-                                   return (
-                                        <div key={index} className="w-24  h-24  m-3 ">
-                                             <Image
-                                                  src={`${data.logo}`}
-                                                  alt="Picture of the author"
-                                                  width={380}
-                                                  height={380}
-                                                  objectFit="contain"
-                                             />
-                                        </div>
-                                   )
-                              })}
-                                   </div>
-                             
+                                        return (
+                                             <div key={index} className="w-24  h-24  m-3 ">
+                                                  <Image
+                                                       src={`${data.logo}`}
+                                                       alt="Picture of the author"
+                                                       width={380}
+                                                       height={380}
+                                                       objectFit="contain"
+                                                  />
+                                             </div>
+                                        )
+                                   })}
+                              </div>
+
                          </div>
                     </div>
 

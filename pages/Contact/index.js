@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <Layout title="Contact">
             <div className="contact flex justify-center items-center mx-1 mt-16 " style={{minHeight:"90.7vh"}} >
-                <div className="w-11/12 h-5/6 bg-softWhite flex flex-wrap mb-10" style={{borderRadius:0}}>
+                <div className="w-11/12  bg-softWhite flex flex-wrap mb-10" style={{borderRadius:0}}>
                     <div className=" xs:w-full lg:w-1/2 h-full  flex justify-center">
                         <div className="w-11/12 h-full p-3">
                         <input type="text" placeholder="Name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 "  />
@@ -21,8 +21,8 @@ const Contact = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="xs:w-full lg:w-1/2 xs:h-96 lg:h-auto flex justify-center items-center ">
-                            <div className="w-3/4  flex flex-col justify-center items-center    ">
+                    <div className="xs:w-full lg:w-1/2 xs:h-auto lg:h-auto flex justify-center items-center  py-10">
+                            <div className="w-3/4  flex flex-col justify-center items-center">
                                     <div className="text-yellow-400 text-6xl font-bold ">
                                         Contact
                                     </div>

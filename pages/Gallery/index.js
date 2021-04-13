@@ -26,7 +26,7 @@ const Gallery = () => {
                 <div className="min-h-full  p-16 flex flex-wrap  justify-center max-h-screen overflow-auto ">
                     {[1, 2, 3, 4].map((data, index) => {
                         return (
-                            <div className="text-center">
+                            <div key={index} className="text-center">
                                 <div className="w-56 h-56 bg-gray-50 m-5 rounded-lg">
 
                                 </div>
