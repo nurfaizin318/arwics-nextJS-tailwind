@@ -68,7 +68,7 @@ export default function Page() {
             <div className=" ml-52 mt-6  xs:hidden md:hidden lg:block xl:block  " >
               <Image
                 src="/assets/vector-home.png"
-                alt="Picture of the author"
+                alt="Picture of url"
                 width={750}
                 height={600}
               />

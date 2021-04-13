@@ -81,15 +81,6 @@ const Navbar = () => {
 
 
 
-
-
-
-
-
-
-
-
-
       {/* navbar */}
       <nav className={`flex items-center flex-wrap fixed p-3   top-0 w-full  z-40 transition duration-700 ${navColor}`}>
         <Link href='/'>
@@ -127,11 +118,7 @@ const Navbar = () => {
           className={`hidden w-full md:inline-flex md:flex-grow md:w-auto`}
         >
           <div className='md:inline-flex md:flex-row sm:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto'>
-            <Link href='/' >
-              <a className={`${router.pathname == "/" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
-                Home
-              </a>
-            </Link>
+           
 
             <Link href='/Contact'>
               <a className={`${router.pathname == "/Contact" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
@@ -147,6 +134,16 @@ const Navbar = () => {
             <Link href='/Product'>
               <a className={`${router.pathname == "/Product" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
                 Product
+              </a>
+            </Link>
+            <Link href='/Gallery'>
+              <a className={`${router.pathname == "/Gallery" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
+                Gallery
+              </a>
+            </Link>
+            <Link href='/News'>
+              <a className={`${router.pathname == "/News" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
+                News
               </a>
             </Link>
           </div>

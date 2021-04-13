@@ -4,7 +4,7 @@ import Image from "next/image";
 
 
 const About = () => {
-    
+
 
 
      const data = [
@@ -18,22 +18,64 @@ const About = () => {
           { title: "Goal", icon: "/assets/goal.png", description: "provide fast , accurate and reliable service" }
      ]
 
+     const cooperation = [
+          { logo: "/kerjasama/angkasapura.png" },
+          { logo: "/kerjasama/axa.png" },
+          { logo: "/kerjasama/axis.png" },
+          { logo: "/kerjasama/bca-life.png" },
+          { logo: "/kerjasama/bineka-life.png" },
+          { logo: "/kerjasama/cakrawala.webp" },
+          { logo: "/kerjasama/car.png" },
+          { logo: "/kerjasama/dart-media.png" },
+          { logo: "/kerjasama/indosat-ooredoo.png" },
+          { logo: "/kerjasama/jasindo.png" },
+          { logo: "/kerjasama/kai.png" },
+          { logo: "/kerjasama/Lion_Air.png" },
+          { logo: "/kerjasama/pelni.png" },
+          { logo: "/kerjasama/taspen.png" },
+          { logo: "/kerjasama/telkom.png" },
+          { logo: "/kerjasama/telkomsel-logo.png" },
+          { logo: "/kerjasama/telkomsel.png" },
+          { logo: "/kerjasama/three.png" },
+          { logo: "/kerjasama/xl.png" },
+     ];
+
      return (
           <Layout title="About">
                <div className=" about h-screen  flex items-center mx-1"  >
                     <div className="h-4/6 w-1/2  flex items-center justify-center">
                          <div className="text-9xl">
                               <Image
-                                   src="/favicon.png                                                                                                                                                                  "
+                                   src="/favicon.png"
                                    alt="Picture of the author"
                                    width={480}
-                                   height={400}
+                                   height={480}
                               />
                          </div>
                     </div>
-                    <div className="h-4/6 w-1/2  text-4xl flex items-center justify-center ">
-                         Description
-             </div>
+                    <div className="h-4/6 w-1/2  text-4xl flex items-center justify-center text-sm">
+                         <div className="text-xl w-3/4 ">
+                              <b>Filosofi warna dan logo:</b><br></br>
+                              <b> Merah : </b><br></br>
+                         Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
+                              <b>Kuning :</b><br></br>
+                         Ceria, Bahagia, Energik dan Optimis<br></br>
+                              <b> Biru :</b><br></br>
+                         Stabil, Kecerdasan, Rasa Percaya Diri<br></br>
+
+                              <b>Logo (cerminan Huruf A atau Segitiga) :</b><br></br>
+                         Segitiga yang simetris dapat menjadi simbol untuk hukum, ilmu
+                         dan agama.
+                         Makna tersembunyi segitiga dalam logo dapat
+                         digunakan untuk
+                         menyampaikan perkembangan, arah dan tujuan,
+                         maskulinitas, ketegaran,
+                         stabilitas dan menembus batas. Dalam
+                         spiritualitas bentuk ini digunakan
+                         untuk mewakili pengenalan diri,
+                         dan pencerahan.
+                         </div>
+                    </div>
                </div>
                <div className=" w-full flex justify-center">
                     <div className="xs:w-full lg:w-3/4 h-full  flex  justify-center items-center text-center  " style={{ overflowWrap: "break-word" }}>
@@ -120,7 +162,7 @@ const About = () => {
                               </div>
                               <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-4 mt-5  ">
                                    <div className=" xs:h-80 xs:w-full lg:w-96  bg-gray-200 rounded-lg mx-auto" >
-                              
+
                                    </div>
                                    <div className="xs:h-80 xs:w-full lg:w-96  bg-gray-300 rounded-lg mx-auto" >
                                         q
@@ -131,24 +173,34 @@ const About = () => {
 
 
                               </div>
-                          
+
 
                          </div>
-                  
+
                     </div>
                     <div className="bg-gray-800">
                          <div className="w-full bg-gray-300 h-32 flex justify-center items-center text-4xl text-gray-700 font-bold">
                               Our Client
                          </div>
-                    <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client" 
-                    style={{clipPath :" polygon(0 0, 100% 0, 100% 60%, 0 100%)"}}>
-                         {[1,2,3].map((data,index)=>{
-                              return (
-                                   <div className="w-36  h-36 bg-green-500 m-5 ">
+                         <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
+                              style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
+                                   <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
+                                   {cooperation.map((data, index) => {
+                                   return (
+                                        <div key={index} className="w-24  h-24  m-3 ">
+                                             <Image
+                                                  src={`${data.logo}`}
+                                                  alt="Picture of the author"
+                                                  width={380}
+                                                  height={380}
+                                                  objectFit="contain"
+                                             />
                                         </div>
-                              )
-                         })}
-                    </div>
+                                   )
+                              })}
+                                   </div>
+                             
+                         </div>
                     </div>
 
                </div>
