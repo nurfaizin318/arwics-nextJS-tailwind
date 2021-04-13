@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Layout from '../components/Layout';
+import Link from 'next/link';
 
 export default function Page() {
 
@@ -52,7 +53,7 @@ export default function Page() {
             style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
             className="home-row1 w-full min-h-screen md:h-2/3 lg:min-h-screen  grid xs:grid-cols-1 lg:grid-cols-3  bg-gray-200 ">
             <div className="w-full min-h-full flex justify-center items-center  py-5  ">
-              <div className="w-4/5 xs:lg-auto lg:h-2/3 p-5 ">
+              <div className="w-4/5 xs:lg-auto lg:h-2/3 p-5 py-16 ">
                 <div>
                   <div className="xs:text-3xl md:text-2xl text-gray-700">
                     How much your company revenue of digital sales ?<br></br>
@@ -66,7 +67,9 @@ export default function Page() {
                     company costs become more efficient and company profits increase immediately.
               </div>
                   <div className="w-full  h-16 flex items-center justify-center mt-5">
+                    <Link href="/Contact" >
                     <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
+                    </Link>
                   </div>
                   <span className="text-sm text-gray-600 ">
                     No credit card required. No Strings attached!
@@ -183,7 +186,7 @@ export default function Page() {
                 Our Isales Aplication
           </div>
               <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full ">
-                <div className="h-11/12   flex justify-center items-center p-5 bg-red-200">
+                <div className="h-11/12   flex justify-center items-center p-5 ">
                   <Image
                     src='/assets/i-sales-telesales.png'
                     width={400}
@@ -200,7 +203,9 @@ export default function Page() {
                       The telemarketing necessary will be required cause directly talk with potential client, explain the benefits to product and help make buying process quick and easy.
                   </div>
                     <div>
+                    <Link href="/Contact">
                       <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
+                      </Link>
                     </div>
 
                   </div>
@@ -223,7 +228,9 @@ export default function Page() {
                         The i-sales Learning application can answer these needs with a complete application module
                   </div>
                       <div>
+                        <Link href="/Contact">
                         <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  text-gray-50 rounded-md">More Info</button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -262,7 +269,9 @@ export default function Page() {
                         Limitations of selling face to face with clients is overcome with an online sales module, it is monitored directly by the company to avoid mistakes in sales
                   </div>
                       <div>
+                        <Link href="/Contact">
                         <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-gray-50 rounded-md">More Info</button>
+                        </Link>
                       </div>
                     </div>
                   </div>

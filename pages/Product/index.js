@@ -1,5 +1,6 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
+import Link from 'next/link'
 
 
 
@@ -85,7 +86,9 @@ const Product = () => {
                                     <span className="text-3xl text-gray-50  font-bold">I-Sales</span><br/>
                                     <span className="text-gray-50 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br/>
                                     <div className="w-full h-24  flex justify-center items-center text-gray-700">
+                                        <Link href="/Comtact" >
                                         <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
+                                        </Link>
 
                                     </div>
                                 </div>
@@ -140,7 +143,10 @@ const Product = () => {
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                 </div>
                                                 <div>
+                                                    <Link href="/Contact">
                                                     <button className="w-40 h-12 bg-yellow-400  text-gray-700 rounded-md">More Info</button>
+ 
+                                                    </Link>
                                                 </div>
 
                                             </div>
@@ -181,7 +187,9 @@ const Product = () => {
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                     </div>
                                                 <div>
+                                                <Link href="/Contact">
                                                     <button className="w-40 h-12 bg-yellow-400  text-gray-700 rounded-md">More Info</button>
+                                                    </Link>
                                                 </div>
 
                                             </div>

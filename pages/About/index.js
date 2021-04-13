@@ -165,7 +165,7 @@ const About = () => {
                               <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-4 mt-5  ">
                                    {[1, 2, 3].map((data, index) => {
                                         return (
-                                             <div className="text-center " >
+                                             <div  key={ index} className="text-center " >
                                                   <div className="xs:w-62  xs:h-80  lg:w-96 bg-gray-400 rounded-lg mx-auto" >
                                                        q
                                                </div>
