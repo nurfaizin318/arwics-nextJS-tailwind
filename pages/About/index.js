@@ -43,20 +43,21 @@ const About = () => {
 
      return (
           <Layout title="About">
-               <div className=" about xs:bg-gray-100 lg:bg-gray-50 min-h-screen  grid xs:grid-cols-1 lg:grid-cols-2"  >
+               <div className=" about xs:bg-gray-100 lg:bg-gray-50   grid xs:grid-cols-1 lg:grid-cols-2">
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:p-20 lg:p-0">
-                         <div className="">
+                         <div className="xs:my-0 md:my-30 md:my-52 xl:my-36 ">
                               <Image
                                    src="/favicon.png"
                                    alt="Picture of the author"
                                    width={480}
                                    height={480}
                                    objectFit="contain"
+                                   
                               />
                          </div>
                     </div>
                     <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2  ">
-                         <div className="text-xl w-3/4 text-gray-600 ">
+                         <div className="text-xl xl:text-md w-3/4 text-gray-600 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                          Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -96,7 +97,7 @@ const About = () => {
 
                     </div>
                </div>
-               <div className=" min-h-screen bg-gray-300 mx-1 rounded-lg">
+               <div className="  bg-gray-300 mx-1 rounded-lg">
                     <div className="h-32 w-full flex justify-center items-center text-2xl font-bold text-gray-600 text-center ">
                          <span>Innovative - Engage - Trusted </span>
 
@@ -106,12 +107,12 @@ const About = () => {
 
                               {goal.map((data, index) => {
                                    return (
-                                        <div key={index} className="w-96   m-5">
+                                        <div key={index} className="w-96   m-5 lg:m-2">
                                              <div className="  flex flex-wrap justify-center ">
                                                   <Image
                                                        src={`${data.icon}`}
                                                        alt="Picture of the author"
-                                                       width={120}
+                                                       width={100}
                                                        height={120}
                                                        objectFit="contain"
                                                   />

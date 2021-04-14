@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Contact = () => {
     return (
         <Layout title="Contact">
-            <div className="contact flex justify-center items-center mx-1 max-width-screen min-h-screen "  >
+            <div className="contact flex justify-center items-center mx-1 "  >
                 <div className="w-11/12  bg-softWhite flex flex-wrap my-20 rounded-lg" style={{borderRadius:0}}>
                     <div className=" xs:w-full lg:w-1/2 h-full  flex justify-center ">
                         <div className="w-11/12 h-full p-3">

@@ -115,7 +115,7 @@ const Navbar = () => {
               height={50}
               objectFit="contain"
             />
-            </div>
+          </div>
         </Link>
         <button
           className=' inline-flex p-3 hover:bg-blue-100 rounded md:hidden text-blue ml-auto hover:text-white outline-none'
@@ -142,13 +142,7 @@ const Navbar = () => {
           className={`hidden w-full md:inline-flex md:flex-grow md:w-auto`}
         >
           <div className='md:inline-flex md:flex-row sm:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto'>
-           
 
-            <Link href='/Contact'>
-              <a className={`${router.pathname == "/Contact" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
-                Contact
-              </a>
-            </Link>
             <Link href='/About'>
 
               <a className={`${router.pathname == "/About" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
@@ -160,16 +154,25 @@ const Navbar = () => {
                 Product
               </a>
             </Link>
-            <Link href='/Gallery'>
-              <a className={`${router.pathname == "/Gallery" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
-                Gallery
-              </a>
-            </Link>
             <Link href='/News'>
               <a className={`${router.pathname == "/News" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
                 News
               </a>
             </Link>
+
+            <Link href='/Gallery'>
+              <a className={`${router.pathname == "/Gallery" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
+                Gallery
+              </a>
+            </Link>
+            <Link href='/Contact'>
+              <a className={`${router.pathname == "/Contact" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-sm  items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
+                Contact
+              </a>
+            </Link>
+
+
+
           </div>
         </div>
       </nav>

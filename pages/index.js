@@ -50,12 +50,12 @@ export default function Page() {
 
         <div className="">
           <div
-            style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
-            className="home-row1 w-full min-h-screen md:h-2/3 lg:min-h-screen  grid xs:grid-cols-1 lg:grid-cols-2  bg-gray-200 mx-1">
-            <div className="w-full min-h-full flex  items-center  py-5 ">
-              <div className="w-4/5 xs:lg-auto lg:h-2/3  py-16  ml-14">
+            style={{ backgroundSize:"100% 100%", backgroundRepeat: "no-repeat", maxWidth: 1900,maxHeight:1200, margin: "0 auto" }}
+            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1">
+            <div className="w-full  flex  items-center  py-5  ">
+              <div className="w-4/5 xs:lg-auto lg:h-2/3  py-40  ml-14 ">
                 <div>
-                  <div className="xs:text-3xl md:text-2xl text-gray-700">
+                  <div className="xs:text-3xl md:text-2xl text-gray-700 ">
                     How much your company revenue of digital sales ?<br></br>
                 Does your company prepare human resources and support digital application system ?
               </div>
@@ -66,20 +66,19 @@ export default function Page() {
                     The company’s decision maker can see entire sales process anytime,
                     company costs become more efficient and company profits increase immediately.
               </div>
-                  <div className="w-full  h-16 flex items-center justify-center mt-5">
+                  <div className="w-full  h-32 xflex items-center justify-center mt-5">
                     <Link href="/Contact" >
-                    <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
+                      <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
                     </Link>
                   </div>
                   <span className="text-sm text-gray-600 ">
                     No credit card required. No Strings attached!
-
                 </span>
 
                 </div>
               </div>
             </div>
-            <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  ">
+            <div className=" w-full h-full  xs:hidden md:hidden lg:flex  md-hidden  relative  items-center" >
               <div className=" ml-52 mt-6  xs:hidden md:hidden lg:block xl:block  " >
                 <Image
                   src="/assets/vector-home.png"
@@ -92,14 +91,14 @@ export default function Page() {
 
           </div>
 
-          <div className=" mx-1 ">
+          <div className=" mx-1" style={{maxWidth:1900,margin:"0 auto"}}>
             <div className=" bg-gray-100">
 
               <div className="">
                 <div className="text-4xl py-10 text-gray-600 font-bold  flex justify-center">
                   Our Services
           </div>
-                <div className="md:w-full  flex justify-center items-center min-h-screen py-10 bg-gray-100 grid xs:grid-cols-1 sm:grid-cols-3   gap-1 p-0 ">
+                <div className="md:w-full  flex justify-center items-center  py-10 bg-gray-100 grid xs:grid-cols-1 sm:grid-cols-3   gap-1 p-0 ">
 
                   {services.map((data, index) => {
                     return (
@@ -126,7 +125,7 @@ export default function Page() {
               </div>
 
             </div>
-            <div className="bg-gray-100" style={{ minHeight: "70vh" }}>
+            <div className="bg-gray-100" style={{maxWidth:1900,margin:"0 auto"}}>
               <div className=" py-16 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue"
                 style={{ clipPath: "polygon(0 0, 100% 8%, 100% 91%, 0 100%)", minHeight: 600 }}>
                 <div className="p-10 text-4xl  text-gray-50 font-bold  flex justify-center">
@@ -155,7 +154,7 @@ export default function Page() {
             </div>
           </div>
           {/* section */}
-          <div className="bg-gray-200 mx-1">
+          <div className="bg-gray-200 mx-1" style={{maxWidth:1900,margin:"0 auto"}}>
             <div className=" bg-gray-100 py-10 relative overflow-hidden flex items-center z-10  py-52 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 81%)", height: "100%", width: "100%" }} >
               <div className="z-20 w-full ">
                 <div className="text-4xl text-gray-700 p-5 font-bold z-30  flex justify-center">
@@ -180,7 +179,7 @@ export default function Page() {
             </div>
           </div>
           {/* section */}
-          <div className="bg-gray-200 mx-1">
+          <div className="bg-gray-200 mx-1" style={{maxWidth:1900,margin:"0 auto"}} >
             <div >
               <div className="w-full h-24 bg-gray-200  text-4xl flex items-center  p-4 font-bold text-gray-600 flex justify-center" >
                 Our Isales Aplication
@@ -203,8 +202,8 @@ export default function Page() {
                       The telemarketing necessary will be required cause directly talk with potential client, explain the benefits to product and help make buying process quick and easy.
                   </div>
                     <div>
-                    <Link href="/Contact">
-                      <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
+                      <Link href="/Contact">
+                        <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
                       </Link>
                     </div>
 
@@ -214,7 +213,7 @@ export default function Page() {
             </div>
           </div>
           {/* section */}
-          <div className="bg-gray-200  ">
+          <div className="bg-gray-200  " style={{maxWidth:1900,margin:"0 auto"}}>
             <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200  min-h-screen  ">
               <div>
                 <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
@@ -229,7 +228,7 @@ export default function Page() {
                   </div>
                       <div>
                         <Link href="/Contact">
-                        <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  text-gray-50 rounded-md">More Info</button>
+                          <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  text-gray-50 rounded-md">More Info</button>
                         </Link>
                       </div>
                     </div>
@@ -247,8 +246,8 @@ export default function Page() {
             </div>
           </div>
           {/* section */}
-          <div className="bg-gray-800  mx-1">
-            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200  min-h-screen" style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
+          <div className="bg-gray-800  mx-1" style={{maxWidth:1900,margin:"0 auto"}}>
+            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200 lg:min-h-screen" style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
               <div>
                 <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
                   <div className="  flex justify-center items-center p-5">
@@ -270,7 +269,7 @@ export default function Page() {
                   </div>
                       <div>
                         <Link href="/Contact">
-                        <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-gray-50 rounded-md">More Info</button>
+                          <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-gray-50 rounded-md">More Info</button>
                         </Link>
                       </div>
                     </div>
