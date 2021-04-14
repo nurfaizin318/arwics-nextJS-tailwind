@@ -51,19 +51,19 @@ export default function Page() {
         <div className="">
           <div
             style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
-            className="home-row1 w-full min-h-screen md:h-2/3 lg:min-h-screen  grid xs:grid-cols-1 lg:grid-cols-3  bg-gray-200 ">
-            <div className="w-full min-h-full flex justify-center items-center  py-5  ">
-              <div className="w-4/5 xs:lg-auto lg:h-2/3 p-5 py-16 ">
+            className="home-row1 w-full min-h-screen md:h-2/3 lg:min-h-screen  grid xs:grid-cols-1 lg:grid-cols-2  bg-gray-200 mx-1">
+            <div className="w-full min-h-full flex  items-center  py-5 ">
+              <div className="w-4/5 xs:lg-auto lg:h-2/3  py-16  ml-14">
                 <div>
                   <div className="xs:text-3xl md:text-2xl text-gray-700">
                     How much your company revenue of digital sales ?<br></br>
                 Does your company prepare human resources and support digital application system ?
               </div>
-                  <div className="text-gray-500 mt-10">
+                  <div className="text-gray-500 mt-10 text-justify">
                     Think that all of your company’s sales processes have been digitalized so that potential
                     client have easy accsess for obtaining the product. The sales process has become better
                     and more efficient, the marketing employe serve the clients confidently.
-                    The company’s decision maker can see entire sales process anytime ,
+                    The company’s decision maker can see entire sales process anytime,
                     company costs become more efficient and company profits increase immediately.
               </div>
                   <div className="w-full  h-16 flex items-center justify-center mt-5">
@@ -79,7 +79,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  col-span-2">
+            <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  ">
               <div className=" ml-52 mt-6  xs:hidden md:hidden lg:block xl:block  " >
                 <Image
                   src="/assets/vector-home.png"

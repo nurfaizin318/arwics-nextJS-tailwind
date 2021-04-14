@@ -5,8 +5,8 @@ import Image from 'next/image';
 const Contact = () => {
     return (
         <Layout title="Contact">
-            <div className="contact flex justify-center items-center mx-1 mt-16 " style={{minHeight:"90.7vh"}} >
-                <div className="w-11/12  bg-softWhite flex flex-wrap my-10 rounded-lg" style={{borderRadius:0}}>
+            <div className="contact flex justify-center items-center mx-1 max-width-screen min-h-screen "  >
+                <div className="w-11/12  bg-softWhite flex flex-wrap my-20 rounded-lg" style={{borderRadius:0}}>
                     <div className=" xs:w-full lg:w-1/2 h-full  flex justify-center ">
                         <div className="w-11/12 h-full p-3">
                         <input type="text" placeholder="Name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 "  />

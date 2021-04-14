@@ -44,7 +44,7 @@ const About = () => {
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-100 lg:bg-gray-50 min-h-screen  grid xs:grid-cols-1 lg:grid-cols-2"  >
-                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center  ">
+                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:p-20 lg:p-0">
                          <div className="">
                               <Image
                                    src="/favicon.png"
@@ -55,7 +55,7 @@ const About = () => {
                               />
                          </div>
                     </div>
-                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-10  ">
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2  ">
                          <div className="text-xl w-3/4 text-gray-600 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
@@ -80,7 +80,7 @@ const About = () => {
                     </div>
                </div>
                <div className=" w-full flex justify-center">
-                    <div className="xs:w-full lg:w-3/4 h-full  flex  justify-center items-center text-center  " style={{ overflowWrap: "break-word" }}>
+                    <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center" style={{ overflowWrap: "break-word" }}>
                          {data.map((ctx, index) => {
                               return (
                                    <div key={index} >
