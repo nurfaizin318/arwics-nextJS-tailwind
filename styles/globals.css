@@ -51,6 +51,10 @@ background-color: rgba(255,202,40 ,1);
 
 
 @media only screen and (max-width: 1440px) {
+  .about{
+    background-image: none;
+    }
+  
   .licensed{
 
     clip-path: polygon(0% 4%,100% 0%,100% 100%,0% 95%);
@@ -59,16 +63,22 @@ background-color: rgba(255,202,40 ,1);
 }
 
 @media only screen and (max-width: 940px) {
+ 
 
   .about{
     background-image: none;
     background-size: 100% 100%;
     }
+
+
   .home-row1{
 
     background-image:none;
     
   }
+
+
+
   .licensed{
 
     clip-path: polygon(0% 4%,100% 0%,100% 100%,0% 95%);
@@ -80,6 +90,8 @@ background-color: rgba(255,202,40 ,1);
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
     }
 }
+
+
 @media only screen and (max-width: 640px) {
 
   .about{

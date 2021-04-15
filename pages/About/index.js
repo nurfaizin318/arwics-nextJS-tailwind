@@ -45,7 +45,7 @@ const About = () => {
           <Layout title="About">
                <div className=" about xs:bg-gray-100 lg:bg-gray-50   grid xs:grid-cols-1 lg:grid-cols-2">
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:p-20 lg:p-0">
-                         <div className="xs:my-0 md:my-30 md:my-52 xl:my-36 ">
+                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-36  p-10 ">
                               <Image
                                    src="/favicon.png"
                                    alt="Picture of the author"
@@ -56,8 +56,8 @@ const About = () => {
                               />
                          </div>
                     </div>
-                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2  ">
-                         <div className="text-xl xl:text-md w-3/4 text-gray-600 ">
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10  ">
+                         <div className="text-xl xl:text-md w-3/4 text-gray-900 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                          Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -97,18 +97,18 @@ const About = () => {
 
                     </div>
                </div>
-               <div className="  bg-gray-300 mx-1 rounded-lg">
+               <div className="  bg-gray-300 mx-1  rounded-lg">
                     <div className="h-32 w-full flex justify-center items-center text-2xl font-bold text-gray-600 text-center ">
                          <span>Innovative - Engage - Trusted </span>
 
                     </div>
-                    <div className=" pb-40 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-lg p-5 background-about " >
+                    <div className=" pb-40 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-lg p-5 background-about my-10" >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
 
                               {goal.map((data, index) => {
                                    return (
-                                        <div key={index} className="w-96   m-5 lg:m-2">
-                                             <div className="  flex flex-wrap justify-center ">
+                                        <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 ">
+                                             <div className="flex flex-wrap justify-center ">
                                                   <Image
                                                        src={`${data.icon}`}
                                                        alt="Picture of the author"
@@ -163,17 +163,17 @@ const About = () => {
 
 
                               </div>
-                              <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-4 mt-5  ">
+                              <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-2 mt-5  ">
                                    {[1, 2, 3].map((data, index) => {
                                         return (
-                                             <div  key={ index} className="text-center " >
-                                                  <div className="xs:w-62  xs:h-80  lg:w-96 bg-gray-400 rounded-lg mx-auto" >
+                                             <div  key={ index} className="text-center" >
+                                                  <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
                                                        q
                                                </div>
-                                               <div className="xs:w-62 lg:w-96 p-5 b mx-auto">
+                                               <div className="xs:w-62 lg:w-96 p-5 b mx-auto text-gray-50">
                                                     <span className="font-bold">Name</span>
                                              </div>
-                                             <div className="xs:w-62 lg:w-96 p-3  mx-auto">
+                                             <div className="xs:w-62 lg:w-96 p-3  mx-auto text-gray-50   ">
                                                     <span>position</span>
                                              </div>
                                              </div>

@@ -6,8 +6,8 @@ const News = () => {
     return ( 
             <Layout title="Home">
                <div className="min-h-screen overflow-hidden  w-full grid xs:grid-cols-1 md:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  ">
-                <div className=" col-span-2  flex justify-center items-center pb-60 pt-32 xs:px-2 lg:p-10 ">
-                    <div className=" w-full h-full bg-gray-50  rounded-lg "
+                <div className=" col-span-2  flex justify-center pb-60 pt-32 xs:px-2 lg:p-10 ">
+                    <div className=" w-full md:h-1/4 lg:h-1/2 bg-gray-50  rounded-lg  mt-20"
                     style={{maxHeight:600}}
                     >
                     <div className="w-full xs:h-2/3   ">
