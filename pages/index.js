@@ -54,7 +54,7 @@ export default function Page() {
             </div>
             <div className="w-auto h-auto flex justify-center items-center">
               <Image
-                          src={`/assets/license.png `}
+                          src={`/assets/isales2.png `}
                           width={500}
                           height={650}
                           objectFit="contain"
@@ -195,7 +195,7 @@ export default function Page() {
                     return (
                       <div key={index} className="xs h-96 w-72  mx-auto m-1 " style={{cursor:"pointer"}} onClick={()=>setModalLicensed(true)}>
                         <Image
-                          src={`/assets/license.png `}
+                          src={`/assets/isales2.png `}
                           width={300}
                           height={420}
                           objectFit="contain"

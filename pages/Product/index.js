@@ -19,9 +19,9 @@ const Product = () => {
         <Layout title="Product">
             <div
                 style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
-                className="home-row1 w-full xs:h-auto   md:h-2/3 lg:h-1/2  grid grid-cols-1 lg:grid-cols-3 product  ">
+                className="home-row1 w-full xs:h-auto   md:h-2/3 lg:h-1/2  grid grid-cols-1 lg:grid-cols-3 product   ">
                 <div className="w-full min-h-full flex justify-center items-center  py-5  ">
-                    <div className="xs:w-4/5 md:w-full h-2/3 p-12  xs:my-44  md:my-0 xl:my-36">
+                    <div className="xs:w-4/5 md:w-full h-2/3 xs:p-0 lg:p-12  xs:my-20 md:p-10  md:my-0 xl:my-36 ">
                         <div>
                             <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold">
                                 Products
@@ -36,7 +36,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  col-span-2">
+                <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  col-span-2 xs:hidden lg:block">
                     <div className=" ml-24 mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
                         <Image
                             src="/assets/product-vector.png"
@@ -77,11 +77,11 @@ const Product = () => {
                                 </div>
                             </div>
                             <div className=" flex justify-center items-center">
-                                <div className="w-5/6 h-5/6  flex items-center p-10">
+                                <div className="w-5/6 h-5/6  flex items-center xs:p-0 lg:p-10 ">
                                     <div className="">
                                         <span className="text-3xl text-gray-50  font-bold">I-Sales</span><br />
                                         <span className="text-gray-50 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br />
-                                        <div className="w-full h-24  flex justify-center items-center text-gray-700">
+                                        <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
                                             <Link href="/Comtact" >
                                                 <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
                                             </Link>
@@ -125,17 +125,17 @@ const Product = () => {
                             </div>
                         </div>
                         {/* section */}
-                        <div className="bg-gray-200  ">
+                        <div className="bg-gray-700  ">
                             <div className="lg:pb-0 w-full xs:py-0 md:py-32  p-3   ">
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
 
                                         <div className="h-full  flex items-center ">
                                             <div className="w-full  p-4">
-                                                <div className="text-gray-700 font-bold  text-2xl">
+                                                <div className="text-gray-50 font-bold  text-2xl">
                                                     Resource Management
                                                 </div>
-                                                <div className="text-white my-3 text-gray-700 text-justify">
+                                                <div className="text-white my-3 text-gray-50 text-justify">
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                 </div>
                                                 <div>
@@ -163,10 +163,10 @@ const Product = () => {
 
                         {/* section */}
                         <div className="bg-gray-800  ">
-                            <div className="  lg:pb-0 w-full bg-gray-200 p-3 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
+                            <div className="  lg:pb-0 w-full bg-gray-300 p-3 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2  py-32 ">
-                                        <div className="  flex justify-center items-center xs:px-20 lg:px:0">
+                                        <div className="  flex justify-center items-center xs:px-20  md:px-20 lg:px:0">
                                             <Image
                                                 src='/assets/application-development-product.png'
                                                 width={370}
