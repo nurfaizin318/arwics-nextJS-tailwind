@@ -5,9 +5,9 @@ import Image from 'next/image';
 const Contact = () => {
     return (
         <Layout title="Contact">
-            <div className="contact flex justify-center items-center mx-1 "  >
-                <div className="w-11/12  bg-softWhite flex flex-wrap my-20 rounded-lg lg:my-44" >
-                    <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-12">
+            <div className="contact flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-screen xl:h-auto 2xl:h-screen py-28 xs:max-h-full xl:max-h-max " >
+                <div className="w-11/12  bg-softWhite flex flex-wrap  rounded-lg :" >
+                    <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-10">
                         <div className="w-11/12 h-full p-3">
                         <input type="text" placeholder="Name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 "  />
                         <input type="text" placeholder="Email Address" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 "  />

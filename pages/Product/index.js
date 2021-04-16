@@ -18,15 +18,15 @@ const Product = () => {
     return (
         <Layout title="Product">
             <div
-                style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
-                className="home-row1 w-full xs:h-auto   md:h-2/3 lg:h-1/2  grid grid-cols-1 lg:grid-cols-3 product   ">
-                <div className="w-full min-h-full flex justify-center items-center  py-5  ">
-                    <div className="xs:w-4/5 md:w-full h-2/3 xs:p-0 lg:p-12  xs:my-20 md:p-10  md:my-0 xl:my-36 ">
+                style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat",}}
+                className="home-row1 w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
+                <div className="w-full min-h-full flex justify-center items-center  py-5 col-span-2  ">
+                    <div className="xs:w-4/5 md:w-full h-2/3 xs:p-0 lg:py-12  xs:my-20 md:p-10  md:my-0 xl:my-36  ">
                         <div>
                             <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold">
                                 Products
                            </div>
-                            <div className="text-gray-500 mt-10 text-justify my-20">
+                            <div className="text-gray-500 mt-10  my-20 ">
                                 Think that all of your company’s sales processes have been digitalized so that potential
                                 client have easy accsess for obtaining the product. The sales process has become better
                                 and more efficient, the marketing employe serve the clients confidently.
@@ -36,13 +36,13 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" w-full h-full xs:hidden md:hidden lg:flex  relative md-hidden overflow-hidden  items-center  col-span-2 xs:hidden lg:block">
-                    <div className=" ml-24 mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
+                <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
+                    <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
                         <Image
                             src="/assets/product-vector.png"
                             alt="Picture of url"
-                            width={700}
-                            height={600}
+                            width={650}
+                            height={550}
                         />
                     </div>
                 </div>
@@ -147,7 +147,7 @@ const Product = () => {
 
                                             </div>
                                         </div>
-                                        <div className="  flex justify-center items-center xs:p-20 md:p-5 lg:p-0  ">
+                                        <div className="  flex justify-center items-center xs:p-20 md:p-5 lg:p-10  ">
                                             <Image
                                                 src='/assets/resource-management.png'
                                                 width={370}

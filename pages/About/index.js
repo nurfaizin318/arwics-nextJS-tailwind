@@ -43,9 +43,9 @@ const About = () => {
 
      return (
           <Layout title="About">
-               <div className=" about xs:bg-gray-100 lg:bg-gray-50   grid xs:grid-cols-1 lg:grid-cols-2">
+               <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2" >
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:p-20 lg:p-0">
-                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-36  p-10 ">
+                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-20  p-10 ">
                               <Image
                                    src="/favicon.png"
                                    alt="Picture of the author"
@@ -57,7 +57,7 @@ const About = () => {
                          </div>
                     </div>
                     <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10  ">
-                         <div className="text-xl xl:text-md w-3/4 text-gray-900 ">
+                         <div className="text-xl xl:text-md w-3/4 text-gray-600 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                          Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -148,7 +148,7 @@ const About = () => {
                                              <div className="w-ful  text-3xl flex justify-center items-center font-bold">
                                                   Team Arwics
                                              </div>
-                                             <div className="w-full  p-10">
+                                             <div className="w-full xs:p-2 lg:p-10">
                                                   <span>
                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                   </span>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Page() {
 
   const [visible, setVisible] = useState(false);
-  const [modalLicensed,setModalLicensed] = useState(false)
+  const [modalLicensed, setModalLicensed] = useState(false)
 
 
 
@@ -42,24 +42,24 @@ export default function Page() {
       <Layout>
         {/* //Modal Licensed Agreement  */}
 
-        <div className={`${modalLicensed?"":"hidden"} w-screen h-screen z-50 fixed right-0 top-0  flex items-center justify-center p-5`} style={{backgroundColor:"rgba(38,50,56 ,0.7)"}} > 
+        <div className={`${modalLicensed ? "" : "hidden"} w-screen h-screen z-50 fixed right-0 top-0  flex items-center justify-center p-5`} style={{ backgroundColor: "rgba(38,50,56 ,0.7)" }} >
 
           <div className="xs:w-full md:w-3/4  xl:w-1/2 xs:h-5/6 xl:h-full bg-gray-50 overflow-auto">
             <div className=" w-full h-20  flex justify-end">
-              <div className=" w-20 h-20 0 flex justify-center items-center font-bold text-3xl" onClick={()=>setModalLicensed(false)} style={{cursor:"pointer"}}>
-                  x
+              <div className=" w-20 h-20 0 flex justify-center items-center font-bold text-3xl" onClick={() => setModalLicensed(false)} style={{ cursor: "pointer" }}>
+                x
               </div>
-             
+
 
             </div>
             <div className="w-auto h-auto flex justify-center items-center">
               <Image
-                          src={`/assets/isales2.png `}
-                          width={500}
-                          height={650}
-                          objectFit="contain"
-                        />
-              </div>
+                src={`/assets/isales2.png `}
+                width={500}
+                height={650}
+                objectFit="contain"
+              />
+            </div>
           </div>
 
         </div>
@@ -80,12 +80,12 @@ export default function Page() {
 
         <div className="">
           <div
-            style={{ backgroundSize:"100% 100%", backgroundRepeat: "no-repeat", maxWidth: 1900,maxHeight:1200, margin: "0 auto" }}
-            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1">
-            <div className="w-full  flex  items-center  py-5  ">
-              <div className="w-4/5 xs:lg-auto lg:h-2/3  py-40  ml-14 ">
-                <div>
-                  <div className="xs:text-3xl md:text-2xl text-gray-700 font-bold ">
+            style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto", }}
+            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1" >
+            <div className="w-full  flex  items-center  pt-20  xs:max-h-full lg:max-h-max">
+              <div className="w-4/5 h-auto xs:lg-auto  mx-5 p-2 ">
+                <div >
+                  <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
                     How much your company revenue of digital sales ?<br></br>
                 Does your company prepare human resources and support digital application system ?
               </div>
@@ -96,12 +96,12 @@ export default function Page() {
                     The company’s decision maker can see entire sales process anytime,
                     company costs become more efficient and company profits increase immediately.
               </div>
-                  <div className="w-full  h-32 xflex items-center justify-center mt-5">
+                  <div className="w-full  xflex items-center justify-center mt-7 mb-3">
                     <Link href="/Contact" >
                       <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
                     </Link>
                   </div>
-                  <span className="text-sm text-gray-600 ">
+                  <span className="text-sm text-gray-600  ">
                     No credit card required. No Strings attached!
                 </span>
 
@@ -193,9 +193,9 @@ export default function Page() {
                 <div className=" w-4/5 z-30  mx-auto flex items-center flex-wrap ">
                   {[1].map((data, index) => {
                     return (
-                      <div key={index} className="xs h-96 w-72  mx-auto m-1 " style={{cursor:"pointer"}} onClick={()=>setModalLicensed(true)}>
+                      <div key={index} className="xs h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
                         <Image
-                          src={`/assets/isales2.png `}
+                          src={`/assets/licensed.png `}
                           width={300}
                           height={420}
                           objectFit="contain"
@@ -225,10 +225,10 @@ export default function Page() {
                 </div>
                 <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
                   <div className="w-4/5  m-4 p-4">
-                    <div className="text-gray-800 font-bold  text-6xl">
+                    <div className="text-gray-800 font-bold  text-5xl">
                       i-Sales telesales
                   </div>
-                    <div className="text-gray-800 text-2xl my-3 ">
+                    <div className="text-gray-800 text-xl my-3 ">
                       The telemarketing necessary will be required cause directly talk with potential client, explain the benefits to product and help make buying process quick and easy.
                   </div>
                     <div>
@@ -236,7 +236,7 @@ export default function Page() {
                         <button className="w-40 h-12 my-10 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
                       </Link>
                     </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,10 +248,10 @@ export default function Page() {
                 <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 xs:py-0 lg:py-20 ">
                   <div className="h-full  flex items-center">
                     <div className="w 4/5 m-4 p-4">
-                      <div className="text-gray-700 font-bold  text-6xl">
-                        i-sales Learning
+                      <div className="text-gray-700 font-bold  text-5xl">
+                        i-Sales Learning
                      </div>
-                      <div className="text-white my-3 text-2xl text-gray-700">
+                      <div className="text-white my-3 text-xl text-gray-700">
                         Training needs will be very high in order to meet the quality of human resources for increasingly complex and digital business needs. Digital training will be a necessity so that it does not take time to work, but can still be filled with elements of adding knowledge, improving skills and changing attitudes.
                         The i-sales Learning application can answer these needs with a complete application module
                       </div>
@@ -289,10 +289,10 @@ export default function Page() {
                   </div>
                   <div className="h-full  flex items-center xs:py-0 lg:py-20">
                     <div className="w 4/5 m-4 p-4">
-                      <div className="text-gray-700 font-bold  text-6xl">
-                        i-sales Agent
+                      <div className="text-gray-700 font-bold  text-5xl">
+                        i-Sales Agent
                   </div>
-                      <div className="text-white my-3 text-2xl text-gray-700">
+                      <div className="text-white my-3 text-xl text-gray-700">
                         The necessary management of marketing employee directly recruitment of digital, coaching, selling, reward, sales trend and analysis dashboard and big data report. Those way make the company more efficient for managing direct sales distribution.
                         Limitations of selling face to face with clients is overcome with an online sales module, it is monitored directly by the company to avoid mistakes in sales
                   </div>

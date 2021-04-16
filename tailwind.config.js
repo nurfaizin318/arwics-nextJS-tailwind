@@ -20,7 +20,13 @@ module.exports = {
 
       '2xl': '2336px',
       // => @media (min-width: 1536px) { ... }
+
+     
     },
+
+    maxHeight: {
+     'max':'900px'
+     },
     extend: {
       transitionProperty: {
         'height': 'height',

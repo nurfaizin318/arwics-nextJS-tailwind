@@ -8,11 +8,11 @@ const Gallery = () => {
         <Layout title="Gallery">
             <div className=" w--full grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 " style={{minHeight:1000}}>
                 <div className="h-full  flex justify-center">
-                    <div className="xs:w-5/6 xs:h-full  md:w-3/4 lg:w-1/2 md:h-1/2    rounded-b-full flex justify-center bg-gray-50  pb-14 px-5"
-                    style={{maxHeight:600,}}
+                    <div className="xs:w-5/6 xs:h-full  md:w-3/4 lg:w-1/2 md:h-1/2  rounded-b-full flex justify-center bg-gray-50  pb-14 px-2"
+                    style={{maxHeight:700,}}
                     >
                         <div>
-                            <div className="w-full text-center mt-12">
+                            <div className="w-full text-center mt-24">
                                 <span className=" xs:text-2xl lg:text-5xl text-yellow-500 font-bold ">Gallery</span>
 
                             </div>
