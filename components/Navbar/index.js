@@ -80,7 +80,7 @@ const Navbar = () => {
         <Link href="/Gallery">
           <div className={`${router.pathname == "/Gallery" ? 'border-r-4 border-blue-900 bg-blue-100' : ''} h-14 w-full flex flex-wrap items-center  text-gray-500 text-sm `}>
             <div className="h-full w-1/3   flex items-center xs:p-6 sm:p-8" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" fill="#8E24AA">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" fill="#8E24AA"> 
                 <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
               </svg>
             </div>
@@ -106,13 +106,13 @@ const Navbar = () => {
 
 
       {/* navbar */}
-      <nav className={`flex items-center flex-wrap fixed p-3   top-0 w-full  z-40 transition duration-700 ${navColor}`}>
+      <nav className={`flex items-center flex-wrap fixed px-3   top-0 w-full  z-40 transition duration-700 ${navColor}`}>
         <Link href='/'>
           <div className="xs:w-1/2  md:w-1/5   " style={{cursor:"pointer"}}>
             <Image
               src={`/assets/arwics-logo-full.png `}
               width={300}
-              height={70}
+              height={100}
               objectFit="contain"
             />
           </div>
