@@ -111,9 +111,9 @@ const Navbar = () => {
           <div className="xs:w-1/2  md:w-1/5">
             <Image
               src={`/assets/arwics-logo-full.png `}
-              width={400}
+              width={300}
               height={100}
-              objectFit="cover"
+              objectFit="contain"
               alt="logo"
               
             />
