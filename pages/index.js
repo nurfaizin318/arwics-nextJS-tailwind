@@ -185,14 +185,14 @@ export default function Page() {
           </div>
           {/* section */}
           <div className="bg-gray-200 mx-1" >
-            <div className=" bg-gray-100 py-10 relative overflow-hidden flex items-center z-10  pb-44 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 81%)", height: "100%", width: "100%" }} >
+            <div className=" bg-gray-900 py-10 relative overflow-hidden flex items-center z-10  pb-44 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 81%)", height: "100%", width: "100%" }} >
               <div className="z-20 w-full ">
                 <div className="text-4xl text-gray-700 p-5 font-bold z-30  flex justify-center">
                   Our Licensed Aplication
                 </div>
              
                         <Image
-                          src={`/assets/licensed.png `}
+                          src={`/assets/agreement12.png `}
                           width={400}
                           height={400}
                           objectFit="cover"
