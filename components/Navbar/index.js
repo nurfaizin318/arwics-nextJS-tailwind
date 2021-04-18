@@ -108,12 +108,14 @@ const Navbar = () => {
       {/* navbar */}
       <nav className={`flex items-center flex-wrap fixed px-3   top-0 w-full  z-40 transition duration-700 ${navColor}`}>
         <Link href='/'>
-          <div className="xs:w-1/2  md:w-1/5   " style={{cursor:"pointer"}}>
+          <div className="xs:w-1/2  md:w-1/5">
             <Image
               src={`/assets/arwics-logo-full.png `}
               width={200}
               height={100}
               objectFit="contain"
+              alt="logo"
+              
             />
           </div>
         </Link>
