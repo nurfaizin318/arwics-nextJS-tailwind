@@ -190,21 +190,14 @@ export default function Page() {
                 <div className="text-4xl text-gray-700 p-5 font-bold z-30  flex justify-center">
                   Our Licensed Aplication
                 </div>
-                <div className="w-4/5 z-30  mx-auto flex items-center flex-wrap  py-10">
-                  {[1].map((data, index) => {
-                    return (
-                      <div key={index} className="h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
+             
                         <Image
                           src={`/assets/licensed.png `}
                           width={300}
                           height={420}
                           objectFit="cover"
                         />
-                      </div>
-                    )
-                  })}
-
-                </div>
+                  
               </div>
             </div>
           </div>
