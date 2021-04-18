@@ -108,9 +108,9 @@ const Navbar = () => {
       {/* navbar */}
       <nav className={`flex items-center flex-wrap fixed px-3  h-24  top-0 w-full  z-40 transition duration-700 ${navColor}`}>
         <Link href='/'>
-          <div className="xs:w-1/2  md:w-1/5">
+          <div className="xs:w-1/2  md:w-1/5 bg-gray-800">
             <Image
-              src="/assets/arwics-logo-full.png"
+              src="/assets/twitter.png"
               width={300}
               height={100}
               objectFit="contain"
