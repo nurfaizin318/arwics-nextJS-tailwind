@@ -46,7 +46,7 @@ export default function Page() {
 
           <div className="xs:w-full md:w-3/4  xl:w-1/2 xs:h-5/6 xl:h-full bg-gray-50 overflow-auto">
             <div className=" w-full h-20  flex justify-end">
-              <div className=" w-20 h-20 0 flex justify-center items-center font-bold text-3xl" onClick={() => setModalLicensed(false)} style={{ cursor: "pointer" }}>
+              <div className=" w-20 h-20  flex justify-center items-center font-bold text-3xl" onClick={() => setModalLicensed(false)} style={{ cursor: "pointer" }}>
                 x
               </div>
 
@@ -54,7 +54,7 @@ export default function Page() {
             </div>
             <div className="w-auto h-auto flex justify-center items-center">
               <Image
-                src={`/assets/isales2.png `}
+                src={`/assets/licensed.png `}
                 width={500}
                 height={650}
                 objectFit="contain"
@@ -81,8 +81,8 @@ export default function Page() {
         <div className="">
           <div
             style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto", }}
-            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1" >
-            <div className="w-full  flex  items-center  pt-20  xs:max-h-full lg:max-h-max">
+            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen " >
+            <div className="w-full  flex  items-center  pt-20  ">
               <div className="w-4/5 h-auto xs:lg-auto  mx-5 p-2 ">
                 <div >
                   <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
@@ -132,9 +132,9 @@ export default function Page() {
 
                   {services.map((data, index) => {
                     return (
-                      <div key={index} className=" min-h-96 sm:w-full xs:w-full flex justify-center items-cennter lg:w-4/5 lg:h-full  m-auto ">
+                      <div key={index} className=" text-center min-h-96 sm:w-full xs:w-full flex justify-center items-cennter lg:w-4/5 lg:h-full  m-auto ">
                         <div>
-                          <div className="m-0">
+                          <div className="p-5">
                             <Image
                               src={`${data.icon}`}
                               width={250}
@@ -189,11 +189,11 @@ export default function Page() {
               <div className="z-20 w-full ">
                 <div className="text-4xl text-gray-700 p-5 font-bold z-30  flex justify-center">
                   Our Licensed Aplication
-            </div>
-                <div className=" w-4/5 z-30  mx-auto flex items-center flex-wrap ">
+                </div>
+                <div className="w-4/5 z-30  mx-auto flex items-center flex-wrap  py-10">
                   {[1].map((data, index) => {
                     return (
-                      <div key={index} className="xs h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
+                      <div key={index} className="h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
                         <Image
                           src={`/assets/licensed.png `}
                           width={300}

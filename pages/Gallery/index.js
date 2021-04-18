@@ -28,7 +28,7 @@ const Gallery = () => {
                     {[1, 2, 3,8].map((data, index) => {
                         return (
                             <div key={index} className="text-center ">
-                                <div className="xs:w-56 xs:h-56  md:w-40 md:h-40 lg:w-56 lg:h-56 bg-gray-50 m-2 rounded-lg mx-auto">
+                                <div className="xs:w-56 xs:h-56  md:w-40 md:h-40 lg:w-72 lg:h-72 bg-gray-50 m-2 rounded-lg mx-auto">
 
                                 </div>
                                 Lorem Ipsum
