@@ -196,6 +196,7 @@ export default function Page() {
                           width={400}
                           height={400}
                           objectFit="cover"
+                          alt="goal"
                         />
                   
               </div>
