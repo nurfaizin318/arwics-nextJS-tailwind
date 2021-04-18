@@ -192,7 +192,7 @@ export default function Page() {
                 </div>
              
                         <Image
-                          src={`/assets/agreement12.png `}
+                          src={`/assets/goal.png`}
                           width={400}
                           height={400}
                           objectFit="cover"
