@@ -110,7 +110,7 @@ const Navbar = () => {
         <Link href='/'>
           <div className="xs:w-1/2  md:w-1/5">
             <Image
-              src={`/assets/arwics-logo-full.png `}
+              src="/assets/arwics-logo-full.png"
               width={300}
               height={100}
               objectFit="contain"
