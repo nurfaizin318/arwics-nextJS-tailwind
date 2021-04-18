@@ -198,7 +198,7 @@ export default function Page() {
                           src={`/assets/licensed.png `}
                           width={300}
                           height={420}
-                          objectFit="contain"
+                          objectFit="cover"
                         />
                       </div>
                     )
