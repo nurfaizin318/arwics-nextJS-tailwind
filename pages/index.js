@@ -196,10 +196,10 @@ export default function Page() {
                     return (
                       <div key={index} className="h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
                         <Image
-                          src={`/assets/isales2.png`}
+                          src={`/assets/agreement12.webp`}
                           width={300}
                           height={400}
-                          objectFit="cover"
+                          objectFit="contain"
                           alt="agreement"
                         />
                       </div>
