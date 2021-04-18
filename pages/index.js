@@ -193,8 +193,8 @@ export default function Page() {
              
                         <Image
                           src={`/assets/licensed.png `}
-                          width={300}
-                          height={420}
+                          width={400}
+                          height={400}
                           objectFit="cover"
                         />
                   
