@@ -102,7 +102,7 @@ const About = () => {
                          <span>Innovative - Engage - Trusted </span>
 
                     </div>
-                    <div className=" pb-40 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-lg p-5 background-about my-10" >
+                    <div className=" pb-40 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about my-10" >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
 
                               {goal.map((data, index) => {

@@ -36,7 +36,7 @@ module.exports = {
         "darkBlue":"#0F70A1",
         "mediumBlue":"#2592CB",
         "softBlue":"#39B4F3",
-        "softWhite" : "rgba(250,250,250 ,0.8)"
+        "softWhite" : "rgba(250,250,250 ,1)"
       }
     },
  
