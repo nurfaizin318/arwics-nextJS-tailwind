@@ -3,6 +3,7 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+   
     screens: {
       'xs': '180px',
 
@@ -37,7 +38,12 @@ module.exports = {
         "mediumBlue":"#2592CB",
         "softBlue":"#39B4F3",
         "softWhite" : "rgba(250,250,250 ,1)"
-      }
+      },
+      height: theme => ({
+        "128": "48rem",
+        "screen/4": "calc(100vh / 4)",
+        "screen/5": "calc(100vh / 5)",
+      }),
     },
  
   },

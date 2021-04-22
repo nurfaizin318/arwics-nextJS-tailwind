@@ -6,10 +6,10 @@ const Gallery = () => {
     return (
 
         <Layout title="Gallery">
-            <div className=" w--full grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 " style={{minHeight:1000}}>
+            <div className="  grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-1 " style={{minHeight:1000}}>
                 <div className="h-full  flex justify-center">
                     <div className="xs:w-5/6 xs:h-full  md:w-3/4 lg:w-1/2 md:h-1/2  rounded-b-full flex justify-center bg-gray-50  pb-14 px-2"
-                    style={{maxHeight:700,minHeight:500}}
+                    style={{maxHeight:500,minHeight:500}}
                     >
                         <div>
                             <div className="w-full text-center mt-24">
@@ -24,11 +24,11 @@ const Gallery = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" p-3 grid xs:grid-cols-1 md:grid-cols-2 grid-flow-row auto-rows-max py-32  gap-2 ">
+                <div className=" p-3 grid xs:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 grid-flow-row auto-rows-max py-32  gap-2 my-10">
                     {[1, 2, 3,8].map((data, index) => {
                         return (
-                            <div key={index} className="text-center ">
-                                <div className="xs:w-56 xs:h-56  md:w-40 md:h-40 lg:w-72 lg:h-72 bg-gray-50 m-2 rounded-lg mx-auto">
+                            <div key={index} className="text-center  my-2">
+                                <div className="h-72 bg-gray-50 rounded-md my-2 ">
 
                                 </div>
                                 Lorem Ipsum

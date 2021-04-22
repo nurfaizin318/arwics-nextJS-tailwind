@@ -7,13 +7,27 @@ import Link from 'next/link'
 const Product = () => {
 
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    const solutions = [
+        {
+        title:"Data Warehouse & Business Intelligent",
+        description:"Whether you are building a new Data Warehouse, or re-architecting and consolidating your existing data stores,Arwics offers a full spectrum of Data Warehousing Solutions and Services that span technology, tools,platforms and methodologies We are also to help people and organisations make better data-driven decisions in an increasingly complex environment. Using leading software tools, our business intelligence consulting and development experts allow enterprises to easily obtain snapshot views of their sales, marketing, financial, supply chain and other departmental operational data.",
+        icons:"/assets/data-werehouse-product.png"
+    },
+
+    {
+        title:"Resources Management",
+        description:"As we have seen in this HR series for small businesses, there are some human resource requirements that are very important for small businesses. You need to hire  the right people, offer competitive salaries and benefits,  provide effective training, and more. But in most small  businesses, resources are very limited. With little reserve to attract and many competing priorities, it is difficult to justify the costs of hiring a dedicated HR team. Thus, the HR function can be part-time responsibilities for other owners or managers, so they don’t always get the attention they deserve. In this scenario, outsourcing some or all of  your HR functions to an external provider can give you a lot of sense.",
+        icons:'/assets/resource-management.png'
+    },
+    {
+        title:"Enterprise Application Development",
+        description:"Arwics is strongly focused on creating customer oriented software applications. The development team minutely examines and analyses the existing processes of the clients. It does the gap analysis to ensure complete compatibility between existing system and custom developed application. The supplications are designed, tested and deployed to complete satisfaction of the clients.",
+        icons:'/assets/application-development-product.png'
     }
 
+]
+
+ 
 
     return (
         <Layout title="Product">
@@ -26,7 +40,7 @@ const Product = () => {
                             <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold">
                                 Products
                            </div>
-                            <div className="text-gray-500 mt-10  my-20 ">
+                            <div className="text-gray-700 mt-10  my-20 text-2xl ">
                                 Think that all of your company’s sales processes have been digitalized so that potential
                                 client have easy accsess for obtaining the product. The sales process has become better
                                 and more efficient, the marketing employe serve the clients confidently.
@@ -79,8 +93,11 @@ const Product = () => {
                             <div className=" flex justify-center items-center">
                                 <div className="w-5/6 h-5/6  flex items-center xs:p-0 lg:p-10 ">
                                     <div className="">
-                                        <span className="text-3xl text-gray-50  font-bold">I-Sales</span><br />
-                                        <span className="text-gray-50 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br />
+                                        <span className="text-5xl text-gray-50  font-bold mb-2">I-Sales</span><br />
+                                        <div className="text-gray-50  text-xl mt-3">
+                                        <span >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br />
+                                        </div>
+                                     
                                         <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
                                             <Link href="/Comtact" >
                                                 <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
@@ -95,12 +112,71 @@ const Product = () => {
                             </div>
 
                         </div>
-                        <div className="bg-gray-200 ">
-                            <div className="w-full h-24 bg-ray-100   justify-center text-6xl flex items-center  p-4 font-bold text-gray-700">
+                        <div className="bg-gray-200 xs:pb-44 lg:pb-10">
+                            <div className="w-full h-24 bg-ray-300   justify-center text-6xl flex items-center  p-4 font-bold text-gray-700">
                                 Solutions
                             </div>
-                            <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
-                                <div className="h-11/122  items-center flex justify-center items-center xs:px-20 lg:px:0 ">
+
+                            {solutions.map((data,index)=>{
+                                return (
+                                    index % 2 === 0 ? 
+                                    <div className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
+                                    <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
+                                        <Image
+                                            src='/assets/data-werehouse-product.png'
+                                            width={370}
+                                            height={370}
+                                            objectFit="contain"
+                                        />
+                                    </div>
+                                    <div className="flex justify-center  items-center  ">
+                                        <div className="w-full  m-4 p-4">
+                                            <div className="text-gray-800 font-bold  text-2xl">
+                                                Data werehouse & Bussines Intelegent
+                                            </div>
+                                            <div className="text-gray-800 my-3 text-justify ">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            </div>
+                                            <div>
+                                                <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                :
+
+                                <div className="bg-gray-100 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
+                              
+                                <div className="flex justify-center  items-center  ">
+                                    <div className="w-full  m-4 p-4">
+                                        <div className="text-gray-800 font-bold  text-2xl">
+                                            Data werehouse & Bussines Intelegent
+                                        </div>
+                                        <div className="text-gray-800 my-3 text-justify ">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        </div>
+                                        <div>
+                                            <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
+                                    <Image
+                                        src='/assets/data-werehouse-product.png'
+                                        width={370}
+                                        height={370}
+                                        objectFit="contain"
+                                    />
+                                </div>
+                            </div>
+                                )
+                            })}
+                        </div>
+
+                            {/* <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
+                                <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                     <Image
                                         src='/assets/data-werehouse-product.png'
                                         width={370}
@@ -122,20 +198,19 @@ const Product = () => {
 
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> */}
                         {/* section */}
-                        <div className="bg-gray-700  ">
+                        {/* <div className="bg-gray-200">
                             <div className="lg:pb-0 w-full xs:py-0 md:py-32  p-3   ">
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 ">
 
                                         <div className="h-full  flex items-center ">
                                             <div className="w-full  p-4">
-                                                <div className="text-gray-50 font-bold  text-2xl">
+                                                <div className="text-gray-800 font-bold  text-2xl">
                                                     Resource Management
                                                 </div>
-                                                <div className="text-white my-3 text-gray-50 text-justify">
+                                                <div className="text-gray-800 my-3 text-gray-50 text-justify">
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                                 </div>
                                                 <div>
@@ -147,7 +222,7 @@ const Product = () => {
 
                                             </div>
                                         </div>
-                                        <div className="  flex justify-center items-center xs:p-20 md:p-5 lg:p-10  ">
+                                        <div className="  flex justify-center items-center xs:py-10 md:py-10 lg:py-20 px-20  ">
                                             <Image
                                                 src='/assets/resource-management.png'
                                                 width={370}
@@ -159,14 +234,14 @@ const Product = () => {
                                 </div>
                             </div>
 
-                        </div>
+                        </div> */}
 
                         {/* section */}
-                        <div className="bg-gray-800  ">
-                            <div className="  lg:pb-0 w-full bg-gray-300 p-3 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
+                        {/* <div className="bg-gray-800  ">
+                            <div className="  lg:pb-0 w-full bg-gray-100 p-3 " style={{ clipPath: "polygon(0 0, 100% 0, 100% 83%, 0% 100%)" }}>
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2  py-32 ">
-                                        <div className="  flex justify-center items-center xs:px-20  md:px-20 lg:px:0">
+                                        <div className="  flex justify-center items-center xs:py-0 md:py-10 lg:py-20 px-20">
                                             <Image
                                                 src='/assets/application-development-product.png'
                                                 width={370}
@@ -192,7 +267,7 @@ const Product = () => {
                                     </div>
                                 </div>  
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

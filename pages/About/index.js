@@ -44,8 +44,8 @@ const About = () => {
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2" >
-                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:p-20 lg:p-0">
-                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-20  p-10 ">
+                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0 ">
+                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-20  xs:p-0 lg:p-10 ">
                               <Image
                                    src="/favicon.png"
                                    alt="Picture of the author"
@@ -56,8 +56,8 @@ const About = () => {
                               />
                          </div>
                     </div>
-                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10  ">
-                         <div className="text-xl xl:text-md w-3/4 text-gray-600 ">
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10 ">
+                         <div className="text-xl xl:text-md xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600  p-3 ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                          Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -102,7 +102,7 @@ const About = () => {
                          <span>Innovative - Engage - Trusted </span>
 
                     </div>
-                    <div className=" pb-40 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about my-10" >
+                    <div className=" pb-44 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about  my-10" >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
 
                               {goal.map((data, index) => {
@@ -163,17 +163,17 @@ const About = () => {
 
 
                               </div>
-                              <div className="xs:grid-cols-1 grid sm:grid-cols-3 gap-2 mt-5  ">
-                                   {[1, 2, 3].map((data, index) => {
+                              <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
+                                   {[1,2,3,4,5,6,7,8].map((data, index) => {
                                         return (
-                                             <div  key={ index} className="text-center" >
+                                             <div  key={ index} className="text-center " >
                                                   <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
                                                        q
                                                </div>
-                                               <div className="xs:w-62 lg:w-96 p-5 b mx-auto text-gray-50">
+                                               <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-gray-50">
                                                     <span className="font-bold">Name</span>
                                              </div>
-                                             <div className="xs:w-62 lg:w-96 p-3  mx-auto text-gray-50   ">
+                                             <div className="xs:w-62 lg:w-80 p-3  mx-auto text-gray-50   ">
                                                     <span>position</span>
                                              </div>
                                              </div>

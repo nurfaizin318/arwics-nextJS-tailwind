@@ -1,6 +1,7 @@
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import Head from 'next/head';
+import ButtonToTop from '../ButtonToTop';
 
 
 const Layout = ({ children,title }) => {
@@ -12,6 +13,7 @@ const Layout = ({ children,title }) => {
                </Head>
                <Navbar  />
                <div className="z-5" style={{maxWidth:1900,margin:"0 auto"}} >
+                    <ButtonToTop />
                     {children}
                </div>
                <Footer />

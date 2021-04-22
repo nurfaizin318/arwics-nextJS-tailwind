@@ -5,38 +5,42 @@ import Layout from '../../components/Layout';
 const News = () => {
     return (
         <Layout title="Home">
-            <div className="min-h-screen overflow-hidden  xs:pt-0 lg:pt-24 w-full grid xs:grid-cols-1 md:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  ">
-                <div className=" md:col-span-3 xl:col-span-2  flex justify-center pb-60 pt-32 xs:px-2 lg:p-10 xs:w-full xs:h-full ">
-                    <div className="w-full bg-gray-50 rounded-lg" style={{ height: 500 }}>
-                        <div className="h-2/3 w-full bg-red-200">
-
+            <div className="  overflow-auto xs:py-0 lg:py-24  grid xs:grid-cols-1 md:grid-cols-1 xl:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:min-h-screen  xs:h-auto">
+                <div className=" md:col-span-3 xl:col-span-2  flex justify-center m-5  xs:mt-24 lg:mt-3">
+                    <div className="bg-gray-100 xs:h-96   xs:w-5/6 md:w-1/2 xl:w-full lg:h-128 xl:h-128 rounded-lg">
+                        <div className=" w-full h-3/4" >
                         </div>
-                        <div className="w-full h-1/3 bg-blue-700 p-3 text-gray-50">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                     </div>
+                        <div className="bg-blue-700 rounded-b-lg text-gray-50 w-full h-1/4 p-2 xs:text-sm lg:text-lg overflow-hidden">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            </div>
                     </div>
                 </div>
-                <div className="md:col-span-3 xl:col-span-4 min-h-full  xs:p-0 lg:p-16   justify-center max-h-screen  ">
-                    <div className="w-full  h-24  flex  items-center p-2 px-2 overflow-auto  ">
-                        <button className="w-52 h-12 bg-red-600 rounded-lg font-bold text-gray-50 m-2 px-5">Trending</button>
-                        <button className="w-52 h-12 bg-red-600 rounded-lg font-bold text-gray-50 m-2 px-5">New</button>
-                        <button className="w-52 h-12 bg-red-600 rounded-lg font-bold text-gray-50 m-2 px-5  ">Political</button>
+                <div className=" col-span-4 ">
+                    <div className="h-24 w-full  p-2 flex">
+                        {["Sport","Politic","Economy"].map((data,index)=>{
+                            return(
+                                <div className="w-44 h-18 bg-red-600 m-1 rounded-md flex justify-center items-center text-2xl font-bold text-gray-50">
+                                    {data}
+                                </div>
+                            )
+                        })}
                     </div>
-                    <div className="flex w-full h-full flex-wrap  pb-20">
-                        {[1, 2, 3, 4].map((data, index) => {
+                    <div className="w-full h-full  grid xs:grid-cols-1 md:grid-cols-2 gap-1 items-center">
+                        {[1, 2, 3, 4, 5, 6].map((data, index) => {
                             return (
-                                <div key={index} className="w-96 h-64 bg-gray-400 m-5 rounded-lg">
-                                    <div className="w-full h-2/3 ">
-
+                                <div className="h-96 bg-gray-700 xs:m-1 xl:m-10 rounded-lg">
+                                    <div className="w-full h-2/3 bg-gray-100 rounded-t-lg">
                                     </div>
-                                    <div className="w-full  bg-blue-400 p-2 px-3 text-sm text-gray-50 rounded-lg" style={{ textOverflow: "ellipsis", minHeight: '33%' }}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    <div className="text-gray-50 p-2 ">
+                                            sdhghak daskjgdkas dakgsdka sajgdakj dkajssgkaj
                                     </div>
 
                                 </div>
                             )
                         })}
                     </div>
+
+
                 </div>
             </div>
         </Layout>
