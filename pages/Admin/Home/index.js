@@ -3,12 +3,15 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Layout from '../../../components/Layout';
 import Link from 'next/link';
+import TextInputs from '../../../components/TextInputs';
+import TextArea from "../../../components/TextArea"
 
 export default function Page() {
 
   const [visible, setVisible] = useState(false);
-  const [modalLicensed, setModalLicensed] = useState(false)
-
+  const [modalLicensed, setModalLicensed] = useState(false);
+  const [indexEdit, setIndexEdit] = useState("");
+  const [onEditing, setOnEditing] = useState(false)
 
 
   const scrollToTop = () => {
@@ -87,19 +90,21 @@ export default function Page() {
               <div className="w-4/5 h-auto xs:lg-auto  mx-5 p-2 ">
                 <div >
                   <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
-                    How much your company revenue of digital sales ?<br></br>
-                Does your company prepare human resources and support digital application system ?
-              </div>
-                  <div className="text-gray-500 mt-10 text-md text-justify">
-                    Think that all of your company’s sales processes have been digitalized so that potential
+                    <TextInputs
+                      value="How much your company revenue of digital sales ?"
+                    />
+                    <TextInputs
+                      value=" Does your company prepare human resources and support digital application system ?"
+                    />
+                    <TextArea value="  Think that all of your company’s sales processes have been digitalized so that potential
                     client have easy accsess for obtaining the product. The sales process has become better
                     and more efficient, the marketing employe serve the clients confidently.
                     The company’s decision maker can see entire sales process anytime,
-                    company costs become more efficient and company profits increase immediately.
-              </div>
-                  <div className="w-full  xflex items-center justify-center mt-7 mb-3">
+                    company costs become more efficient and company profits increase immediately."/>
+                  </div>
+                  <div className="w-full  xflex items-center justify-center mt-2 mb-3">
                     <Link href="/Contact" >
-                      <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
+                      <button className="border-none outline-none h-12 w-52 bg-blue-500 rounded-lg text-gray-50  ">update</button>
                     </Link>
                   </div>
                   <span className="text-sm text-gray-600  ">
@@ -111,7 +116,7 @@ export default function Page() {
             </div>
             <div className=" w-full h-full  xs:hidden md:hidden lg:flex  md-hidden  relative  items-center" >
               <div className=" ml-12 mt-6  xs:hidden md:hidden lg:block xl:block  " >
-           
+
               </div>
             </div>
 
@@ -124,22 +129,58 @@ export default function Page() {
                 <div className="text-4xl py-10 text-gray-600 font-bold  flex justify-center">
                   Our Services
                </div>
-                <div className="md:w-full  flex justify-center items-center  py-10 bg-gray-100 grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-2  lg:grid-cols-3  gap-1 p-0 ">
+                <div className="md:w-full  justify-center  items-center flex flex-wrap p-0 ">
 
                   {services.map((data, index) => {
                     return (
-                      <div key={index} className=" text-center min-h-96 sm:w-full xs:w-full flex justify-center items-cennter lg:w-4/5 lg:h-full  m-auto ">
-                        <div>
-                          <div className="p-5">
-                            <Image
-                              src={`${data.icon}`}
-                              width={250}
-                              height={250}
-                              objectFit="contain"
-                            />
-                          </div>
-                          <div className=" flex justify-center h-24 flex items-center    text-2xl text-gray-600 ">
-                            {data.title}
+                      <div className="p-2  m-3">
+                        <div className="h-10 w-full px-1  flex items-center">
+                          <button className={` ${onEditing && indexEdit == index ? "" : "hidden"} h-8 w-8 bg-blue-600 rounded-full flex justify-center items-center m-1`} onClick={() => setOnEditing(false)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                          <button className="h-8 w-8 bg-green-700 rounded-full flex justify-center items-center m-1" onClick={() => { setOnEditing(true); setIndexEdit(index) }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="white">
+                              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                            </svg>
+                          </button>
+                          <button className="h-8 w-8 bg-red-600 rounded-full flex justify-center items-center m-1" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="white">
+                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+
+
+                        </div>
+                        <div key={index} className="border-2 border-blue-200 m-2 rounded-lg text-center min-h-96 w-44 flex justify-center items-cennter  lg:h-full   ">
+                          <div>
+                            <div className="p-1">
+                              {onEditing && indexEdit == index ?
+
+                                <div className="w-40 h-28 bg-blue-200 flex justify-center items-center rounded-lg" style={{cursor:"pointer"}}>
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                  </svg>
+                                </div> :
+
+                                <Image
+                                  src={`${data.icon}`}
+                                  width={110}
+                                  height={110}
+                                  objectFit="contain"
+                                />
+                              }
+                            </div>
+                            <div className=" flex justify-center h-14 flex items-center p-1   text-sm text-gray-600 ">
+                              {onEditing && indexEdit == index ?
+
+                                <TextInputs value={data.title} /> : data.title
+                              }
+                            </div>
+                            <div className="h-12 w-full my-1 p-1">
+                              <button className={` ${onEditing && indexEdit == index ? "" : "hidden"}  w-full h-10 bg-purple-600 text-white rounded-md mt-1`}>update</button>
+                            </div>
                           </div>
                         </div>
                       </div>
