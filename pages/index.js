@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import config from "../constanta/index";
 
 export default function Page() {
 
@@ -38,15 +38,13 @@ export default function Page() {
               <div className=" w-20 h-20  flex justify-center items-center font-bold text-3xl" onClick={() => setModalLicensed(false)} style={{ cursor: "pointer" }}>
                 x
               </div>
-
-
             </div>
             <div className="w-auto h-auto flex justify-center items-center">
-              <Image
-                src='/assets/agreement12.webp'
+              <img
+                src='/public/assets/agreement12.png'
                 width={500}
                 height={650}
-                objectFit="contain"
+                objectfit="contain"
                 alt="agreement"
               />
             </div>
@@ -57,9 +55,6 @@ export default function Page() {
 
 
         {/* //=========================================== */}
-
-
-      
 
 
         <div className="">
@@ -94,7 +89,7 @@ export default function Page() {
             </div>
             <div className=" w-full h-full  xs:hidden md:hidden lg:flex  md-hidden  relative  items-center" >
               <div className=" ml-12 mt-6  xs:hidden md:hidden lg:block xl:block  " >
-                <Image
+                <img
                   src="/assets/vector-home.png"
                   alt="Picture of url"
                   width={750}
@@ -119,11 +114,11 @@ export default function Page() {
                       <div key={index} className=" text-center min-h-96 sm:w-full xs:w-full flex justify-center items-cennter lg:w-4/5 lg:h-full  m-auto ">
                         <div>
                           <div className="p-5">
-                            <Image
+                            <img
                               src={`${data.icon}`}
                               width={250}
                               height={250}
-                              objectFit="contain"
+                              objectfit="contain"
                             />
                           </div>
                           <div className=" flex justify-center h-24 flex items-center    text-2xl text-gray-600 ">
@@ -178,11 +173,11 @@ export default function Page() {
                   {[1].map((data, index) => {
                     return (
                       <div key={index} className="h-96 w-72  mx-auto m-1 " style={{ cursor: "pointer" }} onClick={() => setModalLicensed(true)}>
-                        <Image
-                          src={`/assets/agreement12.webp`}
+                        <img
+                          src={`/assets/agreement12.png`}
                           width={300}
                           height={400}
-                          objectFit="contain"
+                          objectfit="contain"
                           alt="agreement"
                         />
                       </div>
@@ -201,11 +196,11 @@ export default function Page() {
           </div>
               <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full   ">
                 <div className="h-11/12   flex justify-center items-center p-14  xs:my-0 lg:my-20 ">
-                  <Image
+                  <img
                     src='/assets/i-sales-telesales.png'
                     width={400}
                     height={400}
-                    objectFit="cover"
+                    objectfit="cover"
                   />
                 </div>
                 <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
@@ -248,11 +243,11 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="  flex justify-center p-14 items-center xs:py-0 lg:py-20">
-                    <Image
+                    <img
                       src='/assets/i-sales-learning.png'
                       width={400}
                       height={400}
-                      objectFit="contain"
+                      objectfit="contain"
                     />
                   </div>
                 </div>
@@ -265,11 +260,11 @@ export default function Page() {
               <div>
                 <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2  ">
                   <div className="  flex justify-center items-center p-14 xs:py-0 lg:py-32">
-                    <Image
+                    <img
                       src='/assets/isales-agent.png'
                       width={400}
                       height={400}
-                      objectFit="contain"
+                      objectfit="contain"
                     />
                   </div>
                   <div className="h-full  flex items-center xs:py-0 lg:py-20">
@@ -304,11 +299,20 @@ export default function Page() {
 }
 
 
+// Page.getInitialProps  = async (ctx)=>{
+//   const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner`) ;
+//   const resJsonBanner = await resBanner.json()
+
+//   const resService = await fetch(`${config.piranti.griyo_utomo}/ourservice`) ;
+//   const resJsonService = await resService.json()
 
 
 
 
 
+
+//   return { banner: resJsonBanner, service: resJsonService.result }
+// }
 
 
 

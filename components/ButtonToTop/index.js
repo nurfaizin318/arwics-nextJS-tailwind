@@ -18,10 +18,14 @@ const ButtonTotop = () => {
 
 
     useEffect(() => {
-        document.addEventListener("scroll", () => {
-          const handleVisible = window.scrollY < 200 ? false : true;
-          setVisible(handleVisible)
-        })
+      document.addEventListener("scroll", () => {
+        const handleVisible = window.scrollY < 200 ? false : true;
+        setVisible(handleVisible)
+        return () => {
+          window.removeEventListener("scroll", handleScrollEvent, true);
+     }
+      })
+    
       }, []);
 
       

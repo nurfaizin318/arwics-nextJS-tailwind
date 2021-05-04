@@ -7,7 +7,7 @@ const News = () => {
         <Layout title="Home">
             <div className="  overflow-auto xs:py-0 lg:py-24  grid xs:grid-cols-1 md:grid-cols-1 xl:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen  xs:h-auto" style={{maxHeight:900}}>
                 <div className=" md:col-span-3 xl:col-span-2  flex justify-center m-5  xs:mt-24 lg:mt-3">
-                    <div className="bg-gray-100 rounded-lg" style={{height:"80vh",maxHeight:700}}>
+                    <div className="bg-gray-100 rounded-lg" style={{height:"80vh",maxHeight:700,maxWidth:600}}>
                         <div className=" w-full h-3/4" >
                         </div>
                         <div className="bg-blue-700 rounded-b-lg text-gray-50 w-full h-1/4 p-2 xs:text-sm lg:text-lg overflow-hidden">
@@ -19,7 +19,7 @@ const News = () => {
                     <div className="h-24 w-full  p-2 flex">
                         {["Sport","Politic","Economy"].map((data,index)=>{
                             return(
-                                <div className="w-44 h-18 bg-red-600 m-1 rounded-md flex justify-center items-center text-2xl font-bold text-gray-50">
+                                <div className="w-44 h-14 bg-red-600 m-1 rounded-md flex justify-center items-center text-2xl font-bold text-gray-50">
                                     {data}
                                 </div>
                             )

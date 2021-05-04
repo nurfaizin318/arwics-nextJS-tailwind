@@ -40,27 +40,29 @@ const About = () => {
           { logo: "/kerjasama/xl.png" },
      ];
 
-
+     const myLoader = ({ src, width, quality }) => {
+          return `https://images.unsplash.com/photo-1614602042626-1c44d897a076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80`
+        }
      return (
           <Layout title="About">
-               <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2" >
-                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0 ">
-                         <div className="xs:my-0 md:my-30 lg:my-52 xl:my-20  xs:p-0 lg:p-10 ">
-                              <Image
+               <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
+                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0">
+                         <div className="xs:my-0 md:my-30 lg:my-34    xl:my-20  xs:p-0 lg:p-10 ">
+                              <img
                                    src="/favicon.png"
                                    alt="Picture of the author"
                                    width={480}
                                    height={480}
-                                   objectFit="contain"
+                                   objectfit="contain"
                                    
                               />
                          </div>
                     </div>
-                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10 ">
-                         <div className="text-xl xl:text-md xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600  p-3 ">
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10">
+                         <div className="xs:text-xl sm:text-md md:text-xl lg:text-lg xl:text-lg  2xl:text-sm xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600 p-3    ">
                               <b>Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
-                         Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
+                              Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
                               <b>Kuning :</b><br></br>
                          Ceria, Bahagia, Energik dan Optimis<br></br>
                               <b> Biru :</b><br></br>
@@ -81,7 +83,7 @@ const About = () => {
                     </div>
                </div>
                <div className=" w-full flex justify-center">
-                    <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center" style={{ overflowWrap: "break-word" }}>
+                    <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center mt-24" style={{ overflowWrap: "break-word" }}>
                          {data.map((ctx, index) => {
                               return (
                                    <div key={index} >
@@ -109,12 +111,12 @@ const About = () => {
                                    return (
                                         <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 ">
                                              <div className="flex flex-wrap justify-center ">
-                                                  <Image
+                                                  <img
                                                        src={`${data.icon}`}
                                                        alt="Picture of the author"
                                                        width={100}
                                                        height={120}
-                                                       objectFit="contain"
+                                                       objectfit="contain"
                                                   />
                                              </div>
                                              <div className="flex justify-center items-center font-bold text-xl ">
@@ -134,11 +136,11 @@ const About = () => {
                                    <div className="w-full h-96 ">
 
                                         <div className="w-full h-full  rounded-lg flex justify-center items-center ">
-                                             <Image
+                                             <img
                                                   src={`https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80`}
                                                   width={580}
                                                   height={400}
-                                                  objectFit="contain"
+                                                  objectfit="contain"
 
                                              />
                                         </div>
@@ -164,7 +166,7 @@ const About = () => {
 
                               </div>
                               <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
-                                   {[1,2,3,4,5,6,7,8].map((data, index) => {
+                                   {[1,2,3].map((data, index) => {
                                         return (
                                              <div  key={ index} className="text-center " >
                                                   <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
@@ -197,12 +199,12 @@ const About = () => {
                                    {cooperation.map((data, index) => {
                                         return (
                                              <div key={index} className="w-24  h-24  m-3 ">
-                                                  <Image
+                                                  <img
                                                        src={`${data.logo}`}
                                                        alt="Picture of the author"
                                                        width={380}
                                                        height={380}
-                                                       objectFit="contain"
+                                                       objectfit="contain"
                                                   />
                                              </div>
                                         )

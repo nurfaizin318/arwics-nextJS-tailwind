@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <div className="min-h-96 min-h-16   bg-gray-800  mx-1" >
-            <div className=" flex flex-wrap justify-center " style={{maxWidth:1900,margin:"0 auto"}}>
+            <div className=" flex flex-wrap justify-center " style={{ maxWidth: 1900, margin: "0 auto" }}>
                 <div className="text-gray-50  p-10 m-2  xs:w-full sm:w-full md:w-1/2 lg:w-1/4">
                     <div>
                         START PROJECT
@@ -30,35 +30,29 @@ const Footer = () => {
                 <div className="text-gray-50 p-5 flex justify-center m-2 xs:w-full sm:w-screen md:w-1/2 lg:w-1/4 ">
                     <div className="w-44 h-44 grid grid-flow-col grid-cols-2 grid-rows-2 ">
                         <div className=" flex justify-center items-center  ">
-                            <Image
+                            <img
                                 src='/assets/instagram.png'
-                                width={40}
-                                height={40}
-                                objectFit="contain"
+
+                                style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
                         <div className=" flex justify-center items-center  ">
-                        <Image
+                            <img
                                 src='/assets/facebook.png'
-                                width={40}
-                                height={40}
-                                objectFit="contain"
+
+                                style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
                         <div className=" flex justify-center items-center  ">
-                        <Image
+                            <img
                                 src='/assets/youtube.png'
-                                width={40}
-                                height={40}
-                                objectFit="contain"
+                                style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
                         <div className=" flex justify-center items-center  ">
-                        <Image
+                            <img
                                 src='/assets/twitter.png'
-                                width={40}
-                                height={40}
-                                objectFit="contain"
+                                style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
 

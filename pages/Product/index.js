@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout';
-import Image from 'next/image';
 import Link from 'next/link'
 
 
@@ -35,12 +34,12 @@ const Product = () => {
                 style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat",}}
                 className="home-row1 w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
                 <div className="w-full min-h-full flex justify-center items-center  py-5 col-span-2  ">
-                    <div className="xs:w-4/5 md:w-full h-2/3 xs:p-0 lg:py-12  xs:my-20 md:p-10  md:my-0 xl:my-36  ">
+                    <div className="xs:w-4/5 md:w-full h-5/6 xs:p-0 lg:py-12  xs:my-20 md:p-10  md:my-0 xl:my-12  ">
                         <div>
-                            <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold">
+                            <div className="xs:text-5xl md:text-6xl text-yellow-400  font-bold">
                                 Products
                            </div>
-                            <div className="text-gray-700 mt-10  my-20 text-2xl ">
+                            <div className="text-gray-700 mt-10  my-20 text-xl ">
                                 Think that all of your company’s sales processes have been digitalized so that potential
                                 client have easy accsess for obtaining the product. The sales process has become better
                                 and more efficient, the marketing employe serve the clients confidently.
@@ -52,7 +51,7 @@ const Product = () => {
                 </div>
                 <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
                     <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
-                        <Image
+                        <img
                             src="/assets/product-vector.png"
                             alt="Picture of url"
                             width={650}
@@ -72,19 +71,19 @@ const Product = () => {
                             <div className=" flex justify-center items-center flex">
                                 <div className="w-5/6 h-3/4 flex ">
                                     <div className="h-full w-1/2    flex justify-center items-center m-1">
-                                        <Image
+                                        <img
                                             src='/assets/isales1.png'
                                             width={250}
                                             height={450}
-                                            objectFit="cover"
+                                            objectfit="cover"
                                         />
                                     </div>
                                     <div className="h-full w-1/2  flex justify-center items-center m-1 ">
-                                        <Image
+                                        <img
                                             src='/assets/isales2.png'
                                             width={250}
                                             height={450}
-                                            objectFit="cover"
+                                            objectfit="cover"
                                         />
                                     </div>
 
@@ -122,11 +121,11 @@ const Product = () => {
                                     index % 2 === 0 ? 
                                     <div className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
                                     <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
-                                        <Image
+                                        <img
                                             src='/assets/data-werehouse-product.png'
                                             width={370}
                                             height={370}
-                                            objectFit="contain"
+                                            objectfit="contain"
                                         />
                                     </div>
                                     <div className="flex justify-center  items-center  ">
@@ -163,11 +162,11 @@ const Product = () => {
                                     </div>
                                 </div>
                                 <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
-                                    <Image
+                                    <img
                                         src='/assets/data-werehouse-product.png'
                                         width={370}
                                         height={370}
-                                        objectFit="contain"
+                                        objectfit="contain"
                                     />
                                 </div>
                             </div>
@@ -177,11 +176,11 @@ const Product = () => {
 
                             {/* <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
                                 <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
-                                    <Image
+                                    <img
                                         src='/assets/data-werehouse-product.png'
                                         width={370}
                                         height={370}
-                                        objectFit="contain"
+                                        objectfit="contain"
                                     />
                                 </div>
                                 <div className="flex justify-center  items-center  ">
@@ -223,11 +222,11 @@ const Product = () => {
                                             </div>
                                         </div>
                                         <div className="  flex justify-center items-center xs:py-10 md:py-10 lg:py-20 px-20  ">
-                                            <Image
+                                            <img
                                                 src='/assets/resource-management.png'
                                                 width={370}
                                                 height={370}
-                                                objectFit="contain"
+                                                objectfit="contain"
                                             />
                                         </div>
                                     </div>
@@ -242,11 +241,11 @@ const Product = () => {
                                 <div>
                                     <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2  py-32 ">
                                         <div className="  flex justify-center items-center xs:py-0 md:py-10 lg:py-20 px-20">
-                                            <Image
+                                            <img
                                                 src='/assets/application-development-product.png'
                                                 width={370}
                                                 height={370}
-                                                objectFit="contain"
+                                                objectfit="contain"
                                             />
                                         </div>
                                         <div className="flex items-center">
