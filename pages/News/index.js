@@ -5,8 +5,8 @@ import Layout from '../../components/Layout';
 const News = () => {
     return (
         <Layout title="Home">
-            <div className="  overflow-auto xs:py-0 lg:py-24  grid xs:grid-cols-1 md:grid-cols-1 xl:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen  xs:h-auto" style={{maxHeight:900}}>
-                <div className=" md:col-span-3 xl:col-span-2  flex justify-center m-5  xs:mt-24 lg:mt-3">
+            <div className="  overflow-auto xs:py-0 lg:py-24  grid xs:grid-cols-1 md:grid-cols-1 lg:grid-cols-6  xl:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:h-  xs:h-auto " style={{maxHeight:900}}>
+                <div className=" md:col-span-6  lg:col-span-2  xl:col-span-2  flex justify-center m-5  xs:mt-24 lg:mt-3">
                     <div className="bg-gray-100 rounded-lg" style={{height:"80vh",maxHeight:700,maxWidth:600}}>
                         <div className=" w-full h-3/4" >
                         </div>
@@ -15,7 +15,7 @@ const News = () => {
                             </div>
                     </div>
                 </div>
-                <div className=" col-span-4 ">
+                <div className=" md:col-span-6 lg:col-span-4 h-auto  xl:col-span-4 " style={{maxWidth:1100}}>
                     <div className="h-24 w-full  p-2 flex">
                         {["Sport","Politic","Economy"].map((data,index)=>{
                             return(
@@ -25,10 +25,10 @@ const News = () => {
                             )
                         })}
                     </div>
-                    <div className="w-full h-full  grid xs:grid-cols-1 md:grid-cols-2 gap-1 items-center">
-                        {[1, 2, 3, 4, 5, 6].map((data, index) => {
+                    <div className="w-full h-full   grid xs:grid-cols-1 md:grid-cols-2 gap-1 items-center">
+                        {[1, 2, 3, 4, 5, 6,9,8,9,9].map((data, index) => {
                             return (
-                                <div className="h-96 bg-gray-700 xs:m-1 xl:m-2 rounded-lg">
+                                <div className="h-96 bg-gray-700 xs:m-1 xl:m-2 rounded-lg" >
                                     <div className="w-full h-2/3 bg-gray-100 rounded-t-lg">
                                     </div>
                                     <div className="text-gray-50 p-2 ">

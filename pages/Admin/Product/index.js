@@ -1,64 +1,212 @@
 import Layout from '../../../components/Layout';
 import TextArea from '../../../components/TextArea';
 import OptionButton from '../../../components/OptionButton';
-import Image from 'next/image';
 import Link from 'next/link'
-import React, { useState } from 'react';
+import React, { useState, useRef, createRef } from 'react';
+import Textinputs from '../../../components/TextInputs';
+import config from '../../../constanta/index';
+
+import NavbarAdmin from '../../../components/NavbarAdmin'
+
+
+const Product = ({ productList,solutionsList,bannerList}) => {
 
 
 
-const Product = () => {
+    console.log(bannerList[0].id)
+    const productImageUpdateRef = createRef(null);
+    const productImageInsertRef = createRef(null);
 
-    const [salesIndexEdit, SetSalesIndexEdit] = useState("");
-    const [salesOnEditing, SetSalesOnEditing] = useState(false)
+    const solutionsImageUpdateRef = createRef(null);
+    const solutionsImageInsertRef = createRef(null);
 
-    const solutions = [
-        {
-            title: "Data Warehouse & Business Intelligent",
-            description: "Whether you are building a new Data Warehouse, or re-architecting and consolidating your existing data stores,Arwics offers a full spectrum of Data Warehousing Solutions and Services that span technology, tools,platforms and methodologies We are also to help people and organisations make better data-driven decisions in an increasingly complex environment. Using leading software tools, our business intelligence consulting and development experts allow enterprises to easily obtain snapshot views of their sales, marketing, financial, supply chain and other departmental operational data.",
-            icons: "/assets/data-werehouse-product.png"
-        },
+    const [banner,setBanner] = useState({title:bannerList[0].title,description:bannerList[0].description,id:bannerList[0].id})
 
-        {
-            title: "Resources Management",
-            description: "As we have seen in this HR series for small businesses, there are some human resource requirements that are very important for small businesses. You need to hire  the right people, offer competitive salaries and benefits,  provide effective training, and more. But in most small  businesses, resources are very limited. With little reserve to attract and many competing priorities, it is difficult to justify the costs of hiring a dedicated HR team. Thus, the HR function can be part-time responsibilities for other owners or managers, so they don’t always get the attention they deserve. In this scenario, outsourcing some or all of  your HR functions to an external provider can give you a lot of sense.",
-            icons: '/assets/resource-management.png'
-        },
-        {
-            title: "Enterprise Application Development",
-            description: "Arwics is strongly focused on creating customer oriented software applications. The development team minutely examines and analyses the existing processes of the clients. It does the gap analysis to ensure complete compatibility between existing system and custom developed application. The supplications are designed, tested and deployed to complete satisfaction of the clients.",
-            icons: '/assets/application-development-product.png'
-        }
+    const [productIndexEdit, SetProductIndexEdit] = useState("");
+    const [productOnEditing, SetProductOnEditing] = useState(false)
+    const [productUpdate, setProductUpdate] = useState({ title: "", image: "", id: null, description: "" })
+    const [productInsert, setProductInsert] = useState({ title: "", image: "", description: "" })
 
-    ]
+    const [solutionsIndexEdit, SetSolutionsIndexEdit] = useState("");
+    const [solutionsOnEditing, SetSolutionsOnEditing] = useState(false)
+    const [solutionsUpdate, setSolutionsUpdate] = useState({ title: "", image: "", id: null, description: "" })
+    const [solutionsInsert, setSolutionsInsert] = useState({ title: "", image: "", description: "" })
 
 
+    const handleInsertProduct = (e) => {
+
+        
+        e.preventDefault();
+        const data = new FormData()
+        data.append("title", productInsert.title)
+        data.append("image", productInsert.image);
+        data.append("description", productInsert.description);
+        fetch(`${config.piranti.griyo_utomo}/tambah_produk`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+
+    }
+
+
+
+    const handleUpdateProduct = (e) => {
+
+        const data = new FormData();
+        data.append("id_produk", productUpdate.id)
+        data.append("title", productUpdate.title)
+        data.append("image", productUpdate.image);
+        data.append("description", productUpdate.description);
+        fetch(`${config.piranti.griyo_utomo}/update_produk`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }
+
+
+    const handleDeleteProduct = (e, id) => {
+
+        const data = new FormData();
+        data.append("id_produk", id)
+        fetch(`${config.piranti.griyo_utomo}/hapus_produk`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }
+
+
+    const handleUpdateSolusi = (e) => {
+
+        const data = new FormData();
+        data.append("id_solusi", solutionsUpdate.id)
+        data.append("title", solutionsUpdate.title)
+        data.append("image", solutionsUpdate.image);
+        data.append("description", solutionsUpdate.description);
+        fetch(`${config.piranti.griyo_utomo}/update_solusi`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }
+
+
+    const handleInsertSolutions = (e) => {
+        e.preventDefault();
+        const data = new FormData()
+        data.append("title", solutionsInsert.title)
+        data.append("image", solutionsInsert.image);
+        data.append("description", solutionsInsert.description);
+        fetch(`${config.piranti.griyo_utomo}/tambah_solusi`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+
+    }
+
+    const handleDeleteSolusi = (e, id) => {
+
+        const data = new FormData();
+        data.append("id_solusi", id)
+        fetch(`${config.piranti.griyo_utomo}/hapus_solusi`, {
+            method: 'POST',
+
+            body: data
+        })
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }
+    const updateBanner = (e) => {
+        e.preventDefault()
+        const data = new FormData();
+        data.append("title",".")
+        data.append("deskripsi", banner.description)
+        data.append("id_user", 1)
+        data.append("id_banner",banner.id)
+        data.append("menu", "Produk")
+        fetch(`${config.piranti.griyo_utomo}/update_banner`, {
+          method: 'POST',
+          header: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: data
+        })
+    
+          .then((response) => { return response.json() })
+          .then(data => console.log(data))
+          .then(() => window.location.reload())
+          .catch((error) => {
+            console.log(error)
+          })
+    
+      }
 
     return (
-        <Layout title="Product">
+       <>
+       <NavbarAdmin />
             <div
-                style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
+                style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat",width:"100vw" }}
                 className="home-row1 w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
                 <div className="w-full min-h-full flex justify-center items-center  py-5 col-span-2  ">
                     <div className="xs:w-4/5 md:w-full h-2/3 xs:p-0 lg:py-12  xs:my-20 md:p-10  md:my-0 xl:my-12 ">
                         <div>
-                            <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold bg-red-200">
+                            <div className="xs:text-5xl md:text-6xl text-yellow-400 font-bold ">
                                 Products
                        </div>
                             <div className="text-gray-700 mt-10  text-2xl ">
-                                <TextArea value=" Think that all of your company’s sales processes have been digitalized so that potential
-                            client have easy accsess for obtaining the product. The sales process has become better
-                            and more efficient, the marketing employe serve the clients confidently.
-                            The company’s decision maker can see entire sales process anytime ,
-                            company costs become more efficient and company profits increase immediately." onChange={() => { }} />
+                                <TextArea value={banner.description} onChange={(e) => {setBanner({...banner,description:e.target.value}) }} />
                             </div>
-                            <button className="w-24 h-10 bg-blue-200 text-gray-50 text-sm ">Update</button>
+                            <button onClick={updateBanner} className="w-24 h-10 bg-blue-300 text-gray-50 text-sm ">Update</button>
                         </div>
                     </div>
                 </div>
                 <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
                     <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
-                        <Image
+                        <img
                             src="/assets/product-vector.png"
                             alt="Picture of url"
                             width={650}
@@ -67,100 +215,231 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-800 mx-1">
+            <div className="bg-gray-800  ">
                 <div className="bg-green-200"
-                    style={{ clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)" }}
                 >
-                    <div className="bg-gray-200">
-                        <div className="xs:py-20 lg:py-40 w-full  bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue grid xs:grid-cols-1   lg:grid-cols-2"
-                            style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 85%)" }}
-                        >
-                            <div className=" flex justify-center items-center flex">
-                                <div className="w-5/6 h-3/4 flex ">
-                                    <div className="h-full w-1/2    flex justify-center items-center m-1">
-                                        <Image
-                                            src='/assets/isales1.png'
-                                            width={200}
-                                            height={350}
-                                            objectfit="cover"
-                                        />
-                                    </div>
-                                    <div className="h-full w-1/2  flex justify-center items-center m-1 ">
-                                        <Image
-                                            src='/assets/isales2.png'
-                                            width={200}
-                                            height={350}
-                                            objectfit="cover"
-                                        />
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className=" flex justify-center items-center">
-                                <div className="w-5/6 h-5/6  flex items-center xs:p-0 lg:p-10 ">
-                                    <div className="">
-                                        <span className="text-5xl text-gray-50  font-bold mb-2">I-Sales</span><br />
-                                        <div className="text-gray-50  text-xl mt-3">
-                                            <span >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br />
-                                        </div>
-
-                                        <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
-                                            <Link href="/Comtact" >
-                                                <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
-                                            </Link>
+                    <div className="bg-gray-200 w-full ">
+                        <div className="xs:py-20 lg:py-40 w-full  bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue px-10">
+                            <div className="mt-3 text-center">
+                                <div className="text-3xl text-gray-50 m-3">
+                                    Insert Product
+                                     </div>
+                                <div className="grid xs:grid-cols-1 xs:w-full lg:w-3/4 mx-auto lg:grid-cols-2 bg-blue-50 py-10 rounded-lg">
+                                    <div className=" flex justify-center items-center flex ">
+                                        <div className="w-5/6 h-3/4 flex justify-center ">
+                                            <input type="file" hidden ref={productImageInsertRef} onChange={(e) => { setProductInsert({ ...productInsert, image: e.target.files[0] }) }} />
+                                            <div style={{ cursor: 'pointer' }} className=" w-96 h-76 bg-gray-300 p-2 rounded-sm" onClick={() => { productImageInsertRef.current.click() }}>
+                                                <div className="h-full w-full  border-dashed border-2 border-gray-50 p-2 rounded-sm  flex justify-center items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                                    </svg>
+                                                </div>
+                                            </div>
 
                                         </div>
                                     </div>
-
+                                    <div className=" p-7 box-border">
+                                        <div className="">
+                                            <Textinputs value={productInsert.title} onChange={(e) => { setProductInsert({ ...productInsert, title: e.target.value }) }} />
+                                            <TextArea value={productInsert.description} onChange={(e) => { setProductInsert({ ...productInsert, description: e.target.value }) }} />
+                                            <button onClick={handleInsertProduct} className="w-32 h-10 bg-yellow-400 flex justify-center items-center rounded-sm">update</button>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="w-full  ">
+                                {productList.map((data, index) => {
+                                    return (
+                                        <div key={index} className="mt-3 xs:w-full lg:w-3/4 mx-auto">
+                                            <OptionButton
+                                                editabled={true}
+                                                onEditing={productOnEditing}
+                                                cancleEdit={() => SetProductOnEditing(false)}
+                                                setOnEditing={() => { SetProductOnEditing(true); SetProductIndexEdit(index); setProductUpdate({ ...productUpdate, image: data.image, title: data.title, description: data.deskripsi, id: data.id_produk }) }}
+                                                index={index}
+                                                indexEdit={productIndexEdit}
+                                                onDelete={(e) => { handleDeleteProduct(e, data.id_produk) }}
+                                            />
+                                            <div className="grid xs:grid-cols-1 lg:grid-cols-2 bg-blue-50 py-10">
+                                                <div className=" flex justify-center items-center flex ">
+                                                    <div className="w-5/6 h-3/4 flex justify-center ">
+                                                        <input type="file" hidden ref={productImageUpdateRef} onChange={(e) => { setProductUpdate({ ...productUpdate, image: e.target.files[0] }) }} />
+                                                        {productOnEditing && productIndexEdit == index ?
+                                                            <div style={{ cursor: 'pointer' }} className="w-96 h-76 bg-gray-300 p-2 rounded-sm" onClick={() => { productImageUpdateRef.current.click() }}>
+                                                                <div className="h-full w-full  border-dashed border-2 border-gray-50 p-2 rounded-sm flex justify-center items-center p-5">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            :
+                                                            <div className="h-full w-1/2    flex justify-center items-center m-1">
+                                                                <img
+                                                                    src={data.image}
+                                                                    width={200}
+                                                                    height={350}
+                                                                    objectfit="cover"
+                                                                />
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div className=" p-7 box-border">
+                                                    <div className="">
+                                                        {productOnEditing && productIndexEdit == index ?
+                                                            <Textinputs value={productUpdate.title} onChange={(e) => { setProductUpdate({ ...productUpdate, title: e.target.value }) }} />
+                                                            :
+                                                            <span className="text-5xl text-gray-500  font-bold mb-2">{data.title}</span>}
+                                                        {productOnEditing && productIndexEdit == index ?
+                                                            <TextArea value={productUpdate.description} onChange={(e) => { setProductUpdate({ ...productUpdate, description: e.target.value }) }} />
+                                                            :
+                                                            <div className="text-gray-500 h-40 text-base mt-3">
+                                                                <span >{data.deskripsi}</span><br />
+                                                            </div>}
 
+                                                        {productOnEditing && productIndexEdit == index ?
+
+                                                            <button onClick={handleUpdateProduct} className="w-32 h-10 bg-red-400 flex justify-center items-center rounded-sm">update</button> :
+
+                                                            <div className="w-full h-22 mt-2  text-gray-700 ">
+                                                                
+                                                            </div>
+
+
+                                                        }                                                                                                                                                                                                                               </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
 
                             </div>
-
                         </div>
-                        <div className="bg-gray-200 pb-44 pb-">
-                            <div className="w-full h-24 bg-ray-300   justify-center text-6xl flex items-center  p-4 font-bold text-gray-700">
-                                Solutions
-                        </div>
+                        <div className="bg-gray-100 py-3 mx-1">
+                            <div className="w-full h-24 bg-gray-200  justify-center text-3xl flex items-center  p-4 font-bold text-gray-700">
+                               Insert  Solutions
+                             </div>
+                             
+                             <div className="my-3 bg-green-100 xs:full lg:w-11/12 mx-auto grid grid-cols-2 xs:grid-cols-1 h-auto lg:grid-cols-2 w-full mx-auto    bg-red-50 p-3 rounded-md">
+                                            <div className="h-11/12 items-center flex justify-center items-center xs:py-0 md:py-10 lg:py-10   ">
+                                                <input type="file" hidden ref={solutionsImageInsertRef} onChange={(e) => { setSolutionsInsert({ ...solutionsInsert, image: e.target.files[0] }) }} />
+                                                    <div style={{ cursor: 'pointer' }} className="w-96 h-80 bg-gray-300 p-2 rounded-sm" onClick={() => { solutionsImageInsertRef.current.click() }}>
+                                                        <div className="h-full w-full  border-dashed border-2 border-gray-50 p-2 rounded-sm flex justify-center items-center p-5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
 
-                            {solutions.map((data, index) => {
-                                return (
-                                        <div className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-3/4 mx-auto  mt-1  bg-red-50 p-3 rounded-mdch">
-                                            <div className="h-11/12 items-center flex justify-center items-center xs:py-0 md:py-10 lg:py-10 px-20  ">
-                                                <Image
-                                                    src='/assets/data-werehouse-product.png'
-                                                    width={370}
-                                                    height={370}
-                                                    objectfit="contain"
-                                                />
+
                                             </div>
                                             <div className="flex justify-center  items-center  ">
                                                 <div className="w-full  m-4 p-4">
                                                     <div className="text-gray-800 font-bold  text-2xl">
-                                                        Data werehouse & Bussines Intelegent
-                                        </div>
-                                                    <div className="text-gray-800 my-3 text-justify ">
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                        </div>
+                                                        <Textinputs value={solutionsInsert.title} onChange={(e) => { setSolutionsInsert({ ...solutionsInsert, title: e.target.value }) }} />
+                                                    </div>
+                                                    <TextArea value={solutionsInsert.description} onChange={(e) => { setSolutionsInsert({ ...solutionsInsert, description: e.target.value }) }} />
+                                                     <div className="text-gray-800 my-3 text-justify  overflow-ellipsis overflow-hidden ">
+                                        </div> 
                                                     <div>
-                                                        <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
+                                                        <button onClick={handleInsertSolutions} className="w-40 mt-5 h-12 bg-yellow-400 rounded-md text-gray-700">Insert</button>
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
+                            {solutionsList.map((data, index) => {
+                                return (
+                                    <div key={index} className="xs:full lg:w-11/12 mx-auto my-3">
+                                        <OptionButton
+                                            editabled={true}
+                                            onEditing={solutionsOnEditing}
+                                            cancleEdit={() => SetSolutionsOnEditing(false)}
+                                            setOnEditing={() => { SetSolutionsOnEditing(true); SetSolutionsIndexEdit(index); setSolutionsUpdate({ ...solutionsUpdate, image: data.image, title: data.title,description:data.deskripsi ,id:data.id_solusi}) }}
+                                            index={index}
+                                            indexEdit={solutionsIndexEdit}
+                                            onDelete={(e) => { handleDeleteSolusi(e,data.id_solusi)}}
+                                        />
+                                        <div className=" bg-blue-200 grid grid-cols-2 xs:grid-cols-1 h-auto lg:grid-cols-2 w-full mx-auto  mt-1  bg-red-50 p-3 rounded-md">
+                                            <div className="h-11/12 items-center flex justify-center items-center xs:py-0 md:py-10 lg:py-10   ">
+                                                <input type="file" hidden ref={solutionsImageUpdateRef} onChange={(e) => { setSolutionsUpdate({ ...solutionsUpdate, image: e.target.files[0] }) }} />
+                                                {solutionsOnEditing && solutionsIndexEdit == index ?
+                                                    <div style={{ cursor: 'pointer' }} className="w-96 h-80 bg-gray-300 p-2 rounded-sm" onClick={() => { solutionsImageUpdateRef.current.click() }}>
+                                                        <div className="h-full w-full  border-dashed border-2 border-gray-50 p-2 rounded-sm flex justify-center items-center p-5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                                            </svg>
+                                                        </div>
+                                                    </div> :
+                                                    <img
+                                                        src={data.image}
+                                                        width={370}
+                                                        height={370}
+                                                        objectfit="contain"
+                                                    />
+                                                }
+                                            </div>
+                                            <div className="flex justify-center  items-center  ">
+                                                <div className="w-full  m-4 p-4">
+                                                    <div className="text-gray-800 font-bold  text-2xl">
+                                                    {solutionsOnEditing && solutionsIndexEdit == index ?
+                                                        <Textinputs value={solutionsUpdate.title} onChange={(e) => { setSolutionsUpdate({ ...solutionsUpdate, title: e.target.value }) }} />
+                                                        :
+                                                        data.title}
+                                                    </div>
+                                                    {solutionsOnEditing && solutionsIndexEdit == index ?
+                                                    <TextArea value={solutionsUpdate.description} onChange={(e) => { setSolutionsUpdate({ ...solutionsUpdate, description: e.target.value }) }} />
+                                                    :
+                                                     <div className="text-gray-800 my-3 text-justify h-48 overflow-ellipsis overflow-hidden ">
+                                                       {data.deskripsi}
+                                        </div> }
+                                                    <div>
+                                                    {solutionsOnEditing && solutionsIndexEdit == index &&
+                                                        <button onClick={handleUpdateSolusi} className="w-40 mt-5 h-12 bg-yellow-400 rounded-md text-gray-700">update</button>}
+                                                        {/* <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button> */}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 )
                             })}
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-        </Layout>
+            </>
     );
 }
 
 export default Product;
+
+Product.getInitialProps = async (ctx) => {
+    const options = {
+        method: 'GET',
+       
+    };
+    const resProduct = await fetch(`${config.piranti.griyo_utomo}/produklist`, options);
+    const resProductJson = await resProduct.json()
+
+    const resSolusi = await fetch(`${config.piranti.griyo_utomo}/listsolusi`, options);
+    const resSolusiJson = await resSolusi.json()
+
+    const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner_produk`, options);
+    const resBannerJson = await resBanner.json()
+
+
+    return {
+        productList: resProductJson.result,
+        solutionsList: resSolusiJson.result,
+        bannerList: resBannerJson.result,
+
+    }
+}
+
+
+
+
+

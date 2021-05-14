@@ -42,7 +42,7 @@ const About = () => {
 
      const myLoader = ({ src, width, quality }) => {
           return `https://images.unsplash.com/photo-1614602042626-1c44d897a076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80`
-        }
+     }
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
@@ -54,13 +54,13 @@ const About = () => {
                                    width={480}
                                    height={480}
                                    objectfit="contain"
-                                   
+
                               />
                          </div>
                     </div>
-                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10">
-                         <div className="xs:text-xl sm:text-md md:text-xl lg:text-lg xl:text-lg  2xl:text-sm xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600 p-3    ">
-                              <b>Filosofi warna dan logo:</b><br></br>
+                    <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex  justify-center text-sm py-2   ">
+                         <div className="xs:text-xl sm:text-lg md:text-xl lg:text-sm xl:text-xl  2xl:text-sm xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600 p-10   ">
+                              <b className="text-2xl">Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                               Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
                               <b>Kuning :</b><br></br>
@@ -166,18 +166,18 @@ const About = () => {
 
                               </div>
                               <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
-                                   {[1,2,3].map((data, index) => {
+                                   {[1, 2, 3].map((data, index) => {
                                         return (
-                                             <div  key={ index} className="text-center " >
+                                             <div key={index} className="text-center " >
                                                   <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
                                                        q
                                                </div>
-                                               <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-gray-50">
-                                                    <span className="font-bold">Name</span>
-                                             </div>
-                                             <div className="xs:w-62 lg:w-80 p-3  mx-auto text-gray-50   ">
-                                                    <span>position</span>
-                                             </div>
+                                                  <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-gray-50">
+                                                       <span className="font-bold">Name</span>
+                                                  </div>
+                                                  <div className="xs:w-62 lg:w-80 p-3  mx-auto text-gray-50   ">
+                                                       <span>position</span>
+                                                  </div>
                                              </div>
                                         )
                                    })}

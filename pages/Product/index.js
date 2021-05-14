@@ -1,9 +1,10 @@
 import Layout from '../../components/Layout';
 import Link from 'next/link'
+import config from "../../constanta/index";
 
 
-
-const Product = () => {
+const Product = ({ productList,solutionsList,bannerList}) => {
+    console.log(bannerList)
 
 
     const solutions = [
@@ -40,11 +41,7 @@ const Product = () => {
                                 Products
                            </div>
                             <div className="text-gray-700 mt-10  my-20 text-xl ">
-                                Think that all of your company’s sales processes have been digitalized so that potential
-                                client have easy accsess for obtaining the product. The sales process has become better
-                                and more efficient, the marketing employe serve the clients confidently.
-                                The company’s decision maker can see entire sales process anytime ,
-                                company costs become more efficient and company profits increase immediately.
+                             {bannerList[0].description   }
                              </div>
                         </div>
                     </div>
@@ -116,13 +113,13 @@ const Product = () => {
                                 Solutions
                             </div>
 
-                            {solutions.map((data,index)=>{
+                            {solutionsList.map((data,index)=>{
                                 return (
                                     index % 2 === 0 ? 
-                                    <div className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
+                                    <div key={index} className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
                                     <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                         <img
-                                            src='/assets/data-werehouse-product.png'
+                                            src={`${data.image}`}
                                             width={370}
                                             height={370}
                                             objectfit="contain"
@@ -131,10 +128,10 @@ const Product = () => {
                                     <div className="flex justify-center  items-center  ">
                                         <div className="w-full  m-4 p-4">
                                             <div className="text-gray-800 font-bold  text-2xl">
-                                                Data werehouse & Bussines Intelegent
+                                                {data.title}
                                             </div>
                                             <div className="text-gray-800 my-3 text-justify ">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                               {data.deskripsi}
                                             </div>
                                             <div>
                                                 <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
@@ -145,15 +142,15 @@ const Product = () => {
                                 </div>
                                 :
 
-                                <div className="bg-gray-100 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
+                                <div key={index} className="bg-gray-100 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3  ">
                               
                                 <div className="flex justify-center  items-center  ">
                                     <div className="w-full  m-4 p-4">
                                         <div className="text-gray-800 font-bold  text-2xl">
-                                            Data werehouse & Bussines Intelegent
+                                           {data.title}
                                         </div>
                                         <div className="text-gray-800 my-3 text-justify ">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        {data.description}
                                         </div>
                                         <div>
                                             <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
@@ -163,7 +160,7 @@ const Product = () => {
                                 </div>
                                 <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                     <img
-                                        src='/assets/data-werehouse-product.png'
+                                        src={`${data.image}`}
                                         width={370}
                                         height={370}
                                         objectfit="contain"
@@ -276,3 +273,31 @@ const Product = () => {
 }
 
 export default Product;
+
+Product.getInitialProps = async (ctx) => {
+    const options = {
+        method: 'GET',
+       
+    };
+    const resProduct = await fetch(`${config.piranti.griyo_utomo}/produklist`, options);
+    const resProductJson = await resProduct.json()
+
+    const resSolusi = await fetch(`${config.piranti.griyo_utomo}/listsolusi`, options);
+    const resSolusiJson = await resSolusi.json()
+
+    const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner_produk`, options);
+    const resBannerJson = await resBanner.json()
+
+
+    return {
+        productList: resProductJson.result,
+        solutionsList: resSolusiJson.result,
+        bannerList: resBannerJson.result,
+
+    }
+}
+
+
+
+
+

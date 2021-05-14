@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <Layout title="Contact">
             <div className="contact bg-yellow-400 flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-auto xl:h-auto 2xl:h-screen   xs:max-h-full xl:max-h-max " >
-                <div className="w-11/12  bg-softWhite flex flex-wrap my-24 " style={{borderRadius:30}} >
+                <div className="w-11/12  bg-softWhite flex flex-wrap my-32 " style={{borderRadius:25}} >
                     <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-10">
                         <div className="w-11/12 h-full p-3">
                             <input type="text" placeholder="Name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
@@ -22,7 +22,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="xs:w-full lg:w-1/2 xs:h-auto lg:h-auto flex justify-center items-center  py-10">
+                    <div className="xs:w-full lg:w-1/2 xs:h-auto lg:h-auto flex justify-center items-center  py-10 ">
                         <div className="w-3/4  flex flex-col justify-center items-center ">
                             <div className="text-yellow-400 text-6xl font-bold ">
                                 Contact
@@ -44,8 +44,8 @@ const Contact = () => {
                                     </div> */}
                             <div className="w-full h-20 flex ">
                                 
-                                <div className="h-full w-full flex justify-center items-center">
-                                    <div className="xs:text-lg lg:text-lg xl:text-xl font-bold  text-left ">
+                                <div className="h-auto bg-red-200 w-full flex justify-center items-center">
+                                    <div className="xs:text-md lg:text-lg xl:text-xl font-bold  text-left ">
                                         <span>PT. ARWICS TECHNOLOGY SOLUSINDO</span>
                                     </div>
                                 </div>
@@ -57,8 +57,8 @@ const Contact = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
                                 </div>
-                                <div className="h-full w-3/4 flex items-center">
-                                    <div className="xs:text-lg lg:text-lg xl:text-xl font-bold  text-left ">
+                                <div className="h-auto w-3/4 flex items-center bg-green-200">
+                                    <div className="xs:text-md lg:text-lg xl:text-xl font-bold  text-left ">
                                         <span>The CEO Building , 9th Floor jl. Tb Simatupang N0. 18C Jakarta 12430</span>
                                     </div>
                                 </div>
