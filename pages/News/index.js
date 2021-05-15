@@ -26,7 +26,7 @@ const News = () => {
                         })}
                     </div>
                     <div className="w-full h-full   grid xs:grid-cols-1 md:grid-cols-2 gap-1 items-center">
-                        {/* {[1, 2, 3, 4, 5, 6,9,8,9,9].map((data, index) => {
+                        {[1, 2, 3, 4, 5, 6,9,8,9,9].map((data, index) => {
                             return (
                                 <div className="h-96 bg-gray-700 xs:m-1 xl:m-2 rounded-lg" >
                                     <div className="w-full h-2/3 bg-gray-100 rounded-t-lg">
@@ -37,7 +37,7 @@ const News = () => {
 
                                 </div>
                             )
-                        })} */}
+                        })}
                     </div>
 
 
