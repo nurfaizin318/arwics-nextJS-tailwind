@@ -13,7 +13,6 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
 
 
-    console.log(bannerList[0].id)
     const productImageUpdateRef = createRef(null);
     const productImageInsertRef = createRef(null);
 
@@ -55,7 +54,6 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
 
     }
-
 
 
     const handleUpdateProduct = (e) => {
@@ -158,7 +156,10 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                 console.log(error)
             })
 
+
     }
+
+
     const updateBanner = (e) => {
         e.preventDefault()
         const data = new FormData();
@@ -166,7 +167,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
         data.append("deskripsi", banner.description)
         data.append("id_user", 1)
         data.append("id_banner",banner.id)
-        data.append("menu", "Produk")
+        data.append("menu", "produk")
         fetch(`${config.piranti.griyo_utomo}/update_banner`, {
           method: 'POST',
           header: {
@@ -186,8 +187,8 @@ const Product = ({ productList,solutionsList,bannerList}) => {
       }
 
     return (
-       <>
-       <NavbarAdmin />
+   
+       <Layout >
             <div
                 style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat",width:"100vw" }}
                 className="home-row1 w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
@@ -410,7 +411,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                     </div>
                 </div>
             </div>
-            </>
+            </Layout>
     );
 }
 

@@ -4,10 +4,12 @@ import Footer from '../Footer';
 import Head from 'next/head';
 import ButtonToTop from '../ButtonToTop';
 import React from 'react'
+import { useRouter } from "next/router";
 
 
 const Layout = ({ children,title }) => {
 
+const router = useRouter();
 
 const auth = async() =>{
      const status = await localStorage.getItem("logged")
@@ -15,9 +17,22 @@ const auth = async() =>{
 
 }
 
-React.useEffect(()=>{
-console.log(auth)
-},[])
+const SetNavbar = () =>{
+      if (router.pathname.startsWith("/Admin")) {
+           return <NavbarAdmin />
+      }
+      if (router.pathname.startsWith("/Maintenance")) {
+          return null;
+     }
+      else{
+           return <Navbar />
+      }
+
+     
+        
+}
+
+
 
      return (
           <div className="flex flex-col h-full justify-between  "  >
@@ -26,7 +41,9 @@ console.log(auth)
                     <link rel="icon" href='/favicon.png' />
                </Head>
                {/* {login == true ? NavbarAdmin : Navbar  } */}
-               <Navbar  />
+
+          
+               <SetNavbar />
                <div className="z-5" style={{maxWidth:1900,margin:"0 auto",}} >
                     <ButtonToTop />
                     {children}

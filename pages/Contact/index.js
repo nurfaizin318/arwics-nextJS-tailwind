@@ -44,7 +44,7 @@ const Contact = () => {
                                     </div> */}
                             <div className="w-full h-20 flex ">
                                 
-                                <div className="h-auto bg-red-200 w-full flex justify-center items-center">
+                                <div className="h-auto  w-full flex justify-center items-center">
                                     <div className="xs:text-md lg:text-lg xl:text-xl font-bold  text-left ">
                                         <span>PT. ARWICS TECHNOLOGY SOLUSINDO</span>
                                     </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
                                 </div>
-                                <div className="h-auto w-3/4 flex items-center bg-green-200">
+                                <div className="h-auto w-3/4 flex items-center ">
                                     <div className="xs:text-md lg:text-lg xl:text-xl font-bold  text-left ">
                                         <span>The CEO Building , 9th Floor jl. Tb Simatupang N0. 18C Jakarta 12430</span>
                                     </div>

@@ -1,35 +1,10 @@
 
-// const withImages = require('next-images')
 
-
-// module.exports = withImages({
-//   inlineImageLimit: 16384,
-//   webpack(config, options) {
-//     return config
-//   },
-//   domains: ['api.arwics.com','images.unsplash.com','res.cloudinary.com'],
-//   exportPathMap: async function (
-//     defaultPathMap,
-//     { dev, dir, outDir, distDir, buildId }
-//   ) {
-//     return {
-//       '/': { page: '/' },
-//       '/About': { page: '/About' },
-//       '/Contact': { page: '/Contact' },
-//       '/Gallery': { page: '/Gallery' },
-//       '/News': { page: '/News' },
-//       '/Product': { page: '/Product' },
-      
-//     }
-//   },
-//   loader: 'cloudinary',
-
-// })
 module.exports = {
 
  
   webpack: (config, options) => {
-    config.optimization.minimize = false;
+    config.optimization.minimize = true;
   return config
   },
 
@@ -51,6 +26,12 @@ module.exports = {
           '/Gallery': { page: '/Gallery' },
           '/News': { page: '/News' },
           '/Product': { page: '/Product' },
+          '/Login': { page: '/Login' },
+          '/Admin/Home': { page:  '/Admin/Home' },
+          '/Admin/Product': { page:  '/Admin/Product' },
+          '/Admin/Contact': { page:  '/Admin/Contact' },
+          '/Admin/Gallery': { page:  '/Admin/Gallery' },
+          '/Admin/Product': { page:  '/Admin/Product' },
           
         }
       },

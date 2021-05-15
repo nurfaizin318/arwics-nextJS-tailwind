@@ -58,8 +58,9 @@ const About = () => {
 
 
     return (
+        <Layout>
         <div>
-            <NavbarAdmin />
+         
             <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2" >
                 <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0">
                     <div className="xs:my-0 md:my-30 lg:my-34    xl:my-20  xs:p-0 lg:p-10 ">
@@ -73,8 +74,8 @@ const About = () => {
                         />
                     </div>
                 </div>
-                <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10 bg-red-200 ">
-                    <div className="text-xl xl:text-md xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600  p-3 bg-green-200 ">
+                <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex items-center justify-center text-sm py-2 pb-10 ">
+                    <div className="text-xl xl:text-md xs:w-full md:w-5/6 lg:w-full xl:w-3/4 text-gray-600  p-3 ">
                         <b>Filosofi warna dan logo:</b><br></br>
                         <b> Merah : </b><br></br>
                         <TextInputs value="Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin" onChange={() => { }} />
@@ -294,6 +295,7 @@ const About = () => {
 
             </div>
         </div>
+        </Layout>
     );
 
 }

@@ -1,5 +1,5 @@
 const piranti = {
-    griyo_utomo:"http://api.arwics.com"
+    griyo_utomo:"https://api.arwics.com"
 }
 
 export default {piranti};

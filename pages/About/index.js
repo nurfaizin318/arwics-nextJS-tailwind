@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const About = () => {
 
-
+    
 
      const data = [
           { title: "Specialist", value: "16" },
@@ -46,7 +46,7 @@ const About = () => {
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
-                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0">
+                    <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex r justify-center xs:px-20 py-16 lg:p-0">
                          <div className="xs:my-0 md:my-30 lg:my-34    xl:my-20  xs:p-0 lg:p-10 ">
                               <img
                                    src="/favicon.png"
@@ -59,7 +59,8 @@ const About = () => {
                          </div>
                     </div>
                     <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex  justify-center text-sm py-2   ">
-                         <div className="xs:text-xl sm:text-lg md:text-xl lg:text-sm xl:text-xl  2xl:text-sm xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600 p-10   ">
+                         <div className="xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600  p-10 mt-5 xs:text-xl sm:text-lg md:text-2xl lg:text-base  "  >
+                         {/* xs:text-xl sm:text-lg lg:text-xl    */}
                               <b className="text-2xl">Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                               Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
@@ -135,7 +136,7 @@ const About = () => {
                               <div className="grid xs:grid-cols-1 lg:grid-cols-3">
                                    <div className="w-full h-96 ">
 
-                                        <div className="w-full h-full  rounded-lg flex justify-center items-center ">
+                                        <div className="w-full h-full  rounded-lg flex justify-center items-center rounded-lg ">
                                              <img
                                                   src={`https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80`}
                                                   width={580}
@@ -166,7 +167,7 @@ const About = () => {
 
                               </div>
                               <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
-                                   {[1, 2, 3].map((data, index) => {
+                                   {/* {[1, 2, 3].map((data, index) => {
                                         return (
                                              <div key={index} className="text-center " >
                                                   <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
@@ -180,7 +181,7 @@ const About = () => {
                                                   </div>
                                              </div>
                                         )
-                                   })}
+                                   })} */}
 
 
                               </div>

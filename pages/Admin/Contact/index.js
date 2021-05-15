@@ -45,8 +45,8 @@ const Contact = (profile) => {
 
     return (
         <>
-       <NavbarAdmin />
-            <div className="contact bg-yellow-400 flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-auto xl:h-auto 2xl:h-screen   xs:max-h-full xl:max-h-max " >
+      <Layout>      
+                <div className="contact bg-yellow-400 flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-auto xl:h-auto 2xl:h-screen   xs:max-h-full xl:max-h-max " >
                 <div className="w-11/12  bg-softWhite flex flex-wrap my-24 " style={{ borderRadius: 30 }} >
                     <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-10">
                         <div className="w-11/12 h-full p-3">
@@ -161,6 +161,7 @@ const Contact = (profile) => {
                     </div>
                 </div>
             </div>
+            </Layout>
             </>
     );
 }

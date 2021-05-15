@@ -8,6 +8,7 @@ import OptionButton from "../../../components/OptionButton";
 import config from "../../../constanta/index";
 import Router from 'next/router';
 import NavbarAdmin from '../../../components/NavbarAdmin'
+import Navbar from '../../../components/Navbar';
 
 
 export default function Page({ banner, service, agreement, license,application }) {
@@ -56,6 +57,13 @@ console.log(banner)
       behavior: "smooth"
     });
   }
+
+
+  React.useEffect(() => {
+    // window is accessible here.
+    console.log("window.innerHeight", window.location.pathname);
+  }, []);
+
 
 
 
@@ -366,7 +374,7 @@ console.log("id"+id)
 
   return (
     <>
-    <NavbarAdmin />
+    <Layout >
         {/* //Modal Licensed Agreement  */}
 
         <div className={`${modalLicensed ? "" : "hidden"} w-screen h-screen z-50 fixed right-0 top-0  flex items-center justify-center p-5`} style={{ backgroundColor: "rgba(38,50,56 ,0.7)" }} >
@@ -751,6 +759,7 @@ console.log("id"+id)
               )
             })}
         </div>
+        </Layout>
     </>
   )
 }

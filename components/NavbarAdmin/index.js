@@ -113,7 +113,7 @@ const Navbar = () => {
 
 
       {/* navbar */}
-      <nav className={`flex items-center flex-wrap fixed px-3  h-24  top-0 w-full  z-40 transition duration-700 `}>
+      <nav className={`flex items-center flex-wrap fixed px-3  h-24  top-0 w-full  z-40 transition duration-700 bg-gray-400`}>
         <Link href='/'>
           <div className="xs:w-1/2  md:w-1/5">
             <img
