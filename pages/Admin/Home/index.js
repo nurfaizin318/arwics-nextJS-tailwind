@@ -20,7 +20,7 @@ export default function Page({ banner, service, agreement, license,application }
   const insertImageApp = React.createRef(null);
   const updateImageApp = React.createRef(null)
 
-console.log(banner)
+console.log(license)
 
   const [visible, setVisible] = useState(false);
   const [modalLicensed, setModalLicensed] = useState(false);
@@ -58,11 +58,6 @@ console.log(banner)
     });
   }
 
-
-  React.useEffect(() => {
-    // window is accessible here.
-    console.log("window.innerHeight", window.location.pathname);
-  }, []);
 
 
 
@@ -387,7 +382,7 @@ console.log("id"+id)
             </div>
             <div className="w-auto h-auto flex justify-center items-center">
               <img
-                src={`/assets/isales2.png `}
+                src={`http://api.arwics.com/public/license_file/U-1620267782.png`}
                 width={500}
                 height={650}
                 objectfit="contain"
