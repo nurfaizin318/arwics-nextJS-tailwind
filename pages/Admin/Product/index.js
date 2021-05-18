@@ -13,6 +13,12 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
 
 
+    const productResult = productList.result;
+    const productImageUrl = productList.url_foto;
+
+    const solutionsResult = solutionsList.result;
+    const solutionsImageUrl = solutionsList.url_foto;
+
     const productImageUpdateRef = createRef(null);
     const productImageInsertRef = createRef(null);
 
@@ -249,7 +255,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                 </div>
                             </div>
                             <div className="w-full  ">
-                                {productList.map((data, index) => {
+                                {productResult.data.map((data, index) => {
                                     return (
                                         <div key={index} className="mt-3 xs:w-full lg:w-3/4 mx-auto">
                                             <OptionButton
@@ -276,7 +282,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                                             :
                                                             <div className="h-full w-1/2    flex justify-center items-center m-1">
                                                                 <img
-                                                                    src={data.image}
+                                                                  src={`${productImageUrl + data.image}`}
                                                                     width={200}
                                                                     height={350}
                                                                     objectfit="cover"
@@ -350,7 +356,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                             </div>
                                         </div>
 
-                            {solutionsList.map((data, index) => {
+                            {productResult.data.map((data, index) => {
                                 return (
                                     <div key={index} className="xs:full lg:w-11/12 mx-auto my-3">
                                         <OptionButton
@@ -374,7 +380,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                                         </div>
                                                     </div> :
                                                     <img
-                                                        src={data.image}
+                                                        src={`${productImageUrl + data.image}`}
                                                         width={370}
                                                         height={370}
                                                         objectfit="contain"
@@ -422,10 +428,10 @@ Product.getInitialProps = async (ctx) => {
         method: 'GET',
        
     };
-    const resProduct = await fetch(`${config.piranti.griyo_utomo}/produklist`, options);
+    const resProduct = await fetch(`${config.piranti.griyo_utomo}/produklist?limit=10&page=1`, options);
     const resProductJson = await resProduct.json()
 
-    const resSolusi = await fetch(`${config.piranti.griyo_utomo}/listsolusi`, options);
+    const resSolusi = await fetch(`${config.piranti.griyo_utomo}/listsolusi?limit=10&page=1`, options);
     const resSolusiJson = await resSolusi.json()
 
     const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner_produk`, options);
@@ -433,8 +439,8 @@ Product.getInitialProps = async (ctx) => {
 
 
     return {
-        productList: resProductJson.result,
-        solutionsList: resSolusiJson.result,
+        productList: resProductJson,
+        solutionsList: resSolusiJson,
         bannerList: resBannerJson.result,
 
     }
