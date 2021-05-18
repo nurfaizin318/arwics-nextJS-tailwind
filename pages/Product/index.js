@@ -74,10 +74,10 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                         >
                             {productResult.data.map((data, index) => {
                                 return (
-                                    <>
+                                    < >
                                         <div key={index} className=" flex justify-center items-center flex ">
                                             <div className="w-5/6 h-3/4 flex ">
-                                                <div className="h-full w-1/2    flex justify-center items-center m-1">
+                                                <div className="h-full w-1/2    flex justify-center items-center m-1 ml-14">
                                                     <img
                                                         src={`${productImageUrl + data.image}`}
                                                         width={450}
@@ -90,9 +90,9 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                         <div className=" flex justify-center items-center">
                                             <div className="w-5/6 h-5/6  flex items-center xs:p-0 lg:p-10 ">
                                                 <div className="">
-                                                    <span className="text-5xl text-gray-50  font-bold mb-2">{data.title}</span><br />
+                                                    <span className="text-5xl text-gray-50  font-bold mb-2">{data.title} </span><br />
                                                     <div className="text-gray-50  text-xl mt-3">
-                                                        <span >{data.deskripsi}</span><br />
+                                                        <span >{data.deskripsi} </span><br />
                                                     </div>
                                                     <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
                                                         <Link href="/Comtact" >
@@ -105,9 +105,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                     </>
                                 )
                             })}
-                            <div className="w-full absolute bottom-0 h-36 text-gray-50  flex justify-center items-center">
-                              <button>View All</button>
-                            </div>
+                          
 
                         </div>
 
