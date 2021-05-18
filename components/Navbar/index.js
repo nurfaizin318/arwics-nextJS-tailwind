@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from "next/image"
 import { useRouter } from "next/router";
 
 const Navbar = () => {
 
+
   const [active, setActive] = useState(false);
   const router = useRouter();
   const [navColor, setNavColor] = useState('bg-transparent')
+
+
 
   const handleClick = () => {
     setActive(!active);
@@ -28,8 +30,10 @@ const Navbar = () => {
 
 
   return (
+    
     // drawer
     <>
+
       <div className={`transform  ${active ? 'translate-1/2 shadow-2xl' : '-translate-x-full  '} nav z-50 xs:w-2/3 sm:w-1/2  h-screen md:hidden  transition-all duration-300 fixed left-0 top-0 bg-gray-50 overflow-auto `}>
         <div className="h-1/6 w-full bg-gradient-to-r  from-blue-300  to-red-300 ">
         </div>
@@ -113,7 +117,7 @@ const Navbar = () => {
 
 
       {/* navbar */}
-      <nav className={`flex items-center flex-wrap fixed px-3  h-24  top-0 w-full  z-40 transition duration-700 ${navColor}`}>
+      <nav className={`${router.pathname == "/"?"hidden": "" } flex items-center flex-wrap fixed px-3  h-24  top-0 w-full  z-40 transition duration-700 ${navColor}`}>
         <Link href='/'>
           <div className="xs:w-1/2  md:w-1/5">
             <img

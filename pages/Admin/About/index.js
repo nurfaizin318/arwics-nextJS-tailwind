@@ -124,7 +124,7 @@ const About = () => {
                                         </div>
                                         <div className="h-12 w-full text-sm ">
                                             {dataOnEditing && dataIndexEdit == index ?
-                                                <TextInputs value={ctx.value} onChange={() => { }} />
+                                                <TextInputs value={ctx.title} onChange={() => { }} />
                                                 :
                                                 ctx.title
                                             }
@@ -175,7 +175,7 @@ const About = () => {
                                             }
 
                                         </div>
-                                        <div className="flex h-16  justify-center items-center font-bold text-xl ">
+                                        <div className="flex h-16  justify-center items-center font-bold text-xl mx-1">
                                             {goalOnEditing && goalIndexEdit == index ?
                                                 <TextInputs value={data.title} onChange={() => { }} />
                                                 :

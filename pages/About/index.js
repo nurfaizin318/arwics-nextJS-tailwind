@@ -40,14 +40,12 @@ const About = () => {
           { logo: "/kerjasama/xl.png" },
      ];
 
-     const myLoader = ({ src, width, quality }) => {
-          return `https://images.unsplash.com/photo-1614602042626-1c44d897a076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80`
-     }
+ 
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex r justify-center xs:px-20 py-16 lg:p-0">
-                         <div className="xs:my-0 md:my-30 lg:my-34    xl:my-20  xs:p-0 lg:p-10 ">
+                         <div className="xs:my-0 md:my-32 lg:my-10    xl:my-0 xs:p-0 lg:p-10 ">
                               <img
                                    src="/favicon.png"
                                    alt="Picture of the author"
@@ -59,9 +57,11 @@ const About = () => {
                          </div>
                     </div>
                     <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex  justify-center text-sm py-2   ">
-                         <div className="xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600  p-10 mt-5 xs:text-xl sm:text-lg md:text-2xl lg:text-base  "  >
-                         {/* xs:text-xl sm:text-lg lg:text-xl    */}
-                              <b className="text-2xl">Filosofi warna dan logo:</b><br></br>
+                         <div className="xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600  p-8 mt-5   " 
+                         style={{  fontSize:"clamp(1rem, 1.3vw, 1.3rem)"}}
+                         >
+                         {/* xs:text-xl sm:text-lg md:text-2xl lg:text-base    */}
+                              <b className="text-xl">Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
                               Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
                               <b>Kuning :</b><br></br>
@@ -84,7 +84,7 @@ const About = () => {
                     </div>
                </div>
                <div className=" w-full flex justify-center">
-                    <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center mt-24" style={{ overflowWrap: "break-word" }}>
+                    <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center mt-14" style={{ overflowWrap: "break-word" }}>
                          {data.map((ctx, index) => {
                               return (
                                    <div key={index} >
@@ -103,7 +103,6 @@ const About = () => {
                <div className="  bg-gray-300 mx-1  rounded-lg">
                     <div className="h-32 w-full flex justify-center items-center text-2xl font-bold text-gray-600 text-center ">
                          <span>Innovative - Engage - Trusted </span>
-
                     </div>
                     <div className=" pb-44 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about  my-10" >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
@@ -111,13 +110,12 @@ const About = () => {
                               {goal.map((data, index) => {
                                    return (
                                         <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 ">
-                                             <div className="flex flex-wrap justify-center ">
+                                             <div className="flex flex-wrap items-center justify-center  h-32">
                                                   <img
                                                        src={`${data.icon}`}
                                                        alt="Picture of the author"
-                                                       width={100}
-                                                       height={120}
-                                                       objectfit="contain"
+                                                      
+                                                       style={{objectFit:"contain",width:110,height:100}}
                                                   />
                                              </div>
                                              <div className="flex justify-center items-center font-bold text-xl ">
@@ -196,7 +194,7 @@ const About = () => {
                          </div>
                          <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
                               style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
-                              <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
+                              <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:pb-72 md:pb-5 ">
                                    {cooperation.map((data, index) => {
                                         return (
                                              <div key={index} className="w-24  h-24  m-3 ">

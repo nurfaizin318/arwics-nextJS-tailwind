@@ -27,7 +27,7 @@ const Footer = () => {
                         082129222999
                  </div>
                 </div>
-                <div className="text-gray-50 p-5 flex justify-center m-2 xs:w-full sm:w-screen md:w-1/2 lg:w-1/4 ">
+                {/* <div className="text-gray-50 p-5 flex justify-center m-2 xs:w-full sm:w-screen md:w-1/2 lg:w-1/4 ">
                     <div className="w-44 h-44 grid grid-flow-col grid-cols-2 grid-rows-2 ">
                         <div className=" flex justify-center items-center  ">
                             <img
@@ -58,7 +58,7 @@ const Footer = () => {
 
                     </div>
 
-                </div>
+                </div> */}
             </div>
             <div className="w-full h-24 flex justify-center items-center text-gray-50 text-lg">
                 Copyright Arwics {year}
