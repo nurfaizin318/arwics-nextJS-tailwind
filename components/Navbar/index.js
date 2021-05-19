@@ -22,7 +22,8 @@ const Navbar = () => {
       setNavColor(backgroundcolor)
     
         return () => {
-          window.removeEventListener("scroll", backgroundcolor, true);
+          backgroundcolor = "bg-transparent";
+          window.removeEventListener("scroll", backgroundcolor,true);
      }
       })
     

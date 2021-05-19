@@ -20,7 +20,6 @@ export default function Page({ banner, service, agreement, license,application }
   const insertImageApp = React.createRef(null);
   const updateImageApp = React.createRef(null)
 
-console.log(license)
 
   const [visible, setVisible] = useState(false);
   const [modalLicensed, setModalLicensed] = useState(false);
@@ -445,7 +444,7 @@ console.log("id"+id)
                       <div>
                         <form onSubmit={insertService}>
                           <div className="p-3">
-                            <input type="file" hidden name="image" ref={insertImageService} onChange={(e) => { setInsertOurService({ ...insertOurService, image: e.target.files[0] }) }} />
+                          <input type="file" hidden name="image" ref={insertImageService} onChange={(e) => { setInsertOurService({ ...insertOurService, image: e.target.files[0] }) }} />
                             <div className="w-40 h-28 bg-blue-200 flex justify-center items-center rounded-lg" onClick={() => { insertImageService.current.click() }} style={{ cursor: "pointer" }}>
 
                               {insertOurService.image !== null ?
@@ -513,16 +512,11 @@ console.log("id"+id)
                               </div>
                               <div className="h-12 w-full my-1 p-1">
                                 <button type="submit" className={` ${servicesOnEditing && servicesIndexEdit == index ? "" : "hidden"}  w-full h-10 bg-purple-600 text-white rounded-md mt-1`}>update</button>
-
                               </div>
-
                             </div>
-
                           </div>
                         </form>
-
                       </div>
-
                     )
                   })}
 
@@ -572,7 +566,6 @@ console.log("id"+id)
                             index={index}
                             indexEdit={AgreementIndexEdit}
                             onDelete={(e) => { handleDeleteAgreement(e, data.id) }}
-
                           />
                           <div key={index} className="h-52 w-72    m-2 flex justify-center pt-5" style={{ backgroundImage: "url('/assets/bg-agreement.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}  >
                             <div className="w-36 text-center mt-10 font-bold "   >

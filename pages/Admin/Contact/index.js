@@ -3,7 +3,7 @@ import Layout from '../../../components/Layout';
 import TextInputs from '../../../components/TextInputs';
 import config from "../../../constanta/index";
 import React from 'react';
-import NavbarAdmin from '../../../components/NavbarAdmin'
+
 
 
 const Contact = (profile) => {
@@ -67,21 +67,7 @@ const Contact = (profile) => {
                             <div className="text-yellow-400 text-6xl font-bold ">
                                 Contact
             </div>
-                            {/* <div className="text-xl font-bold  text-left mt-10 bg-gray-50">
-               <span>PT. ARWICS TECHNOLOGY SOLUSINDO</span>
-            </div>
-            <div className="text-xl font-bold  text-left mt-5">
-               <span>The CEO Building , 9th Floor jl. Tb Simatupang N0. 18C Jakarta 12430</span>
-            </div>
-            <div className="text-xl font-bold  text-left mt-10">
-               <span>02129222999</span>
-            </div>
-            <div className="text-xl font-bold   text-left mt-10">
-               <span>info@arwics.com</span>
-            </div>
-            <div className="text-xl font-bold   text-left ">
-               <span>arwics.com</span>
-            </div> */}
+                       
                             <div className="w-full h-20 flex ">
 
                                 <div className="h-full w-full flex justify-center items-center">

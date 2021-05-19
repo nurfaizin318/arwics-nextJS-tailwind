@@ -15,6 +15,7 @@ const auth = async() =>{
      const status = await localStorage.getItem("logged")
      return status;
 
+
 }
 
 const SetNavbar = () =>{
@@ -27,11 +28,7 @@ const SetNavbar = () =>{
       else{
            return <Navbar />
       }
-
-     
-        
 }
-
 
 
      return (
