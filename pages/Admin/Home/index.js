@@ -6,12 +6,18 @@ import TextInputs from '../../../components/TextInputs';
 import TextArea from "../../../components/TextArea";
 import OptionButton from "../../../components/OptionButton";
 import config from "../../../constanta/index";
-import Router from 'next/router';
-import NavbarAdmin from '../../../components/NavbarAdmin'
-import Navbar from '../../../components/Navbar';
+import SuccessPopUp from "../../../components/SuccessPopUp";
 
 
-export default function Page({ banner, service, agreement, license,application }) {
+
+export default function Page({ banner, service, agreement, license, application }) {
+
+
+
+  const [deleteStatus, setDeleteStatus] = useState({ service: false, agrement: false, license: false });
+  const [indexDelete, setIndexDelete] = useState("")
+
+
 
   const inputReference = React.createRef(null);
   const insertImageService = React.createRef(null);
@@ -23,6 +29,7 @@ export default function Page({ banner, service, agreement, license,application }
 
   const [visible, setVisible] = useState(false);
   const [modalLicensed, setModalLicensed] = useState(false);
+  const [visibleToast,setVisibleToast] = useState({success:false,failed:false});
 
 
 
@@ -31,22 +38,22 @@ export default function Page({ banner, service, agreement, license,application }
 
   const [applicationtIndexEdit, SetApplicatiOnIndexEdit] = useState("");
   const [applicationOnEditing, SetApplicationOnEditing] = useState(false)
-  const [applicationUpdate, setApplicationUpdate] = useState({ title: "", image: "", id: null,description:"" })
-  const [applicationInsert, setApplicationInsert] = useState({ title: "", image: "", id: null,description:"" })
+  const [applicationUpdate, setApplicationUpdate] = useState({ title: "", image: "", id: null, description: "" })
+  const [applicationInsert, setApplicationInsert] = useState({ title: "", image: "", id: null, description: "" })
 
 
   const [insertAgreement, setInsertAgreement] = useState({ title: "", image: null, })
   const [AgreementIndexEdit, SetAgreementIndexEdit] = useState("");
   const [AgreementOnEditing, SetAgreementOnEditing] = useState(false)
   const [agreementUpdate, setAgreementUpdate] = useState({ title: "", image: "", id: null })
-  
-  const [bannerUpdate, setBannerUpdate] = useState({ title: banner[0].title, id: banner[0].id, description:banner[0].description })
+
+  const [bannerUpdate, setBannerUpdate] = useState({ title: banner[0].title, id: banner[0].id, description: banner[0].description, status: false })
 
   const [licensedIndexEdit, SetLicensedIndexEdit] = useState("");
   const [licensedOnEditing, SetLicensedOnEditing] = useState(false)
   const [insertLicense, setInsertLicense] = useState({ image: null, name: "license", id_user: 1 })
 
-  const [insertOurService, setInsertOurService] = useState({ id_user: 1, image: null, title: "" });
+  const [insertOurService, setInsertOurService] = useState({ id_user: 1, image: null, title: "", status: false });
   const [ourServiceEditData, setOurServiceEditData] = useState({ id_user: 1, image: null, title: "" });
 
 
@@ -60,18 +67,20 @@ export default function Page({ banner, service, agreement, license,application }
 
 
 
-
-  const handleInsertApp= (e) =>{
+console.log(banner)
+  const handleInsertApp = (e) => {
     e.preventDefault()
 
 
     const data = new FormData();
 
-    data.append("image",applicationInsert.image)
-    data.append("title",applicationInsert.title)
-    data.append("description",applicationInsert.description)
 
-    
+
+    data.append("image", applicationInsert.image)
+    data.append("title", applicationInsert.title)
+    data.append("description", applicationInsert.description)
+
+
     fetch(`${config.piranti.griyo_utomo}/tambah_ourapplication`, {
       method: 'POST',
       header: {
@@ -89,29 +98,33 @@ export default function Page({ banner, service, agreement, license,application }
       })
   }
 
-  const handleDeleteApp = (e,id) => {
-        e.preventDefault()
-        const data = new FormData();
-        data.append("id_our_application",id)
-    
-        fetch(`${config.piranti.griyo_utomo}/delete_ourapplication`, {
-          method: 'POST',
-          header: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: data
-        })
-    
-          .then((response) => { return response.json() })
-          .then(data => console.log(data))
-          .then(() => window.location.reload())
-          .catch((error) => {
-            console.log(error)
-          })
-      }
+  const handleDeleteApp = (e, id) => {
 
-  const handlUpdateApp = (e,id) => {
+    e.preventDefault()
+    setRequestStatus({ ...requsestStatus, delete: true })
+    const data = new FormData();
+    data.append("id_our_application", id)
+
+    fetch(`${config.piranti.griyo_utomo}/delete_ourapplication`, {
+      method: 'POST',
+      header: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: data
+    })
+
+      .then((response) => { return response.json() })
+      .then(data => console.log(data))
+      .then(() => window.location.reload())
+      .catch((error) => {
+        console.log(error)
+      })
+
+    return setRequestStatus({ ...requsestStatus, delete: false })
+  }
+
+  const handlUpdateApp = (e, id) => {
 
     e.preventDefault()
     const data = new FormData();
@@ -119,7 +132,7 @@ export default function Page({ banner, service, agreement, license,application }
     data.append("description", applicationUpdate.description)
     data.append("image", applicationUpdate.image)
     data.append("id_our_application", id)
-    
+
 
     fetch(`${config.piranti.griyo_utomo}/update_ourapplication`, {
       method: 'POST',
@@ -139,11 +152,11 @@ export default function Page({ banner, service, agreement, license,application }
   }
 
 
-  const handleDeleteLicense = (e,id) => {
-console.log("id"+id)
+  const handleDeleteLicense = (e, id) => {
+    console.log("id" + id)
     e.preventDefault()
     const data = new FormData();
-    data.append("id_app",id)
+    data.append("id_app", id)
 
     fetch(`${config.piranti.griyo_utomo}/delete_license_application`, {
       method: 'POST',
@@ -162,7 +175,7 @@ console.log("id"+id)
       })
   }
 
-  const handleInsertLicense = (e) => {  
+  const handleInsertLicense = (e) => {
     e.preventDefault()
     const data = new FormData();
     data.append("nama_app", insertLicense.name)
@@ -175,10 +188,10 @@ console.log("id"+id)
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data',
       },
-      
+
       body: data
     })
-      .then((response) => { return response.json()})
+      .then((response) => { return response.json() })
       .then(data => console.log(data))
       .then(() => window.location.reload())
       .catch((error) => {
@@ -192,7 +205,7 @@ console.log("id"+id)
     e.preventDefault()
     const data = new FormData();
     data.append("id_agrement", id)
-
+   setDeleteStatus({ ...deleteStatus, agrement: true })
     fetch(`${config.piranti.griyo_utomo}/delete_agrement`, {
       method: 'POST',
       header: {
@@ -203,11 +216,14 @@ console.log("id"+id)
     })
 
       .then((response) => { return response.json() })
-      .then(data => console.log(data))
-      .then(() => window.location.reload())
+      .then(data => { setDeleteStatus({ ...deleteStatus, agrement: false}) })
+      .then(() => {setVisibleToast({...visibleToast,success:true})})
       .catch((error) => {
-        console.log(error)
+        setDeleteStatus({ ...deleteStatus, agrement: false });
+        setVisibleToast({...visibleToast,success:true});
       })
+
+
 
   }
   const handleInsertAgreement = (e) => {
@@ -265,12 +281,13 @@ console.log("id"+id)
 
   const updateBanner = (e) => {
     e.preventDefault()
+    setBannerUpdate({ ...bannerUpdate, status: true })
     const data = new FormData();
     data.append("title", bannerUpdate.title)
     data.append("deskripsi", bannerUpdate.description)
     data.append("id_user", 1)
     data.append("id_banner", bannerUpdate.id)
-    data.append("menu", "home")
+    data.append("menu", "home",)
     fetch(`${config.piranti.griyo_utomo}/update_banner`, {
       method: 'POST',
       header: {
@@ -281,10 +298,11 @@ console.log("id"+id)
     })
 
       .then((response) => { return response.json() })
-      .then(data => console.log(data))
+      .then(data => setBannerUpdate({ ...bannerUpdate, status: false }))
       .then(() => window.location.reload())
       .catch((error) => {
         console.log(error)
+        setBannerUpdate({ ...bannerUpdate, status: false })
       })
 
   }
@@ -292,6 +310,7 @@ console.log("id"+id)
   const deleteService = (e, id) => {
 
     const data = new FormData();
+    setDeleteStatus({ ...deleteStatus, service: true })
     data.append("id_ourservice", id)
     fetch(`${config.piranti.griyo_utomo}/deleted_ourservice`, {
       method: 'POST',
@@ -299,9 +318,10 @@ console.log("id"+id)
       body: data
     })
       .then((response) => { return response.json() })
-      .then(data => console.log(data))
+      .then(data => { setDeleteStatus({ ...deleteStatus, agrement: false }) })
       .then(() => window.location.reload())
       .catch((error) => {
+        setDeleteStatus({ ...deleteStatus, agrement: false })
         console.log(error)
       })
 
@@ -336,6 +356,7 @@ console.log("id"+id)
   }
   const insertService = (e) => {
     e.preventDefault();
+    setInsertOurService({ ...insertOurService, status: true })
     const data = new FormData()
     data.append("title", insertOurService.title)
     data.append("id_user", 1);
@@ -346,29 +367,21 @@ console.log("id"+id)
       body: data
     })
       .then((response) => { return response.json() })
-      .then(data => console.log(data))
+      .then(data => setInsertOurService({ ...insertOurService, status: false }))
       .then(() => window.location.reload())
       .catch((error) => {
         console.log(error)
+        setInsertOurService({ ...insertOurService, status: false })
       })
 
 
     // setInsertOurService(initialService)
   }
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const handleVisible = window.scrollY < 200 ? false : true;
-      setVisible(handleVisible)
-      return () => {
-        window.removeEventListener("scroll", handleVisible, false);
-      }
-    })
-  
-  }, []);
+
 
   return (
     <>
-    <Layout >
+      <Layout >
         {/* //Modal Licensed Agreement  */}
 
         <div className={`${modalLicensed ? "" : "hidden"} w-screen h-screen z-50 fixed right-0 top-0  flex items-center justify-center p-5`} style={{ backgroundColor: "rgba(38,50,56 ,0.7)" }} >
@@ -420,7 +433,13 @@ console.log("id"+id)
                       />
                     </div>
                     <div className="w-full  xflex items-center justify-center mt-2 mb-3">
-                      <button onClick={updateBanner} className="border-none outline-none h-12 w-52 bg-blue-500 rounded-lg text-gray-50  ">update</button>
+                      {bannerUpdate.status ?
+
+                        <button className="border-none outline-none h-12 w-52 bg-gray-500 rounded-lg text-gray-50  ">updating...</button>
+
+                        :
+                        <button onClick={updateBanner} className="border-none outline-none h-12 w-52 bg-blue-500 rounded-lg text-gray-50  ">update</button>
+                      }
                     </div>
                   </form>
                   <span className="text-sm text-gray-600  ">
@@ -444,7 +463,7 @@ console.log("id"+id)
                       <div>
                         <form onSubmit={insertService}>
                           <div className="p-3">
-                          <input type="file" hidden name="image" ref={insertImageService} onChange={(e) => { setInsertOurService({ ...insertOurService, image: e.target.files[0] }) }} />
+                            <input type="file" hidden name="image" ref={insertImageService} onChange={(e) => { setInsertOurService({ ...insertOurService, image: e.target.files[0] }) }} />
                             <div className="w-40 h-28 bg-blue-200 flex justify-center items-center rounded-lg" onClick={() => { insertImageService.current.click() }} style={{ cursor: "pointer" }}>
 
                               {insertOurService.image !== null ?
@@ -460,7 +479,12 @@ console.log("id"+id)
                             <TextInputs value={insertOurService.title} onChange={(e) => { setInsertOurService({ ...insertOurService, title: e.target.value }) }} />
                           </div>
                           <div className="h-12 w-full my-1 px-3">
-                            <button type="submit" className={` w-full h-10 bg-purple-600 text-white rounded-md mt-1`} >Insert</button>
+                            {insertOurService.status ?
+                              <button  className={` w-full h-10 bg-gray-600 text-white rounded-md mt-1`} >Inserting...</button>
+                              :
+                              <button type="submit" className={` w-full h-10 bg-purple-600 text-white rounded-md mt-1`} >Insert</button>
+
+                            }
                           </div>
                         </form>
 
@@ -470,16 +494,19 @@ console.log("id"+id)
                   {service !== null && service.map((data, index) => {
                     return (
                       <div key={index} className="p-2  m-3">
-                          <OptionButton
-                            editabled={true}
-                            onEditing={servicesOnEditing}
-                            cancleEdit={() => SetservicesOnEditing(false)}
-                            setOnEditing={() => { SetservicesOnEditing(true); SetservicesIndexEdit(index); setOurServiceEditData({ ...ourServiceEditData, image: data.image, title: data.title }) }}
-                            index={index}
-                            indexEdit={servicesIndexEdit}
-                            onDelete={(e) => deleteService(e, data.id)}
+                        <OptionButton
+                          editabled={true}
+                          onEditing={servicesOnEditing}
+                          cancleEdit={() => SetservicesOnEditing(false)}
+                          setOnEditing={() => { SetservicesOnEditing(true); SetservicesIndexEdit(index); setOurServiceEditData({ ...ourServiceEditData, image: data.image, title: data.title }) }}
+                          index={index}
+                          indexEdit={servicesIndexEdit}
+                          indexDelete={indexDelete}
+                          deleteStatus={deleteStatus.service}
+                          onDelete={(e) => { deleteService(e, data.id); setIndexDelete(index); }}
 
-                          />
+
+                        />
                         <form onSubmit={(e) => upateOurService(e, data.id)}>
 
                           <div className="border-2 border-blue-200 m-2 rounded-lg text-center min-h-96 w-44 flex justify-center items-cennter  lg:h-full   ">
@@ -525,7 +552,7 @@ console.log("id"+id)
             </div>
             <div className="bg-gray-100" >
               <div className=" py-16 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue"
-             >
+              >
                 <div className="p-10 text-4xl  text-gray-50 font-bold  flex justify-center">
                   Our Commercial Agreement
             </div>
@@ -537,7 +564,7 @@ console.log("id"+id)
                       </div>
                       <div className="w-full h-44 p-3 bg-gray-50 rounded-md">
                         <form onSubmit={handleInsertAgreement}>
-                        <input type="file" hidden ref={insertImageAgreement} onChange={(e) => { setInsertAgreement({ ...insertAgreement, image: e.target.files[0] }) }} />
+                          <input type="file" hidden ref={insertImageAgreement} onChange={(e) => { setInsertAgreement({ ...insertAgreement, image: e.target.files[0] }) }} />
                           <div className="w-64 h-12 bg-blue-200 flex justify-center items-center rounded-lg" onClick={() => { insertImageAgreement.current.click() }} style={{ cursor: "pointer" }}>
 
                             {insertAgreement.image !== null ?
@@ -564,8 +591,10 @@ console.log("id"+id)
                             cancleEdit={() => SetAgreementOnEditing(false)}
                             setOnEditing={() => { SetAgreementOnEditing(true); SetAgreementIndexEdit(index); setAgreementUpdate({ ...agreementUpdate, title: data.title, image: data.image, id: data.id }) }}
                             index={index}
+                            indexDelete={indexDelete}
+                            deleteStatus={deleteStatus.agrement}
                             indexEdit={AgreementIndexEdit}
-                            onDelete={(e) => { handleDeleteAgreement(e, data.id) }}
+                            onDelete={(e) => { handleDeleteAgreement(e, data.id); setIndexDelete(index); }}
                           />
                           <div key={index} className="h-52 w-72    m-2 flex justify-center pt-5" style={{ backgroundImage: "url('/assets/bg-agreement.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}  >
                             <div className="w-36 text-center mt-10 font-bold "   >
@@ -599,11 +628,11 @@ console.log("id"+id)
                   Our Licensed Aplication
                 </div>
                 <div className="w-4/5 z-30  mx-auto flex items-center flex-wrap  py-10 mt-10 m-3">
-                <input type="file" hidden ref={insertImageLicensed} onChange={(e) => { setInsertLicense({ ...insertLicense, image: e.target.files[0] }) }} />
+                  <input type="file" hidden ref={insertImageLicensed} onChange={(e) => { setInsertLicense({ ...insertLicense, image: e.target.files[0] }) }} />
                   <div className="">
                     <div className="h-16">
-                      </div>
-                    <div className="w-64  rounded-md bg-red-700 mx-auto p-3 flex justify-center items-center"  onClick={() => { insertImageLicensed.current.click() }} style={{ height: 320, cursor: "pointer" }}>
+                    </div>
+                    <div className="w-64  rounded-md bg-red-700 mx-auto p-3 flex justify-center items-center" onClick={() => { insertImageLicensed.current.click() }} style={{ height: 320, cursor: "pointer" }}>
                       {insertLicense.image != null ? <div className="text-gray-50 ">{insertLicense.image.name}</div> :
                         <div className="h-full w-full border-dashed border-4 border-light-blue-500 rounded-md flex flex-col justify-center items-center" >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="white">
@@ -613,7 +642,7 @@ console.log("id"+id)
                           <div className="text-gray-50 ">
                             add licensed
                          </div>
-                        
+
                         </div>
                       }
                     </div>
@@ -621,9 +650,9 @@ console.log("id"+id)
                   ">Insert</button>
                   </div>
                   {license !== null && license.map((data, index) => {
-                      return (
-                      <div  key={index} className="mt-10 h-auto m-3 w-64  ">
-                        <div  className="mx-auto">
+                    return (
+                      <div key={index} className="mt-10 h-auto m-3 w-64  ">
+                        <div className="mx-auto">
                           <OptionButton
                             onEditing={licensedOnEditing}
                             cancleEdit={() => SetLicensedOnEditing(false)}
@@ -642,7 +671,7 @@ console.log("id"+id)
                               alt={data.license_file}
                             />
                           </div>
-                        </div> 
+                        </div>
                       </div>
                     )
                   })}
@@ -653,101 +682,102 @@ console.log("id"+id)
           </div>
           {/* section */}
           <div className="w-full text-center text-2xl my-3">
-          insert our aplication
+            insert our aplication
           </div>
           <div className="bg-gray-100 flex justify-center py-1"  >
-                    <div className="grid xs:w-full md:w-3/4 grid-cols-2 xs:grid-cols-1 md:grid-cols-2 bg-gray-200  ">
-                  <input type="file" hidden ref={insertImageApp} onChange={(e) => { setApplicationInsert({ ...applicationInsert, image: e.target.files[0] }) }} />
+            <div className="grid xs:w-full md:w-3/4 grid-cols-2 xs:grid-cols-1 md:grid-cols-2 bg-gray-200  ">
+              <input type="file" hidden ref={insertImageApp} onChange={(e) => { setApplicationInsert({ ...applicationInsert, image: e.target.files[0] }) }} />
 
-                      <div className="h-11/12   flex justify-center items-center p-5  xs:my-0 lg:my-0 ">
+              <div className="h-11/12   flex justify-center items-center p-5  xs:my-0 lg:my-0 ">
 
-                          <div className="w-2/3 h-52 bg-red-300 flex justify-center items-center rounded-md" onClick={()=>{insertImageApp.current.click()}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-14  w-14" fill="none" viewBox="0 0 24 24" stroke="white">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                      </div>
-                      <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
-                        <div className="w-4/5  m-4 p-4">
-                          <div className="text-gray-800 font-bold  text-3xl">
-                              <TextInputs value={applicationInsert.title} onChange={(e) => {setApplicationInsert({...applicationInsert,title:e.target.value}) }}/>
-                              <TextArea  value={applicationInsert.description} onChange={(e) => {setApplicationInsert({...applicationInsert,description:e.target.value}) }} />
-                          </div>
-                          <div>
-                              <button onClick={handleInsertApp} className="h-10 w-24 rounded-md bg-blue-300 text-gray-50">insert</button>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
+                <div className="w-2/3 h-52 bg-red-300 flex justify-center items-center rounded-md" onClick={() => { insertImageApp.current.click() }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-14  w-14" fill="none" viewBox="0 0 24 24" stroke="white">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
+                <div className="w-4/5  m-4 p-4">
+                  <div className="text-gray-800 font-bold  text-3xl">
+                    <TextInputs value={applicationInsert.title} onChange={(e) => { setApplicationInsert({ ...applicationInsert, title: e.target.value }) }} />
+                    <TextArea value={applicationInsert.description} onChange={(e) => { setApplicationInsert({ ...applicationInsert, description: e.target.value }) }} />
                   </div>
-          {application.map((data, index) => {
-              return (
-                <div key={index} className="bg-gray-100 flex justify-center py-1 "  >
-                  <div className=" xs:w-full lg:w-2/3  ">
-                    <OptionButton
-                      onEditing={applicationOnEditing}
-                      cancleEdit={() => SetApplicationOnEditing(false)}
-                      setOnEditing={() => { SetApplicationOnEditing(true); SetApplicatiOnIndexEdit(index);setApplicationUpdate({...applicationUpdate,image:data.image,title:data.title,id:data.id_our_application,description:data.deskripsi}) }}
-                      index={index}
-                      indexEdit={applicationtIndexEdit}
-                      editabled={true}
-                      onDelete={(e) => { handleDeleteApp(e, data.id_our_application) }}
-
-                    />
-                    <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 bg-gray-300  ">
-                      <div className="h-11/12   flex justify-center items-center p-5  xs:my-0 lg:my-0 ">
-                      <input type="file" hidden ref={updateImageApp} onChange={(e) => { setApplicationUpdate({ ...applicationUpdate, image: e.target.files[0] }) }} />
-                        {applicationOnEditing && applicationtIndexEdit == index ?
-                            
-                          <div className="w-2/3 h-52 bg-red-300 flex justify-center items-center rounded-md" onClick={()=>{updateImageApp.current.click()}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-14  w-14" fill="none" viewBox="0 0 24 24" stroke="white">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                          :
-                          <img
-                            src={`${data.image}`}
-                            width={200}
-                            height={200}
-                            objectfit="contain"
-                          />
-                        }
-                      </div>
-                      <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
-                        <div className="w-4/5  m-4 p-4">
-                          <div className="text-gray-800 font-bold  text-3xl">
-                          {applicationOnEditing && applicationtIndexEdit == index ?
-                              <TextInputs value={applicationUpdate.title} onChange={(e) => {setApplicationUpdate({...applicationUpdate,title:e.target.value})}} />
-                              :
-                              data.title
-                            }
-                          </div>
-                          <div className="text-gray-800 text-md my-3 ">
-                          {applicationOnEditing && applicationtIndexEdit == index ?
-                              <TextArea value={applicationUpdate.description} onChange={(e)=>{setApplicationUpdate({...applicationUpdate,description:e.targetvalue})}}/>
-                              :
-                              data.deskripsi}
-                          </div>
-                          <div>
-                          {applicationOnEditing && applicationtIndexEdit == index ?
-                              <button onClick={(e)=>handlUpdateApp(e,data.id_our_application)} className="h-10 w-24 rounded-md bg-blue-300 text-gray-50">update</button>
-                              :
-                              <Link href="/Contact">
-                                <button className="w-40 h-12 my-5 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
-                              </Link>
-                            }
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
+                  <div>
+                    <button onClick={handleInsertApp} className="h-10 w-24 rounded-md bg-blue-300 text-gray-50">insert</button>
                   </div>
                 </div>
-              )
-            })}
+              </div>
+
+            </div>
+          </div>
+          {application.map((data, index) => {
+            return (
+              <div key={index} className="bg-gray-100 flex justify-center py-1 "  >
+                <div className=" xs:w-full lg:w-2/3  ">
+                  <OptionButton
+                    onEditing={applicationOnEditing}
+                    cancleEdit={() => SetApplicationOnEditing(false)}
+                    setOnEditing={() => { SetApplicationOnEditing(true); SetApplicatiOnIndexEdit(index); setApplicationUpdate({ ...applicationUpdate, image: data.image, title: data.title, id: data.id_our_application, description: data.deskripsi }) }}
+                    index={index}
+                    indexEdit={applicationtIndexEdit}
+                    editabled={true}
+                    onDelete={(e) => { handleDeleteApp(e, data.id_our_application) }}
+
+                  />
+                  <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 bg-gray-300  ">
+                    <div className="h-11/12   flex justify-center items-center p-5  xs:my-0 lg:my-0 ">
+                      <input type="file" hidden ref={updateImageApp} onChange={(e) => { setApplicationUpdate({ ...applicationUpdate, image: e.target.files[0] }) }} />
+                      {applicationOnEditing && applicationtIndexEdit == index ?
+
+                        <div className="w-2/3 h-52 bg-red-300 flex justify-center items-center rounded-md" onClick={() => { updateImageApp.current.click() }}>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-14  w-14" fill="none" viewBox="0 0 24 24" stroke="white">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        :
+                        <img
+                          src={`${data.image}`}
+                          width={200}
+                          height={200}
+                          objectfit="contain"
+                        />
+                      }
+                    </div>
+                    <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
+                      <div className="w-4/5  m-4 p-4">
+                        <div className="text-gray-800 font-bold  text-3xl">
+                          {applicationOnEditing && applicationtIndexEdit == index ?
+                            <TextInputs value={applicationUpdate.title} onChange={(e) => { setApplicationUpdate({ ...applicationUpdate, title: e.target.value }) }} />
+                            :
+                            data.title
+                          }
+                        </div>
+                        <div className="text-gray-800 text-md my-3 ">
+                          {applicationOnEditing && applicationtIndexEdit == index ?
+                            <TextArea value={applicationUpdate.description} onChange={(e) => { setApplicationUpdate({ ...applicationUpdate, description: e.target.value }) }} />
+                            :
+                            data.deskripsi}
+                        </div>
+                        <div>
+                          {applicationOnEditing && applicationtIndexEdit == index ?
+                            <button onClick={(e) => handlUpdateApp(e, data.id_our_application)} className="h-10 w-24 rounded-md bg-blue-300 text-gray-50">update</button>
+                            :
+                            <Link href="/Contact">
+                              <button className="w-40 h-12 my-5 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
+                            </Link>
+                          }
+                        </div>                              
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
-        </Layout>
+          <SuccessPopUp visible={visibleToast.success} />
+      </Layout>
     </>
   )
 }
@@ -757,7 +787,7 @@ console.log("id"+id)
 Page.getInitialProps = async (ctx) => {
   const options = {
     method: 'GET',
-   
+
   };
   const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner`, options);
   const resBannerJson = await resBanner.json()
@@ -773,7 +803,7 @@ Page.getInitialProps = async (ctx) => {
   const resLicensed = await fetch(`${config.piranti.griyo_utomo}/licenseapp`, options);
   const resLicensedJson = await resLicensed.json()
 
-  const resAppList= await fetch(`${config.piranti.griyo_utomo}/ourapplicationlist`, options);
+  const resAppList = await fetch(`${config.piranti.griyo_utomo}/ourapplicationlist`, options);
   const resAppListJson = await resAppList.json()
 
   return {

@@ -4,28 +4,19 @@ import Layout from '../../components/Layout';
 import Link from 'next/link';
 import config from "../../constanta/index";
 
-export default function Page({banner, service, agreement, license,application}) {
-
-  React.useEffect(() => {
-    // window is accessible here.
-    console.log("window.innerHeight", window.location.pathname);
-  }, []);
+export default function Page({ banner, service, agreement, license, application }) {
 
 
   const [modalLicensed, setModalLicensed] = useState(false)
+  const titleBanner = banner[0].title
+
+  console.log(application)
 
 
-  const services = [
-    { icon: "/assets/application-development.png", title: "Aplication Development" },
-    { icon: "/assets/business-consultation.png", title: "Bussines Consultation" },
-    { icon: "/assets/new-client-acquisition.png", title: "New Client Acquisition" },
-    { icon: "/assets/databased-consent.png", title: "Databased Consent" },
-    { icon: "/assets/digital-advertising.png", title: "Digital Advertising" },
-    { icon: "/assets/data-werehouse.png", title: "Data Werehouse" },
-  ];
+
 
   const commersialAgreement = [{ title: "White Label" }, { title: "Manage Service" }, { title: "Fee Bassed" }, { title: "Consultation Fee " }];
- 
+
 
   return (
     <>
@@ -66,8 +57,10 @@ export default function Page({banner, service, agreement, license,application}) 
                   <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
                     {/* How much your company revenue of digital sales ?<br></br>
                 Does your company prepare human resources and support digital application system ? */}
-                {banner[0].title}
-              </div>
+                    {
+                      titleBanner
+                    }
+                  </div>
                   <div className="text-gray-500 mt-10 text-md text-justify">
                     {banner[0].description}
                     {/* Think that all of your company’s sales processes have been digitalized so that potential
@@ -75,7 +68,7 @@ export default function Page({banner, service, agreement, license,application}) 
                     and more efficient, the marketing employe serve the clients confidently.
                     The company’s decision maker can see entire sales process anytime,
                     company costs become more efficient and company profits increase immediately. */}
-              </div>
+                  </div>
                   <div className="w-full  xflex items-center justify-center mt-7 mb-3">
                     <Link href="/Contact" >
                       <button className="border-none outline-none h-12 w-52 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-lg text-gray-50  ">Request Demo</button>
@@ -191,72 +184,76 @@ export default function Page({banner, service, agreement, license,application}) 
           <div className="bg-gray-300 mx-1">
             <div >
               <div className="w-full h-24 bg-gray-300  text-5xl flex items-center  p-4 font-bold text-gray-600 flex justify-center" >
-                Our Isales Aplication
+                Our i-sales Application
           </div>
-                  {application.map((data,index)=>{
-                      return(
-
-                      index % 2 ==0 ?
-                        <div key={index} className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full   ">
-                <div className="h-11/12   flex justify-center items-center p-14  xs:my-0 lg:my-20 ">
-                  <img
-                    src={`${data.image}`}
-                    width={400}
-                    height={400}
-                    objectfit="cover"
-                  />
-                </div>
-                <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
-                  <div className="w-4/5  m-4  xs:p4 lg:p-7">
-                    <div className="text-gray-800 font-bold  text-5xl">
-                    {data.title}
-                  </div>
-                    <div className="text-gray-800 text-xl my-3 ">
-                      {data.deskripsi}
-                  </div>
-                    <div>
-                      <Link href="/Contact">
-                        <button className="w-40 h-12 my-10 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              :
-
-              <div className="bg-gray-300 mx-1" >
-            <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200   ">
-              <div>
-                <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 xs:py-0 lg:py-20 ">
-                  <div className="h-full  flex items-center">
-                    <div className="w 4/5 m-4  xs:p4 lg:p-7">
-                      <div className="text-gray-700 font-bold  text-5xl">
-                   {data.title}
-                     </div>
-                      <div className="text-white my-3 text-xl text-gray-700">
-              {data.deskripsi}
+              {application.map((data, index) => {
+                return (
+                  index % 2 == 0 ?
+                    <div key={index} className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full   ">
+                      <div className="h-11/12   flex justify-center items-center p-14  xs:my-0 lg:my-20 ">
+                        <img
+                          src={`${data.image}`}
+                          width={400}
+                          height={400}
+                          objectfit="cover"
+                        />
                       </div>
-                      <div>
-                        <Link href="/Contact">
-                          <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  text-gray-50 rounded-md">More Info</button>
-                        </Link>
+                      <div className="flex justify-center items-center xs:h-auto  xs:my-0 lg:my-20 ">
+                        <div className="w-4/5  m-4  xs:p4 lg:p-7">
+                          <div className="text-gray-800 font-bold  text-5xl">
+                            {data.title}
+                          </div>
+                          <div className="text-gray-800 text-xl my-3 ">
+                            {data.deskripsi}
+                          </div>
+                          <div>
+                            <Link href="/Contact">
+                              <button className="w-40 h-12 my-10 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="  flex justify-center p-14 items-center xs:py-0 lg:py-20">
-                    <img
-                      src={`${data.image}`}
-                      width={400}
-                      height={400}
-                      objectfit="contain"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-                      )
-                  })}
+                    :
+
+                    <div key={index} className="bg-gray-300 mx-1" >
+                      <div className=" xs:pb-52 lg:pb-0 w-full bg-gray-200   ">
+                        <div>
+                          <div className="grid grid-cols-2 w-full xs:grid-cols-1 md:grid-cols-2 xs:py-0 lg:py-20 ">
+                            <div className="h-full  flex items-center">
+                              <div className="w 4/5 m-4  xs:p4 lg:p-7">
+                                <div className="text-gray-700 font-bold  text-5xl">
+                                  {data.title}
+                                </div>
+                                <div className="text-white my-3 text-xl text-gray-700">
+                                  {data.deskripsi}
+                                  <div className="mt-10">
+                                  Please click the button below for a demo and futher discussion,
+                                  and no
+                                  </div>
+                                </div>
+                                <div>
+                             
+                                  <Link href="/Contact">
+                                    <button className="w-40 h-12 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  text-gray-50 rounded-md">More Info</button>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="  flex justify-center p-14 items-center xs:py-0 lg:py-20">
+                              <img
+                                src={`${data.image}`}
+                                width={400}
+                                height={400}
+                                objectfit="contain"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                )
+              })}
 
               {/* <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full   ">
                 <div className="h-11/12   flex justify-center items-center p-14  xs:my-0 lg:my-20 ">
@@ -366,7 +363,7 @@ export default function Page({banner, service, agreement, license,application}) 
 Page.getInitialProps = async (ctx) => {
   const options = {
     method: 'GET',
-   
+
   };
   const resBanner = await fetch(`${config.piranti.griyo_utomo}/banner`, options);
   const resBannerJson = await resBanner.json()
@@ -382,7 +379,7 @@ Page.getInitialProps = async (ctx) => {
   const resLicensed = await fetch(`${config.piranti.griyo_utomo}/licenseapp`, options);
   const resLicensedJson = await resLicensed.json()
 
-  const resAppList= await fetch(`${config.piranti.griyo_utomo}/ourapplicationlist`, options);
+  const resAppList = await fetch(`${config.piranti.griyo_utomo}/ourapplicationlist`, options);
   const resAppListJson = await resAppList.json()
 
   return {

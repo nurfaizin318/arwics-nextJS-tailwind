@@ -1,12 +1,15 @@
 import Layout from '../../components/Layout';
+import React,{useState} from 'react'
 
 const Gallery = () => {
 
-   
+
+
+
     return (
 
         <Layout title="Gallery">
-            <div className="  grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-1 " style={{minHeight:1000}}>
+            {/* <div className="  grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-1 " style={{minHeight:1000}}>
                 <div className="h-full  flex justify-center">
                     <div className="xs:w-5/6 xs:h-full  md:w-2/4 lg:w-2/4 md:h-2/4  rounded-b-full flex justify-center bg-gray-50  pb-14 px-2"
                     style={{maxHeight:500,minHeight:500}}
@@ -38,6 +41,10 @@ const Gallery = () => {
                 </div>
 
 
+            </div> */}
+
+            <div className="h-screen w-full flex text-6xl font-bold items-center justify-center text-center ">
+                Gallery Coming Soon..
             </div>
         </Layout>
     );

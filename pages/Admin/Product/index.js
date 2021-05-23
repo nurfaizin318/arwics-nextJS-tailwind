@@ -13,6 +13,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
 
 
+    console.log(solutionsList.result)
     const productResult = productList.result;
     const productImageUrl = productList.url_foto;
 
@@ -267,6 +268,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                                 indexEdit={productIndexEdit}
                                                 onDelete={(e) => { handleDeleteProduct(e, data.id_produk) }}
                                             />
+                                            {console.log(productImageUrl + data.image)}
                                             <div className="grid xs:grid-cols-1 lg:grid-cols-2 bg-blue-50 py-10">
                                                 <div className=" flex justify-center items-center flex ">
                                                     <div className="w-5/6 h-3/4 flex justify-center ">
@@ -356,7 +358,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                             </div>
                                         </div>
 
-                            {productResult.data.map((data, index) => {
+                            {solutionsResult.data.map((data, index) => {
                                 return (
                                     <div key={index} className="xs:full lg:w-11/12 mx-auto my-3">
                                         <OptionButton
@@ -380,7 +382,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                                         </div>
                                                     </div> :
                                                     <img
-                                                        src={`${productImageUrl + data.image}`}
+                                                        src={`${solutionsImageUrl    + data.image}`}
                                                         width={370}
                                                         height={370}
                                                         objectfit="contain"

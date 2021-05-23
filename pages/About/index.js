@@ -1,11 +1,10 @@
 import Layout from '../../components/Layout';
-import Image from "next/image";
+import config from "../../constanta/index";
 
 
+const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => {
 
-const About = () => {
-
-    
+     console.log(teamList.team)
 
      const data = [
           { title: "Specialist", value: "16" },
@@ -45,12 +44,12 @@ const About = () => {
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex r justify-center xs:px-20 py-16 lg:p-0">
-                         <div className="xs:my-0 md:my-32 lg:my-10    xl:my-0 xs:p-0 lg:p-10 ">
+                         <div className="xs:my-0 md:my-32 lg:my-10    xl:my-0 xs:p-0 lg:p-16  ">
                               <img
                                    src="/favicon.png"
                                    alt="Picture of the author"
-                                   width={480}
-                                   height={480}
+                                   width={400}
+                                   height={400}
                                    objectfit="contain"
 
                               />
@@ -63,29 +62,20 @@ const About = () => {
                          {/* xs:text-xl sm:text-lg md:text-2xl lg:text-base    */}
                               <b className="text-xl">Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
-                              Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin<br></br>
+                                  {filosofiList.merah} <br></br>
                               <b>Kuning :</b><br></br>
-                         Ceria, Bahagia, Energik dan Optimis<br></br>
+                              {filosofiList.kuning}<br></br>
                               <b> Biru :</b><br></br>
-                         Stabil, Kecerdasan, Rasa Percaya Diri<br></br>
+                              {filosofiList.biru}<br></br>
 
                               <b>Logo (cerminan Huruf A atau Segitiga) :</b><br></br>
-                         Segitiga yang simetris dapat menjadi simbol untuk hukum, ilmu
-                         dan agama.
-                         Makna tersembunyi segitiga dalam logo dapat
-                         digunakan untuk
-                         menyampaikan perkembangan, arah dan tujuan,
-                         maskulinitas, ketegaran,
-                         stabilitas dan menembus batas. Dalam
-                         spiritualitas bentuk ini digunakan
-                         untuk mewakili pengenalan diri,
-                         dan pencerahan.
+                                   {filosofiList.deskripsi}
                          </div>
                     </div>
                </div>
                <div className=" w-full flex justify-center">
                     <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center mt-14" style={{ overflowWrap: "break-word" }}>
-                         {data.map((ctx, index) => {
+                         {typeList.map((ctx, index) => {
                               return (
                                    <div key={index} >
                                         <div className={` xs:h-16 xs:w-16 lg:h-32 lg:w-32 bg-blue-${index * 100 + 500} rounded-full flex justify-center items-center m-4 xs:text-md lg:text-4xl text-gray-50 font-bold `}>
@@ -102,27 +92,26 @@ const About = () => {
                </div>
                <div className="  bg-gray-300 mx-1  rounded-lg">
                     <div className="h-32 w-full flex justify-center items-center text-2xl font-bold text-gray-600 text-center ">
-                         <span>Innovative - Engage - Trusted </span>
+                         <span>{taglineList.tagline} </span>
                     </div>
                     <div className=" pb-44 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about  my-10" >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
-
-                              {goal.map((data, index) => {
+                              {jenislist.map((data, index) => {
                                    return (
                                         <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 ">
                                              <div className="flex flex-wrap items-center justify-center  h-32">
                                                   <img
-                                                       src={`${data.icon}`}
+                                                       src={`${data.image}`}
                                                        alt="Picture of the author"
                                                       
                                                        style={{objectFit:"contain",width:110,height:100}}
                                                   />
                                              </div>
                                              <div className="flex justify-center items-center font-bold text-xl ">
-                                                  {data.title}
+                                                  {data.nama}
                                              </div>
                                              <div className=" flex justify-center items-center p-1 text-center">
-                                                  {data.description}
+                                                  {data.deskripsi}
                                              </div>
                                         </div>
 
@@ -134,24 +123,24 @@ const About = () => {
                               <div className="grid xs:grid-cols-1 lg:grid-cols-3">
                                    <div className="w-full h-96 ">
 
-                                        <div className="w-full h-full  rounded-lg flex justify-center items-center rounded-lg ">
+                                        <div className="w-full h-full  rounded-lg flex justify-center items-center rounded-lg  ">
                                              <img
-                                                  src={`https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80`}
-                                                  width={580}
+                                                  src={`${teamList.image}`}
+                                                  width={400}
                                                   height={400}
                                                   objectfit="contain"
 
                                              />
                                         </div>
                                    </div>
-                                   <div className=" col-span-2 p-2 flex justify-center">
+                                   <div className=" col-span-2 p-2 flex justify-center ">
                                         <div className="xs:w-full lg:w-3/4   text-gray-50">
                                              <div className="w-ful  text-3xl flex justify-center items-center font-bold">
                                                   Team Arwics
                                              </div>
                                              <div className="w-full xs:p-2 lg:p-10">
                                                   <span>
-                                                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    {teamList.deskripsi}
                                                   </span>
 
                                              </div>
@@ -164,22 +153,22 @@ const About = () => {
 
 
                               </div>
-                              <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
-                                   {/* {[1, 2, 3].map((data, index) => {
+                              <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center mt-14 ">
+                                   {teamList.team.map((data, index) => {
                                         return (
-                                             <div key={index} className="text-center " >
-                                                  <div className="xs:w-62  xs:h-64  lg:w-64 lg:h-84 bg-gray-400 rounded-lg mx-auto" >
-                                                       q
+                                             <div key={index} className="text-center  " >
+                                                  <div className="xs:w-62  xs:h-64  lg:w-96 lg:h-96 bg-gray-400 rounded-lg mx-auto" >
+                                                       <img src={data.foto} style={{width:"100%",height:"100%",objectFit:"contain"}} />
                                                </div>
-                                                  <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-gray-50">
-                                                       <span className="font-bold">Name</span>
+                                                  <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-2xl text-gray-50">
+                                                       <span className="font-bold">{data.nama}</span>
                                                   </div>
-                                                  <div className="xs:w-62 lg:w-80 p-3  mx-auto text-gray-50   ">
-                                                       <span>position</span>
+                                                  <div className="xs:w-62 lg:w-80 p-3  mx-auto text-xl text-gray-50   ">
+                                                       <span>{data.posisi}</span>
                                                   </div>
                                              </div>
                                         )
-                                   })} */}
+                                   })}
 
 
                               </div>
@@ -220,3 +209,37 @@ const About = () => {
 
 export default About;
 
+About.getInitialProps = async (ctx) => {
+     const options = {
+         method: 'GET',
+ 
+     };
+ 
+     const resFilosofi = await fetch(`${config.piranti.griyo_utomo}/list_filosofi`, options);
+     const resFilosofiJson = await resFilosofi.json()
+ 
+     const resTagline = await fetch(`${config.piranti.griyo_utomo}/gettagline`, options);
+     const resTaglineJson = await resTagline.json()
+ 
+     const resJenis = await fetch(`${config.piranti.griyo_utomo}/list_jenis`, options);
+     const resjenisJson = await resJenis.json()
+ 
+ 
+     const resType = await fetch(`${config.piranti.griyo_utomo}/list_type`, options);
+     const resTypeJson = await resType.json()
+ 
+     const resTeam = await fetch(`${config.piranti.griyo_utomo}/list_team`, options);
+     const resTeamJson = await resTeam.json()
+ 
+ 
+     return {
+ 
+         filosofiList: resFilosofiJson.result,
+         taglineList: resTaglineJson.result,
+         jenislist: resjenisJson.result,
+         typeList: resTypeJson.result,
+         teamList: resTeamJson.result
+ 
+     }
+ }
+ 

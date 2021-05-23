@@ -16,7 +16,7 @@ const Login = () => {
         data.append("username",account.username)
         data.append("password",account.password)
        
-    
+        
         fetch(`${config.piranti.griyo_utomo}/login`, {
           method: 'POST',
           header: {
@@ -28,7 +28,7 @@ const Login = () => {
     
           .then((response) => { return response.json() })
           .then((data)=>{ return data.message})
-          .then(    async(data) => {if(data == "login_success"){
+          .then( async(data) => {if(data == "login_success"){
                 await localStorage.setItem("logged",true)
           }})
           .then((data)=>{

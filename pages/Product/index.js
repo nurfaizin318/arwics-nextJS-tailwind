@@ -15,25 +15,26 @@ const Product = ({ productList, solutionsList, bannerList }) => {
 
 
 
-    // const solutions = [
-    //     {
-    //         title: "Data Warehouse & Business Intelligent",
-    //         description: "Whether you are building a new Data Warehouse, or re-architecting and consolidating your existing data stores,Arwics offers a full spectrum of Data Warehousing Solutions and Services that span technology, tools,platforms and methodologies We are also to help people and organisations make better data-driven decisions in an increasingly complex environment. Using leading software tools, our business intelligence consulting and development experts allow enterprises to easily obtain snapshot views of their sales, marketing, financial, supply chain and other departmental operational data.",
-    //         icons: "/assets/data-werehouse-product.png"
-    //     },
 
-    //     {
-    //         title: "Resources Management",
-    //         description: "As we have seen in this HR series for small businesses, there are some human resource requirements that are very important for small businesses. You need to hire  the right people, offer competitive salaries and benefits,  provide effective training, and more. But in most small  businesses, resources are very limited. With little reserve to attract and many competing priorities, it is difficult to justify the costs of hiring a dedicated HR team. Thus, the HR function can be part-time responsibilities for other owners or managers, so they don’t always get the attention they deserve. In this scenario, outsourcing some or all of  your HR functions to an external provider can give you a lot of sense.",
-    //         icons: '/assets/resource-management.png'
-    //     },
-    //     {
-    //         title: "Enterprise Application Development",
-    //         description: "Arwics is strongly focused on creating customer oriented software applications. The development team minutely examines and analyses the existing processes of the clients. It does the gap analysis to ensure complete compatibility between existing system and custom developed application. The supplications are designed, tested and deployed to complete satisfaction of the clients.",
-    //         icons: '/assets/application-development-product.png'
-    //     }
+    const solutions = [
+        {
+            title: "Data Warehouse & Business Intelligent",
+            description: "Whether you are building a new Data Warehouse, or re-architecting and consolidating your existing data stores, Arwics offers a full spectrum of Data Warehousing Solutions and Services that span technology, tools, platforms and methodologies We are also to help people  and organisations make better data-driven decisions in an increasingly complex environment. Using leading software tools, our business intelligence sulting and development experts allow enterprises to easily obtain snapshot views of their sales, marketing, financial, supplychain and other departmental operational data.",
+            icons: "/assets/data-werehouse-product.png"
+        },
 
-    // ]
+        {
+            title: "Resources Management",
+            description: "As we have seen in this HR series for small businesses, there are some human resource requirements that are very important for small businesses. You need to hire the right people, offer competitive salaries and benefits, provide effective training, and more. But in most small   businesses, resources are very limited. With little reserve to attract and many competing priorities, it is difficult to  justify the costs of hiring a dedicated HR team. Thus, the  HR function can be part-time responsibilities for other owners or managers, so they don’t always get the attention  they deserve. In this scenario, outsourcing some or all of your HR functions to an external provider can give you a lot of sense.",
+            icons: '/assets/resource-management.png'
+        },
+        {
+            title: "Enterprise Application Development",
+            description: "Arwics is strongly focused on creating customer oriented software applications. The development team minutely examines and analyses the existing processes of the  clients. It does the gap analysis to ensure complete compatibility between existing system and custom developed application. The supplications are designed,  tested and deployed to complete satisfaction of the clients..",
+            icons: '/assets/application-development-product.png'
+        }
+
+    ]
 
 
     return (
@@ -79,7 +80,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                             <div className="w-5/6 h-3/4 flex ">
                                                 <div className="h-full w-1/2    flex justify-center items-center m-1 ml-14">
                                                     <img
-                                                        src={`${productImageUrl + data.image}`}
+                                                        src={`/assets/isales2.png`}
                                                         width={450}
                                                         height={450}
                                                         objectfit="contain"
@@ -92,7 +93,14 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                                 <div className="">
                                                     <span className="text-5xl text-gray-50  font-bold mb-2">{data.title} </span><br />
                                                     <div className="text-gray-50  text-xl mt-3">
-                                                        <span >{data.deskripsi} </span><br />
+                                                        <span >As we have seen in this HR series for small businesses,
+                                                        there are some human resource requirements that are
+                                                        very important for small businesses. You need to hire
+                                                        the right people, offer competitive salaries and benefits,
+                                                        provide effective training, and more. But in most small
+                                                        businesses, resources are very limited. With little reserve
+                                                        to attract and many competing priorities, it is difficult to
+                                                        justify the costs of hiring a dedicated HR team. </span><br />
                                                     </div>
                                                     <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
                                                         <Link href="/Comtact" >
@@ -105,7 +113,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                     </>
                                 )
                             })}
-                          
+
 
                         </div>
 
@@ -114,13 +122,14 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                 Solutions
                             </div>
 
-                            {solutionsResult.data.map((data, index) => {
+                            {solutions.map((data, index) => {
                                 return (
                                     index % 2 === 0 ?
                                         <div key={index} className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
                                             <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                                 <img
-                                                    src={`${solutionsImageUrl + data.image}`}
+                                                    // src={`${solutionsImageUrl + data.icons}`}
+                                                    src={`${data.icons}`}
                                                     width={370}
                                                     height={370}
                                                     objectfit="contain"
@@ -133,7 +142,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                                         {data.title}
                                                     </div>
                                                     <div className="text-gray-800 my-3 text-justify ">
-                                                        {data.deskripsi}
+                                                        {data.description}
                                                     </div>
                                                     <div>
                                                         <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
@@ -162,7 +171,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                             </div>
                                             <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                                 <img
-                                                    src={`${data.image}`}
+                                                    src={`${data.icons}`}
                                                     width={370}
                                                     height={370}
                                                     objectfit="contain"
@@ -171,13 +180,13 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                         </div>
                                 )
                             })}
-                            <div className="w-full absolute bottom-0 h-36 text-gray-500  flex justify-center items-center">
+                            {/* <div className="w-full absolute bottom-0 h-36 text-gray-500  flex justify-center items-center my-12">
                                 <button className="m-3">View All</button>
-                            </div>
+                            </div> */}
 
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>

@@ -22,9 +22,7 @@ const SetNavbar = () =>{
       if (router.pathname.startsWith("/Admin")) {
            return <NavbarAdmin />
       }
-      if (router.pathname.startsWith("/Maintenance")) {
-          return null;
-     }
+      
       else{
            return <Navbar />
       }
@@ -39,7 +37,6 @@ const SetNavbar = () =>{
                </Head>
                {/* {login == true ? NavbarAdmin : Navbar  } */}
 
-          
                <SetNavbar />
                <div className="z-5" style={{maxWidth:1900,margin:"0 auto",}} >
                     <ButtonToTop />

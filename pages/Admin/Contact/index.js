@@ -53,8 +53,7 @@ const Contact = (profile) => {
                             <input type="text" placeholder="Name" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
                             <input type="text" placeholder="Email Address" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
                             <input type="text" placeholder="Telephone" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
-                            <input type="text" placeholder="Company" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
-                            <input type="text" placeholder="Message" className="w-full  h-12 my-4 p-5 rounded-lg border-2 border-gray-500 " />
+                       
                             <label><input type="checkbox" name="checkbox" value="value" className="m-3" />by using this form you Agreement with the storage  and handling  of your data by this website </label>
                             <div className="my-4">
                                 <button className="w-40 h-14 bg-yellow-300 rounded-lg">Submit</button>

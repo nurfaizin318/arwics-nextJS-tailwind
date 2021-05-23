@@ -10,28 +10,25 @@ import config from "../../../constanta/index";
 
 const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => {
 
-    const insertImageBannerTeam = createRef(null)
     const insertImageJenis = createRef(null)
-    const insertImageTeam = createRef(null)
+    const updateImageBannerTeam = createRef(null)
     const updateImageTeam = createRef(null)
+    const insertImagePerson = createRef(null)
 
 
     const [teamBanner, setTeamBanner] = useState({ image: teamList.image, description: teamList.deskripsi });
 
     const [tagline, setTagline] = useState(taglineList.tagline)
 
-    const [goalIndexEdit, SetGoalIndexEdit] = useState("");
-    const [goalOnEditing, SetGoalOnEditing] = useState(false)
+    
 
     const [filosofi, setFilosofi] = useState({ id: "", merah: filosofiList.merah, kuning: filosofiList.kuning, biru: filosofiList.biru, deskripsi: filosofiList.deskripsi });
 
-    const [dataIndexEdit, SetDataIndexEdit] = useState("");
-    const [dataOnEditing, SetDataOnEditing] = useState(false)
 
     const [teamIndexEdit, SetTeamIndexEdit] = useState("");
     const [teamOnEditing, SetTeamOnEditing] = useState(false)
-    const [teamUpdate, setTeamUpdate] = useState({ nama: "", id: "",posisi:"",nama:"" ,image:""});
-    const [teamInsert, setTeamInsert] = useState({ nama: "", id: "",posisi:"",nama:"" ,image:""});
+    const [teamUpdate, setTeamUpdate] = useState({ nama: "", id: "", posisi: "", nama: "", image: "" });
+    const [teamInsert, setTeamInsert] = useState({ nama: "", id: "", posisi: "", nama: "", image: "" });
 
 
 
@@ -43,9 +40,13 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     const [jenisIndexEdit, SetJenisIndexEdit] = useState("");
     const [jenisOnEditing, SetJenisOnEditing] = useState(false)
 
-    const [jenisUpdate, setJenisUpdate] = useState({ title: "", image: "", id: "", description: "" })
+    const [jenisUpdate, setJenisUpdate] = useState({ title: "", image: "", description: "" })
     const [jenisInsert, setJenisInsert] = useState({ title: "", image: "", id: "", description: "" })
 
+
+
+
+    
     const handlUpdateFilosofi = (e, id) => {
 
         e.preventDefault()
@@ -180,6 +181,35 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     }
 
 
+    const handleInsertPerson = (e) => {
+
+        e.preventDefault()
+        const data = new FormData();
+        data.append("id_mst_team", teamList.id_mst_team)
+        data.append("nama", teamInsert.nama)
+        data.append("posisi", teamInsert.posisi);
+        data.append("image", teamInsert.image);
+
+
+        fetch(`${config.piranti.griyo_utomo}/tambah_person_team`, {
+            method: 'POST',
+            header: {
+                'Accept': 'services/json',
+                'Content-Type': 'services/json',
+            },
+            body: data
+        })
+
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
+
     const handlUpdatePerson = (e) => {
 
         e.preventDefault()
@@ -208,7 +238,24 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     }
 
 
+    const deletePerson = (e, id) => {
 
+        const data = new FormData();
+        data.append("id_team", id)
+        fetch(`${config.piranti.griyo_utomo}/delete_person_team`, {
+          method: 'POST',
+    
+          body: data
+        })
+          .then((response) => { return response.json() })
+          .then(data => console.log(data))
+          .then(() => window.location.reload())
+          .catch((error) => {
+            console.log(error)
+          })
+    
+        // setInsertOurService(initialService)
+      }
 
 
     const data = [
@@ -344,8 +391,6 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                     </div>
                 </div>
                 <div className="  bg-gray-300 mx-1  rounded-lg">
-
-
                     <div className="h-32 w-96 flex-col pt-10 text-2xl font-bold text-gray-600 text-center mx-auto ">
                         <TextInputs value={tagline} onChange={(e) => { setTagline(e.target.value) }} />
                         <button onClick={handlUpdateTagline} className="h-10 w-3/4 bg-blue-300 text-gray-50 text-sm">update</button>
@@ -406,9 +451,9 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                         <div className="w-3/4 mt-10 h-auto mb-40 mx-auto ">
                             <div className="grid xs:grid-cols-1 lg:grid-cols-3 bg-blue-50 rounded-md">
                                 <div className="w-full  ">
-                                    <input type="file" hidden name="image" ref={insertImageTeam} onChange={(e) => { setTeamBanner({ ...teamBanner, image: e.target.files[0] }) }} />
+                                    <input type="file" hidden name="image" ref={updateImageBannerTeam} onChange={(e) => { setTeamBanner({ ...teamBanner, image: e.target.files[0] }) }} />
                                     <div className="w-full h-full  rounded-lg flex justify-center items-center ">
-                                        <div onClick={() => { insertImageTeam.current.click() }} className="5/6 h-52 rounded-md p-3" style={{ backgroundImage: `url(${teamBanner.image})`, backgroundSize: "contain", cursor: "pointer" }}>
+                                        <div onClick={() => { updateImageBannerTeam.current.click() }} className="5/6 h-52 rounded-md p-3" style={{ backgroundImage: `url(${teamBanner.image})`, backgroundSize: "100% 100% ", cursor: "pointer",backgroundRepeat:"no-repeat" }}>
                                             <div className="h-full w-full flex justify-center items-center " style={{ backgroundColor: "rgba(225,225,225,0.7)", borderRadius: 5 }}>
                                                 <span className="text-gray-50">Foto All teams</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="white">
@@ -435,115 +480,115 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                 </div>
                             </div>
                             <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
-                            <div  className="text-center mt-5 border-solid border-2 border-red-200" >
-                                      <div className="h-12">
-
-                                      </div>
-
-                                        <div className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-red-200"  >
-                                            {/* <img src={data.foto} style={{ objectFit: "contain" }} /> */}
-                                            <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                                </svg>
-                                            </div>
-
-                                        </div>
-                                        <div className="xs:w-62 lg:w-80 h-14  px-10 mx-auto text-gray-50" >
-                                                <TextInputs value="name" onChange={() => { }} />
-                                              
-                                        </div>
-                                        <div className="xs:w-62 lg:w-80 h-14 px-10  mx-auto text-gray-50  ">
-                                                <TextInputs value="Position" onChange={() => { }} />
-                                             
-                                        </div>
-                                        <div className="h-12 w-full ">
-                                            <button onClick={handlUpdateBannerTeam} className=" ml-18 w-24 h-12 bg-blue-400 text-gray-50 rounded-sm">update</button>
-                                        </div>
+                                <div className="text-center mt-5 border-solid border-2 border-red-200" >
+                                <input type="file" hidden name="image" ref={insertImagePerson} onChange={(e) => { setTeamInsert({ ...teamInsert, image: e.target.files[0] }) }} />
+                                    <div className="h-12 pt-5 text-gray-50  ">
+                                        Insert Team
                                     </div>
-                            {teamList.team.map((data, index) => {
-                                return (
-                                    <div key={index} className="text-center mt-5 border-solid border-2 border-red-200" >
-                                        <OptionButton
-                                            onEditing={teamOnEditing}
-                                            cancleEdit={() => SetTeamOnEditing(false)}
-                                            editabled={true}
-                                            setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index);setTeamUpdate({...teamUpdate,nama:data.nama,posisi:data.posisi,id:data.id_team,image:data.foto}) }}
-                                            index={index}
-                                            indexEdit={teamIndexEdit}
-                                        />
 
-                                        <div className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-red-200" >
-                                        <input type="file" hidden name="image" ref={updateImageTeam} onChange={(e) => { setTeamUpdate({ ...teamUpdate, image: e.target.files[0] }) }} />
-                                        {teamOnEditing && teamIndexEdit == index ?
-                                            <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg" onClick={()=>{updateImageTeam.current.click()}}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                                </svg>
-                                            </div>
-                                            :
-                                            <img src={data.foto} style={{ objectFit: "contain" }} /> 
-                                            
-                            }
+                                    <div onClick={()=>{insertImagePerson.current.click()}} className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-gray-200"  >
+                                        {/* <img src={data.foto} style={{ objectFit: "contain" }} /> */}
+                                        <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
                                         </div>
-                                        <div className="xs:w-62 lg:w-80 h-14  px-10 mx-auto text-gray-50" >
-                                      
-                                            {teamOnEditing && teamIndexEdit == index ?
-                                                <TextInputs value={teamUpdate.nama} onChange={(e) => { setTeamUpdate({ ...teamUpdate, nama: e.target.value }) }} />
-                                                :
-                                                <span className="font-bold">{data.nama}</span>
-                                            }
-                                        </div>
-                                        <div className="xs:w-62 lg:w-80 h-14 px-10  mx-auto text-gray-50  ">
-                                            {teamOnEditing && teamIndexEdit == index ?
-                                                <TextInputs value={teamUpdate.posisi} onChange={(e) => { setTeamUpdate({ ...teamUpdate, posisi: e.target.value }) }} />
-                                                :
-                                                <span>{data.posisi}</span>
-                                            }
-                                        </div>
-                                        <div className="h-12 w-full ">
-                                            <button onClick={handlUpdatePerson} className=" ml-18 w-24 h-12 bg-blue-400 text-gray-50 rounded-sm">update</button>
-                                        </div>
+
                                     </div>
-                                )
-                            })}
+                                    <div className="xs:w-62 lg:w-80 h-14  px-10 mx-auto text-gray-50" >
+                                        <TextInputs value={teamInsert.nama} onChange={(e) => {  setTeamInsert({ ...teamInsert,nama: e.target.value }) }} />
+
+                                    </div>
+                                    <div className="xs:w-62 lg:w-80 h-14 px-10  mx-auto text-gray-50  ">
+                                        <TextInputs value={teamInsert.posisi} onChange={(e) => { setTeamInsert({ ...teamInsert, posisi: e.target.value }) }} />
+
+                                    </div>
+                                    <div className="h-12 w-full ">
+                                        <button onClick={handleInsertPerson} className=" ml-18 w-24 h-12 bg-blue-400 text-gray-50 rounded-sm">update</button>
+                                    </div>
+                                </div>
+                                {teamList.team.map((data, index) => {
+                                    return (
+                                        <div key={index} className="text-center mt-5 border-solid border-2 border-red-200" >
+                                            <OptionButton
+                                                onEditing={teamOnEditing}
+                                                cancleEdit={() => SetTeamOnEditing(false)}
+                                                editabled={true}
+                                                setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index); setTeamUpdate({ ...teamUpdate, nama: data.nama, posisi: data.posisi, id: data.id_team, image: data.foto }) }}
+                                                index={index}
+                                                indexEdit={teamIndexEdit}
+                                                onDelete={(e)=>{deletePerson(e,data.id_team)}}
+                                            />
+                                            <div className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-red-200 " >
+                                            <input type="file" hidden name="image" ref={updateImageTeam} onChange={(e) => { setTeamUpdate({ ...teamUpdate, image: e.target.files[0] }) }} />
+                                                    {teamOnEditing && teamIndexEdit == index ?
+                                                    <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg" onClick={() => { updateImageTeam.current.click() }}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                        </svg>
+                                                    </div>
+                                                    :
+                                                    <img src={data.foto} style={{ objectFit: "contain" }} />
+                                                }
+                                            </div>
+                                            <div className="xs:w-62 lg:w-80 h-14  px-10 mx-auto text-gray-50" >
+
+                                                {teamOnEditing && teamIndexEdit == index ?
+                                                    <TextInputs value={teamUpdate.nama} onChange={(e) => { setTeamUpdate({ ...teamUpdate, nama: e.target.value }) }} />
+                                                    :
+                                                    <span className="font-bold">{data.nama}</span>
+                                                }
+                                            </div>
+                                            <div className="xs:w-62 lg:w-80 h-14 px-10  mx-auto text-gray-50  ">
+                                                {teamOnEditing && teamIndexEdit == index ?
+                                                    <TextInputs value={teamUpdate.posisi} onChange={(e) => { setTeamUpdate({ ...teamUpdate, posisi: e.target.value }) }} />
+                                                    :
+                                                    <span>{data.posisi}</span>
+                                                }
+                                            </div>
+                                            <div className="h-12 w-full ">
+                                                <button onClick={handlUpdatePerson} className=" ml-18 w-24 h-12 bg-blue-400 text-gray-50 rounded-sm">update</button>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="bg-gray-800">
-                    <div className="w-full bg-gray-300 h-32 flex justify-center items-center text-4xl text-gray-700 font-bold">
-                        Our Client
+                    <div className="bg-gray-800">
+                        <div className="w-full bg-gray-300 h-32 flex justify-center items-center text-4xl text-gray-700 font-bold">
+                            Our Client
                          </div>
-                    <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
-                        style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
-                        <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
-                            {client.map((data, index) => {
-                                return (
-                                    <div key={index} className="w-24  h-24  m-3 ">
-                                        <OptionButton
-                                            onEditing={teamOnEditing}
-                                            cancleEdit={() => SetTeamOnEditing(false)}
-                                            editabled={false}
-                                            setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index) }}
-                                            index={index}
-                                            indexEdit={teamIndexEdit}
-                                        />
-                                        <img
-                                            src={`${data.logo}`}
-                                            alt="Picture of the author"
-                                            width={380}
-                                            height={380}
-                                            objectfit="contain"
-                                        />
-                                    </div>
-                                )
-                            })}
+                        <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
+                            style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
+                            <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
+                                {client.map((data, index) => {
+                                    return (
+                                        <div key={index} className="w-24  h-24  m-3 ">
+                                            <OptionButton
+                                                onEditing={teamOnEditing}
+                                                cancleEdit={() => SetTeamOnEditing(false)}
+                                                editabled={false}
+                                                setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index) }}
+                                                index={index}
+                                                indexEdit={teamIndexEdit}
+                                            />
+                                            <img
+                                                src={`${data.logo}`}
+                                                alt="Picture of the author"
+                                                width={380}
+                                                height={380}
+                                                objectfit="contain"
+                                            />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-            </div>
+                </div>
             </div>
         </Layout >
     );
