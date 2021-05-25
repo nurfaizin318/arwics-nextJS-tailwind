@@ -59,8 +59,8 @@ module.exports = {
       },
       height: theme => ({
         "128": "48rem",
-        "screen/4": "calc(100vh / 4)",
-        "screen/5": "calc(100vh / 5)",
+        "max-height1" :"700px",
+        "max-height2" :"900px"
       }),
     },
 

@@ -9,21 +9,17 @@ const Footer = () => {
         <div className="min-h-96 min-h-16   bg-gray-800  mx-1" >
             <div className=" flex flex-wrap justify-center " style={{ maxWidth: 1900, margin: "0 auto" }}>
                 <div className="text-gray-50  p-10 m-2  xs:w-full sm:w-full md:w-1/2 lg:w-1/4">
-                    <div>
-                        START PROJECT
-                  </div>
+                  
                     <div className="mt-6">
                         We are ready challange
                         info@arwics.com
                </div>
                 </div>
                 <div className="text-gray-50   p-10 m-2 xs:w-full sm:w-full md:w-1/2 lg:w-1/4">
-                    <div>
-                        SAY HELLO
-               </div>
+                
                     <div className="mt-6">
-                        The CEO Building, 12th Floor Jl. TB
-                        Simatupang No. 18C Jakarta 12430
+                        The CEO Building, 9 Floor <br></br>
+                        Jl. TB Simatupang No. 18C Jakarta 12430
                         082129222999
                  </div>
                 </div>

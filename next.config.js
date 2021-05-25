@@ -1,7 +1,7 @@
 
 
 module.exports = {
-
+  
  
   webpack: (config, options) => {
     config.optimization.minimize = true;
@@ -35,6 +35,7 @@ module.exports = {
           
         }
       },
+      basePath:"/Admin",
   
   };
   

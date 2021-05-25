@@ -22,8 +22,6 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
           { logo: "/kerjasama/axa.png" },
           { logo: "/kerjasama/axis.png" },
           { logo: "/kerjasama/bca-life.png" },
-          { logo: "/kerjasama/bineka-life.png" },
-          { logo: "/kerjasama/cakrawala.webp" },
           { logo: "/kerjasama/car.png" },
           { logo: "/kerjasama/dart-media.png" },
           { logo: "/kerjasama/indosat-ooredoo.png" },
@@ -31,12 +29,12 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
           { logo: "/kerjasama/kai.png" },
           { logo: "/kerjasama/Lion_Air.png" },
           { logo: "/kerjasama/pelni.png" },
-          { logo: "/kerjasama/taspen.png" },
           { logo: "/kerjasama/telkom.png" },
           { logo: "/kerjasama/telkomsel-logo.png" },
-          { logo: "/kerjasama/telkomsel.png" },
           { logo: "/kerjasama/three.png" },
           { logo: "/kerjasama/xl.png" },
+
+          // msig , mega insurance , Bni life
      ];
 
  
@@ -67,7 +65,6 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                               {filosofiList.kuning}<br></br>
                               <b> Biru :</b><br></br>
                               {filosofiList.biru}<br></br>
-
                               <b>Logo (cerminan Huruf A atau Segitiga) :</b><br></br>
                                    {filosofiList.deskripsi}
                          </div>
@@ -94,7 +91,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                     <div className="h-32 w-full flex justify-center items-center text-2xl font-bold text-gray-600 text-center ">
                          <span>{taglineList.tagline} </span>
                     </div>
-                    <div className=" pb-44 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about  my-10" >
+                    <div className=" pb-44 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue rounded-t-lg p-5 background-about  my-10 " >
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
                               {jenislist.map((data, index) => {
                                    return (
@@ -120,25 +117,13 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
                          </div>
                          <div className="  w-full mt-10 h-auto mb-40 mx-auto ">
-                              <div className="grid xs:grid-cols-1 lg:grid-cols-3">
-                                   <div className="w-full h-96 ">
-
-                                        <div className="w-full h-full  rounded-lg flex justify-center items-center rounded-lg  ">
-                                             <img
-                                                  src={`${teamList.image}`}
-                                                  width={400}
-                                                  height={400}
-                                                  objectfit="contain"
-
-                                             />
-                                        </div>
-                                   </div>
+                              <div className=" " style={{minHeight:400}}>
                                    <div className=" col-span-2 p-2 flex justify-center ">
                                         <div className="xs:w-full lg:w-3/4   text-gray-50">
-                                             <div className="w-ful  text-3xl flex justify-center items-center font-bold">
+                                             <div className="w-ful  text-5xl flex justify-center items-center font-bold">
                                                   Team Arwics
                                              </div>
-                                             <div className="w-full xs:p-2 lg:p-10">
+                                             <div className="w-full xs:p-2 lg:p-10 text-2xl">
                                                   <span>
                                                     {teamList.deskripsi}
                                                   </span>
@@ -157,7 +142,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                    {teamList.team.map((data, index) => {
                                         return (
                                              <div key={index} className="text-center  " >
-                                                  <div className="xs:w-62  xs:h-64  lg:w-96 lg:h-96 bg-gray-400 rounded-lg mx-auto" >
+                                                  <div className="xs:w-62  xs:h-64  lg:w-80 lg:h-80 bg-gray-400 rounded-lg mx-auto" >
                                                        <img src={data.foto} style={{width:"100%",height:"100%",objectFit:"contain"}} />
                                                </div>
                                                   <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-2xl text-gray-50">

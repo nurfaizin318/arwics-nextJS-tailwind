@@ -55,7 +55,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                     </div>
                 </div>
                 <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
-                    <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
+                    <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-10 lg:px:0  " >
                         <img
                             src="/assets/product-vector.png"
                             alt="Picture of url"
@@ -75,10 +75,10 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                         >
                             {productResult.data.map((data, index) => {
                                 return (
-                                    < >
+                                    <>
                                         <div key={index} className=" flex justify-center items-center flex ">
-                                            <div className="w-5/6 h-3/4 flex ">
-                                                <div className="h-full w-1/2    flex justify-center items-center m-1 ml-14">
+                                            <div className="w-full h-3/4 flex  justify-center">
+                                                <div className="h-full w-1/2    flex justify-center items-center m-1">
                                                     <img
                                                         src={`/assets/isales2.png`}
                                                         width={450}

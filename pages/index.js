@@ -45,13 +45,13 @@ export default function Page({ banner, service, agreement, license, application 
 
         <div className="">
           <div
-            style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto", }}
+            style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto",}}
             className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full lg:max-h-max xs:h-auto  lg:h-screen " >
-            <div className="w-full  flex  items-center  pt-20  ">
-              <div className="w-4/5 h-auto xs:lg-auto  mx-5 p-2 ">
+            <div className="w-full  flex  items-center    ">
+              <div className="xs:w-full lg:w-4/5 h-auto xs:lg-auto  mx-5 p-2 mt-20">
                 <div >
                   <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
-                    {/* How much your company revenue of digital sales ?<br></br>
+                    {/* How much your company revenue of digital sales ?<br></b                                                                                                                                                                                                                                                                                                                                                                                       r>
                 Does your company prepare human resources and support digital application system ? */}
                     {
                       titleBanner
@@ -90,7 +90,7 @@ export default function Page({ banner, service, agreement, license, application 
 
           </div>
 
-          <div className=" mx-1" >
+          <div className=" mx-1 mt-10" >
             <div className=" bg-gray-100">
 
               <div className="">

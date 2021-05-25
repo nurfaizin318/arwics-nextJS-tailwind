@@ -38,7 +38,7 @@ const Contact = () => {
     return (
         <Layout title="Contact">
             <div className="contact bg-yellow-400 flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-auto xl:h-auto    xs:max-h-full xl:max-h-max " >
-                <div  className=" w-4/6 bg-softWhite flex flex-wrap my-32 " style={{borderRadius:25}} >
+                <div  className=" xs:w-full  lg:w-4/6 bg-softWhite flex flex-wrap my-32 mx-1 " style={{borderRadius:25}} >
                     <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-10  items-center">
                         <div className="w-5/6 h-full p-3   flex justify-center items-center ">
                             <div>
@@ -46,7 +46,7 @@ const Contact = () => {
                             <input type="text" placeholder="Email Address"  value={data.email}  onChange={(e)=>{setData({...data,email:e.target.value})}}  className="w-full  h-5 my-4 p-5 rounded-lg border-2 border-gray-500 " />
                             <input type="text" placeholder="Telephone" value={data.tlp}  onChange={(e)=>{setData({...data,tlp:e.target.value})}}  className="w-full  h-5 my-4 p-5 rounded-lg border-2 border-gray-500 " />
                             <label><input type="checkbox" name="checkbox" value="value" className="m-3 text-sm" />
-                            <span className="text-sm">by using this form you Agreement with the storage  and handling  of your data by this website </span>
+                            <span className="text-sm">By using this form you Agreement with the storage  and handling  of your data by this website </span>
                             </label>
                             <div className="my-4">
                                 <button onClick={handleSubmit} className="w-40 h-14 bg-yellow-300 rounded-lg">Submit</button>
@@ -57,14 +57,14 @@ const Contact = () => {
                     </div>
                     <div className="xs:w-full lg:w-1/2 xs:h-auto lg:h-auto flex justify-center items-center  py-10 ">
                         <div className="w-3/4  flex flex-col justify-center items-center ">
-                            <div className="text-yellow-400 text-6xl font-medium ">
+                            <div className="text-yellow-400 text-4xl font-medium ">
                                 Contact
-                                    </div>
+                            </div>
                           
                             <div className="w-full auto  ">
                                 <div className="h-auto my-3 w-full flex ml-10 items-center ">
-                                    <div className="xs:text-md lg:text-lg xl:text-xl font-medium  text-left ">
-                                        <span>PT ARWICS TECHNOLOGY SOLUSINDO</span>
+                                    <div className="xs:text-md lg:text-lg xl:text-lg font-medium  text-left ">
+                                        <span>PT ARWIC TECHNOLOGI SOLUSINDO</span>
                                     </div>
                                 </div>
 
@@ -77,8 +77,9 @@ const Contact = () => {
                                     </svg>
                                 </div>
                                 <div className="h-auto w-3/4 flex items-center ">
-                                    <div className="xs:text-md lg:text-lg xl:text-xl font-medium  text-left ">
-                                        <span>The CEO Building , 9th Floor jl. Tb Simatupang N0. 18C Jakarta 12430</span>
+                                    <div className="xs:text-sm lg:text-lg xl:text-lg font-medium  text-left ">
+                                        <div>The CEO Building , 9 Floor </div>
+                                         <div>Jl. Tb Simatupang N0. 18C Jakarta 12430</div>
                                     </div>
                                 </div>
                                 </div>
@@ -91,8 +92,8 @@ const Contact = () => {
                                     </svg>
                                 </div>
                                 <div className="h-full w-3/4 flex items-center">
-                                    <div className="text-xl font-medium  text-left ">
-                                        <span>02129222999</span>
+                                    <div className="xs:text-sm lg:text-lg xl:text-lg font-medium  text-left ">
+                                        <span> +621-29222999</span>
                                     </div>
                                 </div>
                                 </div>  
@@ -105,7 +106,7 @@ const Contact = () => {
                                     </svg>
                                 </div>
                                 <div className="h-full w-3/4 flex items-center">
-                                    <div className="text-xl font-medium   text-left">
+                                    <div className="xs:text-sm lg:text-lg  font-medium   text-left">
                                         <span>info@arwics.com</span>
                                     </div>
                                 </div>
@@ -120,8 +121,8 @@ const Contact = () => {
 
                                 </div>
                                 <div className="h-full w-3/4 flex items-center">
-                                    <div className="text-xl font-medium   text-left ">
-                                        <span>arwics.com</span>
+                                    <div className="xs:text-sm lg:text-lg  font-medium   text-left ">
+                                        <span>www.arwics.com</span>
                                     </div>
                                 </div>
                                 </div>
