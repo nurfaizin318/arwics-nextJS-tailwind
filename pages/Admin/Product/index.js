@@ -6,7 +6,6 @@ import React, { useState, useRef, createRef } from 'react';
 import Textinputs from '../../../components/TextInputs';
 import config from '../../../constanta/index';
 
-import NavbarAdmin from '../../../components/NavbarAdmin'
 
 
 const Product = ({ productList,solutionsList,bannerList}) => {
@@ -110,7 +109,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
         data.append("id_solusi", solutionsUpdate.id)
         data.append("title", solutionsUpdate.title)
         data.append("image", solutionsUpdate.image);
-        data.append("description", solutionsUpdate.description);
+        data.append("description", "aaaa");
         fetch(`${config.piranti.griyo_utomo}/update_solusi`, {
             method: 'POST',
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 
@@ -8,7 +8,7 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const router = useRouter();
   const [navColor, setNavColor] = useState('bg-transparent')
-
+  const mountedRef = useRef()
 
 
   const handleClick = () => {
@@ -16,16 +16,33 @@ const Navbar = () => {
 
   };
 
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const backgroundcolor = window.scrollY < 200 ? "bg-transparent" : "bg-softWhite";
-      setNavColor(backgroundcolor)
+
+
+
+  const setNavbarBAckground = () =>{
     
-        return () => {
-          backgroundcolor = "bg-transparent";
-          window.removeEventListener("scroll", backgroundcolor,true);
-     }
+
+    document.addEventListener("scroll", () => {
+
+
+      const backgroundcolor = window.scrollY < 200 ? "bg-transparent" : "bg-softWhite";
+      if (mountedRef.current) {
+        setNavColor(backgroundcolor);
+      }
+        return mountedRef.current
+      
       })
+  }
+
+  useEffect(() => {
+
+
+    mountedRef.current =true
+
+
+    setNavbarBAckground()
+
+      return () => (mountedRef.current=false)
     
   }, []);
 

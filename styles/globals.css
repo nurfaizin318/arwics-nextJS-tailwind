@@ -10,7 +10,6 @@
   .home-row1{
 
     background-image: url('/assets/bg-vector.png');
-    max-height: 900px;
     
   }
     
@@ -51,19 +50,11 @@ background-size: cover;
   /* =========================================================== */
 
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1100px) {
     .about{
       background-image: none;
       background: turquoise;
       }
-
-
-      .home-row1{
-
-        max-height: 600px;
-        
-      }
-        
   }
 
 
@@ -90,7 +81,7 @@ background-size: cover;
   .home-row1{
 
     background-image:none;
-    max-height: 700px;
+    max-height: 700;
     
   }
 

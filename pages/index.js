@@ -46,7 +46,7 @@ export default function Page({ banner, service, agreement, license, application 
         <div className="">
           <div
             style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto",}}
-            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full lg:max-h-max xs:h-auto  lg:h-screen " >
+            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full xs:h-auto   lg:max-h-max xl:h-screen " >
             <div className="w-full  flex  items-center    ">
               <div className="xs:w-full lg:w-4/5 h-auto xs:lg-auto  mx-5 p-2 mt-20">
                 <div >

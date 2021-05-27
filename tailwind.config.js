@@ -59,8 +59,7 @@ module.exports = {
       },
       height: theme => ({
         "128": "48rem",
-        "max-height1" :"700px",
-        "max-height2" :"900px"
+   
       }),
     },
 

@@ -10,27 +10,27 @@ const Contact = () => {
     const handleSubmit = (e) => {
 
         e.preventDefault()
-        const data = new FormData();
-        data.append("nama", data.nama)
-        data.append("email_address", data.email)
-        data.append("telepon", data.tlp);
+        const dataEmail = new FormData();
+        dataEmail.append("nama", data.name)
+        dataEmail.append("email_address", data.email)
+        dataEmail.append("telepon", data.tlp);
 
 
-        fetch(`${config.piranti.griyo_utomo}/submit_email`, {
+        fetch(`${config.piranti.griyo_utomo}/kirim_email`, {
             method: 'POST',
             header: {
                 'Accept': 'services/json',
                 'Content-Type': 'services/json',
             },
-            body: data
+            body: dataEmail,
         })
 
-            .then((response) => { return response.json() })
-            .then(data => console.log(data))
-            .then(() => window.location.reload())
+            .then((response) => { return response })
+            .then(ctx => console.log(ctx.status))
             .catch((error) => {
                 console.log(error)
             })
+
     }
 
 
