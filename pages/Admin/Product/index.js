@@ -12,7 +12,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
 
 
-    console.log(solutionsList.result)
+    console.log(solutionsList)
     const productResult = productList.result;
     const productImageUrl = productList.url_foto;
 
@@ -81,6 +81,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                 console.log(error)
             })
 
+
     }
 
 
@@ -109,7 +110,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
         data.append("id_solusi", solutionsUpdate.id)
         data.append("title", solutionsUpdate.title)
         data.append("image", solutionsUpdate.image);
-        data.append("description", "aaaa");
+        data.append("description", solutionsUpdate.description);
         fetch(`${config.piranti.griyo_utomo}/update_solusi`, {
             method: 'POST',
 
@@ -121,6 +122,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
             .catch((error) => {
                 console.log(error)
             })
+
 
     }
 
@@ -262,12 +264,11 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                                 editabled={true}
                                                 onEditing={productOnEditing}
                                                 cancleEdit={() => SetProductOnEditing(false)}
-                                                setOnEditing={() => { SetProductOnEditing(true); SetProductIndexEdit(index); setProductUpdate({ ...productUpdate, image: data.image, title: data.title, description: data.deskripsi, id: data.id_produk }) }}
+                                                setOnEditing={() => { SetProductOnEditing(true); SetProductIndexEdit(index); setProductUpdate({ ...productUpdate, image: data.image, title: data.title, description: data.deskripsi, id: data.id}) }}
                                                 index={index}
                                                 indexEdit={productIndexEdit}
-                                                onDelete={(e) => { handleDeleteProduct(e, data.id_produk) }}
+                                                onDelete={(e) => { handleDeleteProduct(e, data.id) }}
                                             />
-                                            {console.log(productImageUrl + data.image)}
                                             <div className="grid xs:grid-cols-1 lg:grid-cols-2 bg-blue-50 py-10">
                                                 <div className=" flex justify-center items-center flex ">
                                                     <div className="w-5/6 h-3/4 flex justify-center ">
@@ -364,10 +365,10 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                                             editabled={true}
                                             onEditing={solutionsOnEditing}
                                             cancleEdit={() => SetSolutionsOnEditing(false)}
-                                            setOnEditing={() => { SetSolutionsOnEditing(true); SetSolutionsIndexEdit(index); setSolutionsUpdate({ ...solutionsUpdate, image: data.image, title: data.title,description:data.deskripsi ,id:data.id_solusi}) }}
+                                            setOnEditing={() => { SetSolutionsOnEditing(true); SetSolutionsIndexEdit(index); setSolutionsUpdate({ ...solutionsUpdate, image: data.image, title: data.title,description:data.deskripsi ,id:data.id}) }}
                                             index={index}
                                             indexEdit={solutionsIndexEdit}
-                                            onDelete={(e) => { handleDeleteSolusi(e,data.id_solusi)}}
+                                            onDelete={(e) => { handleDeleteSolusi(e,data.id)}}
                                         />
                                         <div className=" bg-blue-200 grid grid-cols-2 xs:grid-cols-1 h-auto lg:grid-cols-2 w-full mx-auto  mt-1  bg-red-50 p-3 rounded-md">
                                             <div className="h-11/12 items-center flex justify-center items-center xs:py-0 md:py-10 lg:py-10   ">

@@ -138,11 +138,11 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
 
                               </div>
-                              <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center mt-14 ">
+                              <div className="flex justify-center items-center justify-center mt-14 ">
                                    {teamList.team.map((data, index) => {
                                         return (
-                                             <div key={index} className="text-center  " >
-                                                  <div className="xs:w-62  xs:h-64  lg:w-80 lg:h-80 bg-gray-400 rounded-lg mx-auto" >
+                                             <div key={index} className="text-center  mx-10 my-5 " >
+                                                  <div className="xs:w-64  xs:h-64  lg:w-64 lg:h-64 bg-gray-400 rounded-lg mx-auto" >
                                                        <img src={data.foto} style={{width:"100%",height:"100%",objectFit:"contain"}} />
                                                </div>
                                                   <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-2xl text-gray-50">

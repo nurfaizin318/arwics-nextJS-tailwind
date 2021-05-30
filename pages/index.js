@@ -11,7 +11,7 @@ export default function Page({ banner, service, agreement, license, application 
   const titleBanner = banner[0].title
 
 
-
+  const bg_card = ["bg-yellow-400","bg-red-400","bg-blue-400","bg-yellow-400","bg-red-400","bg-blue-400","bg-yellow-400","bg-red-400","bg-blue-400"]
   const commersialAgreement = [{ title: "White Label" }, { title: "Manage Service" }, { title: "Fee Bassed" }, { title: "Consultation Fee " }];
 
 
@@ -46,19 +46,22 @@ export default function Page({ banner, service, agreement, license, application 
         <div className="">
           <div
             style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", margin: "0 auto",}}
-            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full xs:h-auto   lg:max-h-max xl:h-screen " >
+            className="home-row1 w-full  md:h-2/3    grid xs:grid-cols-1 lg:grid-cols-2 mx-1 xs:max-h-full xs:h-auto   lg:max-h-max xl:max-h-max xl:h-screen " >
             <div className="w-full  flex  items-center    ">
               <div className="xs:w-full lg:w-4/5 h-auto xs:lg-auto  mx-5 p-2 mt-20">
                 <div >
-                  <div className="xs:text-2xl  lg:text-2xl xl:text-xl  text-gray-700 font-bold ">
-                    {/* How much your company revenue of digital sales ?<br></b                                                                                                                                                                                                                                                                                                                                                                                       r>
+                  <div className=" text-gray-700 font-bold"
+                   style={{  fontSize:"clamp(1rem, 1.3vw, 1.3rem)",lineHeight:"25px",display:"block",marginTop:0}}
+                  >
+                    {/* How much your company revenue of digital sales ?<br></b                                                                                                                                                                                                                                                                                                                                                                            r>
                 Does your company prepare human resources and support digital application system ? */}
-                    {
-                      titleBanner
-                    }
+                    { <div dangerouslySetInnerHTML={{ __html: titleBanner.replace(/\n/g, '<br />') }} />}
+                      
                   </div>
-                  <div className="text-gray-500 mt-10 text-md text-justify">
-                    {banner[0].description}
+                  <div className="text-gray-500 mt-5 text-md text-justify">
+                    {banner[0].description
+                    
+                    }
                     {/* Think that all of your company’s sales processes have been digitalized so that potential
                     client have easy accsess for obtaining the product. The sales process has become better
                     and more efficient, the marketing employe serve the clients confidently.
@@ -102,8 +105,8 @@ export default function Page({ banner, service, agreement, license, application 
                   {service.map((data, index) => {
                     return (
                       <div key={index} className=" text-center min-h-96 sm:w-full xs:w-full flex justify-center items-cennter lg:w-4/5 lg:h-full  m-auto ">
-                        <div>
-                          <div className="p-5">
+                        <div className=" flex flex-col items-center w-72">
+                          <div className="p-5 h-64 w-64  mx-center">
                             <img
                               src={`${data.image}`}
                               width={250}
@@ -125,20 +128,32 @@ export default function Page({ banner, service, agreement, license, application 
             <div className="bg-gray-100" >
               <div className=" py-16 bg-gradient-to-r from-softBlue via-mediumBlue to-darkBlue"
                 style={{ clipPath: "polygon(0 0, 100% 8%, 100% 91%, 0 100%)", minHeight: 600 }}>
-                <div className="p-10 text-4xl  text-gray-50 font-bold  flex justify-center">
+                <div className="p-10 text-4xl  mt-10 text-gray-50 font-bold  flex justify-center">
                   Our Commercial Agreement
             </div>
                 <div>
                   <div className="mt-10 mb-20 flex items-center flex-wrap justify-center py-5 ">
                     {agreement.map((data, index) => {
                       return (
-                        <div key={index} className="h-52 w-72    m-2 flex justify-center pt-5" style={{ backgroundImage: "url('/assets/bg-agreement.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}  >
-                          <div className="w-36 text-center mt-10 font-bold "   >
-
-                            <span className="ml-4 text-2xl text-bold text-gray-50 mt-5">
-                              {data.title}
-                            </span>
+                        <div key={index} className="h-80 w-52 rounded-lg   flex flex-col items-center my-2 mx-10 relative"   >
+                          <div className="w-44 h-24 bg-gray-50  " style={{borderTopRightRadius:30,borderTopLeftRadius:30}}   >
+                           
+                        
                           </div>
+                          <div className={`h-56 w-full ${bg_card[index]} absolute top-16 rounded-lg flex justify-center items-center text-gray-50 text-2xl text-center pt-5 `}>
+                            {data.title}
+
+                            </div>
+                            <div className="w-32 h-32 bg-gray-50  absolute flex justify-center items-center " style={{borderRadius:"50%"}}>
+
+                              <div className={`h-3/5 w-3/5 ${bg_card[index]} `} 
+                              style={{borderRadius:"50%",
+                              boxShadow:"  0 6.7px 5.3px rgba(0, 0, 0, 0.048),  0 22.3px 17.9px rgba(0, 0, 0, 0.072),  0 100px 80px rgba(0, 0, 0, 0.12)"
+
+                              }}>
+ 
+                              </div>
+                              </div>
                         </div>
 
                       )
