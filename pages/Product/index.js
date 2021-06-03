@@ -41,7 +41,7 @@ const Product = ({ productList, solutionsList, bannerList }) => {
         <Layout title="Product">
             <div
                 style={{ backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", }}
-                className="home-row1 w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
+                className="product w-full xs:h-auto   md:h-2/3 grid grid-cols-1 lg:grid-cols-5  xs:h-auto   lg:max-h-max xl:h-screen">
                 <div className="w-full min-h-full flex justify-center items-center  py-5 col-span-2" >
                     <div className="xs:w-4/5 md:w-full h-5/6 xs:p-0 lg:py-12  xs:my-20 md:p-10  md:my-0 xl:my-12  ">
                         <div>
@@ -55,12 +55,12 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                     </div>
                 </div>
                 <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
-                    <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-10 lg:px:0  " >
+                    <div className="mt-6 ml-10 xs:hidden md:hidden lg:block xl:block xs:px-10 lg:px:0  " >
                         <img
-                            src="/assets/product-vector.png"
-                            alt="Picture of url"
-                            width={650}
-                            height={550}
+                            src="/assets/product.webp"
+                            alt="Picture of product"
+                            width={600}
+                            height={500}
                         />
                     </div>
                 </div>
@@ -75,14 +75,14 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                         >
                             {productResult.data.map((data, index) => {
                                 return (
-                                    <>
+                                    < >
                                         <div key={index} className=" flex justify-center items-center flex ">
                                             <div className="w-full h-3/4 flex  justify-center">
                                                 <div className="h-full w-1/2    flex justify-center items-center m-1">
                                                     <img
-                                                        src={`/assets/isales2.png`}
-                                                        width={450}
-                                                        height={450}
+                                                        src={productImageUrl+data.image}
+                                                        width={350}
+                                                        height={350}
                                                         objectfit="contain"
                                                     />
                                                 </div>
@@ -93,17 +93,18 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                                 <div className="">
                                                     <span className="text-5xl text-gray-50  font-bold mb-2">{data.title} </span><br />
                                                     <div className="text-gray-50  text-xl mt-3">
-                                                        <span >As we have seen in this HR series for small businesses,
+                                                           <span >{data.deskripsi}</span><br />
+                                                        {/* <span >As we have seen in this HR series for small businesses,
                                                         there are some human resource requirements that are
                                                         very important for small businesses. You need to hire
                                                         the right people, offer competitive salaries and benefits,
                                                         provide effective training, and more. But in most small
                                                         businesses, resources are very limited. With little reserve
                                                         to attract and many competing priorities, it is difficult to
-                                                        justify the costs of hiring a dedicated HR team. </span><br />
+                                                        justify the costs of hiring a dedicated HR team. </span><br /> */}
                                                     </div>
                                                     <div className="w-full h-24 mb-20    flex justify-center items-center text-gray-700">
-                                                        <Link href="/Comtact" >
+                                                        <Link href="/Contact" >
                                                             <button className=" w-52 h-12 bg-yellow-400 rounded-lg">More Info</button>
                                                         </Link>
                                                     </div>
@@ -116,20 +117,19 @@ const Product = ({ productList, solutionsList, bannerList }) => {
 
 
                         </div>
-
                         <div className="bg-gray-200 relative  xs:pb-44 lg:pb-10">
                             <div className="w-full h-24 bg-ray-300   justify-center text-6xl flex items-center  p-4 font-bold text-gray-700">
                                 Solutions
                             </div>
 
-                            {solutions.map((data, index) => {
+                            {solutionsResult.data.map((data, index) => {
                                 return (
                                     index % 2 === 0 ?
                                         <div key={index} className=" bg-gray-200 grid grid-cols-2 xs:grid-cols-1 md:grid-cols-2 w-full p-3">
-                                            <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
+                                            <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20 " >
                                                 <img
                                                     // src={`${solutionsImageUrl + data.icons}`}
-                                                    src={`${data.icons}`}
+                                                    src={`${solutionsImageUrl + data.image}`}
                                                     width={370}
                                                     height={370}
                                                     objectfit="contain"
@@ -142,10 +142,12 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                                         {data.title}
                                                     </div>
                                                     <div className="text-gray-800 my-3 text-justify ">
-                                                        {data.description}
+                                                        {data.deskripsi}
                                                     </div>
                                                     <div>
+                                                    <Link href="/Contact" >
                                                         <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
+                                                        </Link>
                                                     </div>
 
                                                 </div>
@@ -161,17 +163,18 @@ const Product = ({ productList, solutionsList, bannerList }) => {
                                                         {data.title}
                                                     </div>
                                                     <div className="text-gray-800 my-3 text-justify ">
-                                                        {data.description}
+                                                        {data.deskripsi}
                                                     </div>
                                                     <div>
+                                                    <Link href="/Contact" >
                                                         <button className="w-40 h-12 bg-yellow-400 rounded-md text-gray-700">More Info</button>
+                                                        </Link>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div className="h-11/122  items-center flex justify-center   items-center xs:py-0 md:py-10 lg:py-20 px-20  ">
                                                 <img
-                                                    src={`${data.icons}`}
+                                                    src={`${solutionsImageUrl + data.image}`}
                                                     width={370}
                                                     height={370}
                                                     objectfit="contain"

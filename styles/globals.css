@@ -9,7 +9,7 @@
 
   .home-row1{
 
-    background-image: url('/assets/bg-vector.png');
+    background-image: url('/assets/bg-vector.webp');
     
   }
     
@@ -19,7 +19,7 @@
 
 /* Contact */
 .contact{
-background-image: url('/assets/bg-contact.png');
+background-image: url('/assets/bg-contact.webp');
 background-size: cover;
 
 }
@@ -33,14 +33,14 @@ background-size: cover;
 /* =========================================================== */
 
 .product{
-  background-image: url('/assets/background-product.png');
+  background-image: url('/assets/background-product.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 /* Abbaout */
 .about{
-  background-image: url('/assets/bg-about.png');
+  background-image: url('/assets/bg-about.webp');
   background-size: 100% 100%;
   }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useRef} from 'react';
 import Link from 'next/link';
 import Image from "next/image"
 import { useRouter } from "next/router";
@@ -8,23 +8,47 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const router = useRouter();
   const [navColor, setNavColor] = useState('bg-transparent')
+  const mountedRef = useRef()
 
+
+
+  
   const handleClick = () => {
     setActive(!active);
 
   };
 
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const backgroundcolor = window.scrollY < 200 ? "bg-transparent" : "bg-softWhite";
-      setNavColor(backgroundcolor)
+  const setNavbarBAckground = () =>{
     
-        return () => {
-          window.removeEventListener("scroll", backgroundcolor, true);
-     }
+
+    document.addEventListener("scroll", () => {
+
+
+      const backgroundcolor = window.scrollY < 200 ? "bg-transparent" : "bg-softWhite";
+      if (mountedRef.current) {
+        setNavColor(backgroundcolor);
+      }
+        return mountedRef.current
+      
       })
+  }
+
+  const handleLogOut= () =>{
+    localStorage.setItem("logged","")
+    router.push("/Login")
+  }
+  useEffect(() => {
+
+
+    mountedRef.current =true
+
+
+    setNavbarBAckground()
+
+      return () => (mountedRef.current)
     
   }, []);
+
 
 
   return (
@@ -108,6 +132,7 @@ const Navbar = () => {
             </div>
           </div>
         </Link>
+        
       </div>
 
 
@@ -181,7 +206,12 @@ const Navbar = () => {
                 Contact
               </a>
             </Link>
-
+            <a  
+            style={{cursor:"pointer"}}
+              onClick={handleLogOut}
+            className={`${router.pathname == "/Logout" ? 'border-b-4 border-blue-600' : ''} lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue text-lg font-medium items-center justify-center hover:bg-blue-400 hover:text-gray-200 mx-4`} >
+                Logout
+              </a>
 
 
           </div>

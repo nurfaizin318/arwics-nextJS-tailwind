@@ -216,7 +216,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                 <div className=" w-full  xs:hidden md:hidden lg:flex  justify-center relative md-hidden  items-center  col-span-3 xs:hidden lg:block">
                     <div className="mt-6  xs:hidden md:hidden lg:block xl:block xs:px-20 lg:px:0 " >
                         <img
-                            src="/assets/product-vector.png"
+                            src="/assets/product.webp"
                             alt="Picture of url"
                             width={650}
                             height={550}
@@ -224,7 +224,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-800  ">
+            <div className="bg-gray-800">
                 <div className="bg-green-200"
                 >
                     <div className="bg-gray-200 w-full ">
@@ -247,7 +247,7 @@ const Product = ({ productList,solutionsList,bannerList}) => {
 
                                         </div>
                                     </div>
-                                    <div className=" p-7 box-border">
+                                    <div className="p-7 box-border">
                                         <div className="">
                                             <Textinputs value={productInsert.title} onChange={(e) => { setProductInsert({ ...productInsert, title: e.target.value }) }} />
                                             <TextArea value={productInsert.description} onChange={(e) => { setProductInsert({ ...productInsert, description: e.target.value }) }} />

@@ -8,21 +8,23 @@ import config from "../../../constanta/index";
 
 
 
-const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => {
+const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clientList }) => {
 
     const insertImageJenis = createRef(null)
     const updateImageBannerTeam = createRef(null)
     const updateImageTeam = createRef(null)
     const insertImagePerson = createRef(null)
+    const insertImageClent = createRef(null)
 
 
-    const [teamBanner, setTeamBanner] = useState({ image: teamList.image, description: teamList.deskripsi });
+
+    const [teamBanner, setTeamBanner] = useState({ image: teamList, description: teamList, status: false });
 
     const [tagline, setTagline] = useState(taglineList.tagline)
 
-    
 
-    const [filosofi, setFilosofi] = useState({ id: "", merah: filosofiList.merah, kuning: filosofiList.kuning, biru: filosofiList.biru, deskripsi: filosofiList.deskripsi });
+
+    const [filosofi, setFilosofi] = useState({ id: "", merah: filosofiList.merah, kuning: filosofiList.kuning, biru: filosofiList.biru, deskripsi: filosofiList.deskripsi, status: false });
 
 
     const [teamIndexEdit, SetTeamIndexEdit] = useState("");
@@ -40,16 +42,23 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     const [jenisIndexEdit, SetJenisIndexEdit] = useState("");
     const [jenisOnEditing, SetJenisOnEditing] = useState(false)
 
-    const [jenisUpdate, setJenisUpdate] = useState({ title: "", image: "", description: "" })
+    const [jenisUpdate, setJenisUpdate] = useState({ title: "", image: "", description: "", status: false })
     const [jenisInsert, setJenisInsert] = useState({ title: "", image: "", id: "", description: "" })
 
 
+    const [clientInsert, setClientInsert] = useState({ image: "" })
 
 
-    
+
+
+
+
+
+
     const handlUpdateFilosofi = (e, id) => {
 
         e.preventDefault()
+        setFilosofi({ ...filosofi, status: true })
         const data = new FormData();
         data.append("id_filosofi", 1)
         data.append("merah", filosofi.merah)
@@ -67,7 +76,9 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
         })
 
             .then((response) => { return response.json() })
-            .then(data => console.log(data))
+            .then(data =>
+                setFilosofi({ ...filosofi, status: false })
+            )
             .then(() => window.location.reload())
             .catch((error) => {
                 console.log(error)
@@ -94,7 +105,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
             .then((response) => { return response.json() })
             .then(data => console.log(data))
             .then(() => window.location.reload())
-            .catch((error) => {
+            .catch((error) => { 
                 console.log(error)
             })
     }
@@ -102,6 +113,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     const handlUpdateJenis = (e, id) => {
 
         e.preventDefault()
+        setJenisUpdate({ ...jenisUpdate, status: true })
         const data = new FormData();
         data.append("id_jenis", jenisUpdate.id)
         data.append("nama", jenisUpdate.title)
@@ -119,7 +131,10 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
         })
 
             .then((response) => { return response.json() })
-            .then(data => console.log(data))
+            .then(data =>
+                setJenisUpdate({ ...jenisUpdate, status: false })
+
+            )
             .then(() => window.location.reload())
             .catch((error) => {
                 console.log(error)
@@ -210,6 +225,60 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
 
 
+    const handleInsertClient = (e) => {
+
+        e.preventDefault()
+        const data = new FormData();
+        data.append("id_user", 1)
+        data.append("nama", "example")
+        data.append("website", "arwics.com");
+        data.append("image", clientInsert.image);
+
+
+        fetch(`${config.piranti.griyo_utomo}/tambah_client`, {
+            method: 'POST',
+            header: {
+                'Accept': 'services/json',
+                'Content-Type': 'services/json',
+            },
+            body: data
+        })
+
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
+    const handleDeleteClient = (e, id) => {
+
+        e.preventDefault()
+        const data = new FormData();
+        data.append("id_ourclient", id)
+
+
+        fetch(`${config.piranti.griyo_utomo}/hapus_client`, {
+            method: 'POST',
+            header: {
+                'Accept': 'services/json',
+                'Content-Type': 'services/json',
+            },
+            body: data
+        })
+
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
+
     const handlUpdatePerson = (e) => {
 
         e.preventDefault()
@@ -243,19 +312,19 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
         const data = new FormData();
         data.append("id_team", id)
         fetch(`${config.piranti.griyo_utomo}/delete_person_team`, {
-          method: 'POST',
-    
-          body: data
+            method: 'POST',
+
+            body: data
         })
-          .then((response) => { return response.json() })
-          .then(data => console.log(data))
-          .then(() => window.location.reload())
-          .catch((error) => {
-            console.log(error)
-          })
-    
+            .then((response) => { return response.json() })
+            .then(data => console.log(data))
+            .then(() => window.location.reload())
+            .catch((error) => {
+                console.log(error)
+            })
+
         // setInsertOurService(initialService)
-      }
+    }
 
 
     const data = [
@@ -295,7 +364,6 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
     return (
         <Layout>
             <div>
-
                 <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2" >
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex items-center justify-center xs:px-20 py-16 lg:p-0">
                         <div className="xs:my-0 md:my-30 lg:my-34    xl:my-20  xs:p-0 lg:p-10 ">
@@ -322,37 +390,17 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                             {/* <TextInputs value=" Stabil, Kecerdasan, Rasa Percaya Diri" onChange={() => { }} /> */}
                             <b>Logo (cerminan Huruf A atau Segitiga) :</b><br></br>
                             <TextInputs value={filosofi.deskripsi || ""} onChange={(e) => { setFilosofi({ ...filosofi, deskripsi: e.target.value }) }} />
-                            {/* <TextArea value="     Segitiga yang simetris dapat menjadi simbol untuk hukum, ilmu
-                         dan agama.
-                         Makna tersembunyi segitiga dalam logo dapat
-                         digunakan untuk
-                         menyampaikan perkembangan, arah dan tujuan,
-                         maskulinitas, ketegaran,
-                         stabilitas dan menembus batas. Dalam
-                         spiritualitas bentuk ini digunakan
-                         untuk mewakili pengenalan diri,
-                         dan pencerahan." onChange={() => { }} /> */}
-                            <button onClick={handlUpdateFilosofi} className="w-24 h-10 bg-blue-400 rounded-md text-sm text-gray-200 ">update</button>
+                            {filosofi.status ?
+                                <button disabled className="w-24 h-10 bg-gray-400 rounded-md text-sm text-gray-200 ">updating..</button>
+                                :
+                                <button onClick={handlUpdateFilosofi} className="w-24 h-10 bg-blue-400 rounded-md text-sm text-gray-200 ">update</button>
+
+                            }
                         </div>
                     </div>
                 </div>
                 <div className=" w-full flex justify-center">
                     <div className="xs:w-full lg:w-3/4 h-full flex justify-center items-center text-center " style={{ overflowWrap: "break-word" }}>
-                        {/* <div className="w-44 h-72 bg-blue-200">
-                    <div className="h-14 w-full " >
-                    </div>
-                    <input type="file" hidden name="image" ref={insertImageServices} onChange={(e) => { setServicesInsert({ ...servicesInsert, image: e.target.files[0] }) }} />
-                    <div className="px-1">
-                    <div className="w-full h-24 bg-blue-600 rounded-lg flex justify-center items-center" onClick={()=>insertImageServices.current.click()} style={{cursor:"pointer"}}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="white">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                              </svg>
-                    </div>
-                    <TextInputs value={servicesInsert.title} onChange={(e) => {setServicesInsert({ ...servicesInsert, title: e.target.value })}} />
-                    <button onClick={()=>{console.log(servicesInsert)}} className="h-10 w-full rounded-sm bg-blue-300 tetx-gray-50 text-sm  ">insert</button>
-                    </div>
-                </div> */}
-
                         {typeList.map((ctx, index) => {
                             return (
                                 <div key={index} className="border-2 border-red-200 mx-1 my-3">
@@ -378,12 +426,16 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                                 {ctx.title}
                                             </div>
                                             <div className="h-12 w-full">
-                                                {servicesOnEditing && servicestIndexEdit == index &&
+                                                {servicesOnEditing && servicestIndexEdit == index ?
+                                                    jenisUpdate.status? 
+                                                    <button dissabled className="h-10 w-full rounded-sm bg-gray-300 tetx-gray-50 text-sm ">updating..</button>
+                                                    :
                                                     <button onClick={handlUpdateType} className="h-10 w-full rounded-sm bg-blue-300 tetx-gray-50 text-sm ">update</button>
+                                                    :
+                                                    null
                                                 }
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             )
@@ -453,7 +505,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                 <div className="w-full  ">
                                     <input type="file" hidden name="image" ref={updateImageBannerTeam} onChange={(e) => { setTeamBanner({ ...teamBanner, image: e.target.files[0] }) }} />
                                     <div className="w-full h-full  rounded-lg flex justify-center items-center ">
-                                        <div onClick={() => { updateImageBannerTeam.current.click() }} className="5/6 h-52 rounded-md p-3" style={{ backgroundImage: `url(${teamBanner.image})`, backgroundSize: "100% 100% ", cursor: "pointer",backgroundRepeat:"no-repeat" }}>
+                                        <div onClick={() => { updateImageBannerTeam.current.click() }} className="5/6 h-52 rounded-md p-3" style={{ backgroundImage: `url(${teamBanner.image})`, backgroundSize: "100% 100% ", cursor: "pointer", backgroundRepeat: "no-repeat" }}>
                                             <div className="h-full w-full flex justify-center items-center " style={{ backgroundColor: "rgba(225,225,225,0.7)", borderRadius: 5 }}>
                                                 <span className="text-gray-50">Foto All teams</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="white">
@@ -481,12 +533,12 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                             </div>
                             <div className="xs:grid-cols-1 grid md:grid-cols-3 mt-5 gap-1 justify-center ">
                                 <div className="text-center mt-5 border-solid border-2 border-red-200" >
-                                <input type="file" hidden name="image" ref={insertImagePerson} onChange={(e) => { setTeamInsert({ ...teamInsert, image: e.target.files[0] }) }} />
+                                    <input type="file" hidden name="image" ref={insertImagePerson} onChange={(e) => { setTeamInsert({ ...teamInsert, image: e.target.files[0] }) }} />
                                     <div className="h-12 pt-5 text-gray-50  ">
                                         Insert Team
                                     </div>
 
-                                    <div onClick={()=>{insertImagePerson.current.click()}} className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-gray-200"  >
+                                    <div onClick={() => { insertImagePerson.current.click() }} className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-gray-200"  >
                                         {/* <img src={data.foto} style={{ objectFit: "contain" }} /> */}
                                         <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
@@ -496,7 +548,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
                                     </div>
                                     <div className="xs:w-62 lg:w-80 h-14  px-10 mx-auto text-gray-50" >
-                                        <TextInputs value={teamInsert.nama} onChange={(e) => {  setTeamInsert({ ...teamInsert,nama: e.target.value }) }} />
+                                        <TextInputs value={teamInsert.nama} onChange={(e) => { setTeamInsert({ ...teamInsert, nama: e.target.value }) }} />
 
                                     </div>
                                     <div className="xs:w-62 lg:w-80 h-14 px-10  mx-auto text-gray-50  ">
@@ -517,11 +569,11 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                                 setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index); setTeamUpdate({ ...teamUpdate, nama: data.nama, posisi: data.posisi, id: data.id_team, image: data.foto }) }}
                                                 index={index}
                                                 indexEdit={teamIndexEdit}
-                                                onDelete={(e)=>{deletePerson(e,data.id_team)}}
+                                                onDelete={(e) => { deletePerson(e, data.id_team) }}
                                             />
                                             <div className="xs:w-62  xs:h-80  lg:w-64 lg:h-80  flex justify-center items-center rounded-lg mx-auto border-solid border-2 border-red-200 " >
-                                            <input type="file" hidden name="image" ref={updateImageTeam} onChange={(e) => { setTeamUpdate({ ...teamUpdate, image: e.target.files[0] }) }} />
-                                                    {teamOnEditing && teamIndexEdit == index ?
+                                                <input type="file" hidden name="image" ref={updateImageTeam} onChange={(e) => { setTeamUpdate({ ...teamUpdate, image: e.target.files[0] }) }} />
+                                                {teamOnEditing && teamIndexEdit == index ?
                                                     <div className="h-24 w-full bg-gray-200 flex justify-center items-center rounded-lg" onClick={() => { updateImageTeam.current.click() }}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="white">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -555,14 +607,24 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                             </div>
                         </div>
                     </div>
-                    <div className="bg-gray-800">
+                    <div className="bg-gray-800 " style={{ width: "98vw" }}>
                         <div className="w-full bg-gray-300 h-32 flex justify-center items-center text-4xl text-gray-700 font-bold">
                             Our Client
                          </div>
                         <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
                             style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
+                            <input type="file" hidden name="image" ref={insertImageClent} onChange={(e) => { setClientInsert({ ...clientInsert, image: e.target.files[0] }) }} />
                             <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:mb-52 md:mb-5">
-                                {client.map((data, index) => {
+                                <div>
+                                    <div className="w-20 h-12 bg-gray-400 flex justify-center items-center" onClick={() => insertImageClent.current.click()}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <button onClick={handleInsertClient} className="w-20 h-6 bg-gray-200 mt-1">upload</button>
+                                </div>
+
+                                {clientList !== null && clientList.map((data, index) => {
                                     return (
                                         <div key={index} className="w-24  h-24  m-3 ">
                                             <OptionButton
@@ -572,9 +634,11 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                                 setOnEditing={() => { SetTeamOnEditing(true); SetTeamIndexEdit(index) }}
                                                 index={index}
                                                 indexEdit={teamIndexEdit}
+                                                onDelete={(e) => { handleDeleteClient(e, data.id) }}
+
                                             />
                                             <img
-                                                src={`${data.logo}`}
+                                                src={`${data.image}`}
                                                 alt="Picture of the author"
                                                 width={380}
                                                 height={380}
@@ -621,13 +685,18 @@ About.getInitialProps = async (ctx) => {
     const resTeamJson = await resTeam.json()
 
 
+    const resClient = await fetch(`${config.piranti.griyo_utomo}/ourclient`, options);
+    const resClientJson = await resClient.json()
+
+
     return {
 
         filosofiList: resFilosofiJson.result,
         taglineList: resTaglineJson.result,
         jenislist: resjenisJson.result,
         typeList: resTypeJson.result,
-        teamList: resTeamJson.result
+        teamList: resTeamJson.result,
+        clientList: resClientJson.result
 
     }
 }

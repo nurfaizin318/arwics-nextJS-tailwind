@@ -2,9 +2,8 @@ import Layout from '../../components/Layout';
 import config from "../../constanta/index";
 
 
-const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => {
+const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clientList }) => {
 
-     console.log(teamList.team)
 
      const data = [
           { title: "Specialist", value: "16" },
@@ -37,7 +36,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
           // msig , mega insurance , Bni life
      ];
 
- 
+
      return (
           <Layout title="About">
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
@@ -54,19 +53,19 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                          </div>
                     </div>
                     <div className="xs:h-auto lg:h-full xs:w-full lg:w-full  text-4xl flex  justify-center text-sm py-2   ">
-                         <div className="xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600  p-8 mt-5   " 
-                         style={{  fontSize:"clamp(1rem, 1.3vw, 1.3rem)"}}
+                         <div className="xs:w-full md:w-5/6 lg:w-5/6 xl:w-5/6 text-gray-600  p-8 mt-5   "
+                              style={{ fontSize: "clamp(1rem, 1.3vw, 1.3rem)" }}
                          >
-                         {/* xs:text-xl sm:text-lg md:text-2xl lg:text-base    */}
+                              {/* xs:text-xl sm:text-lg md:text-2xl lg:text-base    */}
                               <b className="text-xl">Filosofi warna dan logo:</b><br></br>
                               <b> Merah : </b><br></br>
-                                  {filosofiList.merah} <br></br>
+                              {filosofiList.merah} <br></br>
                               <b>Kuning :</b><br></br>
                               {filosofiList.kuning}<br></br>
                               <b> Biru :</b><br></br>
                               {filosofiList.biru}<br></br>
                               <b>Logo (cerminan Huruf A atau Segitiga) :</b><br></br>
-                                   {filosofiList.deskripsi}
+                              {filosofiList.deskripsi}
                          </div>
                     </div>
                </div>
@@ -95,13 +94,13 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                          <div className="  w-full  bg-gray-200 rounded-lg flex  flex-wrap justify-around ">
                               {jenislist.map((data, index) => {
                                    return (
-                                        <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 ">
+                                        <div key={index} className="xs:w-72 md:w-52  lg:m-2  my-5 mx-1">
                                              <div className="flex flex-wrap items-center justify-center  h-32">
                                                   <img
                                                        src={`${data.image}`}
                                                        alt="Picture of the author"
-                                                      
-                                                       style={{objectFit:"contain",width:110,height:100}}
+
+                                                       style={{ objectFit: "contain", width: 110, height: 100 }}
                                                   />
                                              </div>
                                              <div className="flex justify-center items-center font-bold text-xl ">
@@ -117,7 +116,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
                          </div>
                          <div className="  w-full mt-10 h-auto mb-40 mx-auto ">
-                              <div className=" " style={{minHeight:400}}>
+                              <div className=" " style={{ minHeight: 400 }}>
                                    <div className=" col-span-2 p-2 flex justify-center ">
                                         <div className="xs:w-full lg:w-3/4   text-gray-50">
                                              <div className="w-ful  text-5xl flex justify-center items-center font-bold">
@@ -125,7 +124,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                                              </div>
                                              <div className="w-full xs:p-2 lg:p-10 text-2xl">
                                                   <span>
-                                                    {teamList.deskripsi}
+                                                       {teamList.deskripsi}
                                                   </span>
 
                                              </div>
@@ -138,13 +137,13 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
 
 
                               </div>
-                              <div className="flex justify-center items-center justify-center mt-14 ">
+                              <div className="flex justify-center items-center flex-wrap justify-center mt-14 ">
                                    {teamList.team.map((data, index) => {
                                         return (
                                              <div key={index} className="text-center  mx-10 my-5 " >
                                                   <div className="xs:w-64  xs:h-64  lg:w-64 lg:h-64 bg-gray-400 rounded-lg mx-auto" >
-                                                       <img src={data.foto} style={{width:"100%",height:"100%",objectFit:"contain"}} />
-                                               </div>
+                                                       <img src={data.foto} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                                                  </div>
                                                   <div className="xs:w-62 lg:w-80 p-5 b mx-auto text-2xl text-gray-50">
                                                        <span className="font-bold">{data.nama}</span>
                                                   </div>
@@ -164,20 +163,18 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList }) => 
                     </div>
                     <div className="bg-gray-800">
                          <div className="w-full bg-gray-300 h-32 flex justify-center items-center text-4xl text-gray-700 font-bold">
-                              Our Client
+                              Our Believed Client And Partner
                          </div>
                          <div className="bg-gray-300 flex justify-center flex-wrap items-center pb-32 client"
                               style={{ clipPath: " polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}>
                               <div className="xs:w-full lg:w-3/4  flex justify-center flex-wrap xs:pb-72 md:pb-5 ">
-                                   {cooperation.map((data, index) => {
+                                   {clientList.map((data, index) => {
                                         return (
-                                             <div key={index} className="w-24  h-24  m-3 ">
+                                             <div key={index} className="h-24 w-24 flex items-center m-3">
                                                   <img
-                                                       src={`${data.logo}`}
+                                                       src={`${data.image}`}
                                                        alt="Picture of the author"
-                                                       width={380}
-                                                       height={380}
-                                                       objectfit="contain"
+                                                       style={{objectFit:"contain"}}
                                                   />
                                              </div>
                                         )
@@ -196,35 +193,38 @@ export default About;
 
 About.getInitialProps = async (ctx) => {
      const options = {
-         method: 'GET',
- 
+          method: 'GET',
+
      };
- 
+
      const resFilosofi = await fetch(`${config.piranti.griyo_utomo}/list_filosofi`, options);
      const resFilosofiJson = await resFilosofi.json()
- 
+
      const resTagline = await fetch(`${config.piranti.griyo_utomo}/gettagline`, options);
      const resTaglineJson = await resTagline.json()
- 
+
      const resJenis = await fetch(`${config.piranti.griyo_utomo}/list_jenis`, options);
      const resjenisJson = await resJenis.json()
- 
- 
+
+
      const resType = await fetch(`${config.piranti.griyo_utomo}/list_type`, options);
      const resTypeJson = await resType.json()
- 
+
      const resTeam = await fetch(`${config.piranti.griyo_utomo}/list_team`, options);
      const resTeamJson = await resTeam.json()
- 
- 
+
+     const resClient = await fetch(`${config.piranti.griyo_utomo}/ourclient`, options);
+     const resClientJson = await resClient.json()
+
+
      return {
- 
-         filosofiList: resFilosofiJson.result,
-         taglineList: resTaglineJson.result,
-         jenislist: resjenisJson.result,
-         typeList: resTypeJson.result,
-         teamList: resTeamJson.result
- 
+
+          filosofiList: resFilosofiJson.result,
+          taglineList: resTaglineJson.result,
+          jenislist: resjenisJson.result,
+          typeList: resTypeJson.result,
+          teamList: resTeamJson.result,
+          clientList: resClientJson.result
+
      }
- }
- 
+}

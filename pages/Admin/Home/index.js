@@ -29,7 +29,7 @@ export default function Page({ banner, service, agreement, license, application 
 
   const [visible, setVisible] = useState(false);
   const [modalLicensed, setModalLicensed] = useState(false);
-  const [visibleToast,setVisibleToast] = useState({success:false,failed:false});
+  const [visibleToast, setVisibleToast] = useState({ success: false, failed: false });
 
 
 
@@ -38,8 +38,8 @@ export default function Page({ banner, service, agreement, license, application 
 
   const [applicationtIndexEdit, SetApplicatiOnIndexEdit] = useState("");
   const [applicationOnEditing, SetApplicationOnEditing] = useState(false)
-  const [applicationUpdate, setApplicationUpdate] = useState({ title: "", image: "", id: null, description: "" })
-  const [applicationInsert, setApplicationInsert] = useState({ title: "", image: "", id: null, description: "" })
+  const [applicationUpdate, setApplicationUpdate] = useState({ title: "", image: "", id: null, description: "", status: false })
+  const [applicationInsert, setApplicationInsert] = useState({ title: "", image: "", id: null, description: "", status: false })
 
 
   const [insertAgreement, setInsertAgreement] = useState({ title: "", image: null, })
@@ -67,7 +67,6 @@ export default function Page({ banner, service, agreement, license, application 
 
 
 
-console.log(banner)
   const handleInsertApp = (e) => {
     e.preventDefault()
 
@@ -127,6 +126,7 @@ console.log(banner)
   const handlUpdateApp = (e, id) => {
 
     e.preventDefault()
+    setApplicationUpdate({ ...applicationUpdate, status: true })
     const data = new FormData();
     data.append("title", applicationUpdate.title)
     data.append("description", applicationUpdate.description)
@@ -144,7 +144,7 @@ console.log(banner)
     })
 
       .then((response) => { return response.json() })
-      .then(data => console.log(data))
+      .then(data => setApplicationUpdate({ ...applicationUpdate, status: false }))
       .then(() => window.location.reload())
       .catch((error) => {
         console.log(error)
@@ -205,7 +205,7 @@ console.log(banner)
     e.preventDefault()
     const data = new FormData();
     data.append("id_agrement", id)
-   setDeleteStatus({ ...deleteStatus, agrement: true })
+    setDeleteStatus({ ...deleteStatus, agrement: true })
     fetch(`${config.piranti.griyo_utomo}/delete_agrement`, {
       method: 'POST',
       header: {
@@ -216,11 +216,11 @@ console.log(banner)
     })
 
       .then((response) => { return response.json() })
-      .then(data => { setDeleteStatus({ ...deleteStatus, agrement: false}) })
-      .then(() => {setVisibleToast({...visibleToast,success:true})})
+      .then(data => { setDeleteStatus({ ...deleteStatus, agrement: false }) })
+      .then(() => { setVisibleToast({ ...visibleToast, success: true }) })
       .catch((error) => {
         setDeleteStatus({ ...deleteStatus, agrement: false });
-        setVisibleToast({...visibleToast,success:true});
+        setVisibleToast({ ...visibleToast, success: true });
       })
 
 
@@ -480,7 +480,7 @@ console.log(banner)
                           </div>
                           <div className="h-12 w-full my-1 px-3">
                             {insertOurService.status ?
-                              <button  className={` w-full h-10 bg-gray-600 text-white rounded-md mt-1`} >Inserting...</button>
+                              <button className={` w-full h-10 bg-gray-600 text-white rounded-md mt-1`} >Inserting...</button>
                               :
                               <button type="submit" className={` w-full h-10 bg-purple-600 text-white rounded-md mt-1`} >Insert</button>
 
@@ -596,7 +596,8 @@ console.log(banner)
                             indexEdit={AgreementIndexEdit}
                             onDelete={(e) => { handleDeleteAgreement(e, data.id); setIndexDelete(index); }}
                           />
-                          <div key={index} className="h-52 w-72    m-2 flex justify-center pt-5" style={{ backgroundImage: "url('/assets/bg-agreement.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}  >
+                          {console.log(data.url_foto)}
+                          <div key={index} className="h-52 w-72 bg-gradient-to-br from-fuchsia-500 to-purple-600   m-2 flex justify-center rounded-lg" style={{ backgroundImage: data.url_foto, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}  >
                             <div className="w-36 text-center mt-10 font-bold "   >
                               <form onSubmit={updateAgreement}>
                                 <div className="ml-4 text-2xl text-bold text-gray-50 mt-5">
@@ -642,7 +643,6 @@ console.log(banner)
                           <div className="text-gray-50 ">
                             add licensed
                          </div>
-
                         </div>
                       }
                     </div>
@@ -760,13 +760,17 @@ console.log(banner)
                         </div>
                         <div>
                           {applicationOnEditing && applicationtIndexEdit == index ?
+
+                            applicationUpdate.status?
+                            <button disabled  className="h-10 w-24 rounded-md bg-gray-500 text-gray-50">updating..</button>
+                            :
                             <button onClick={(e) => handlUpdateApp(e, data.id_our_application)} className="h-10 w-24 rounded-md bg-blue-300 text-gray-50">update</button>
                             :
                             <Link href="/Contact">
                               <button className="w-40 h-12 my-5 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md text-gray-50">More Info</button>
                             </Link>
                           }
-                        </div>                              
+                        </div>
                       </div>
                     </div>
 
@@ -776,7 +780,6 @@ console.log(banner)
             )
           })}
         </div>
-          <SuccessPopUp visible={visibleToast.success} />
       </Layout>
     </>
   )

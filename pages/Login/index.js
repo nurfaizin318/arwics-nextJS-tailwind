@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 
 const Login = () => {
     const [account,setAccount] = useState({username:"",password:""})
+    const [error,setError] = useState("")
     const router = useRouter();
 
 
@@ -25,17 +26,17 @@ const Login = () => {
           },
           body: data
         })
-    
           .then((response) => { return response.json() })
           .then((data)=>{ return data.message})
-          .then( async(data) => {if(data == "login_success"){
+          .then( async(data) => {
+              if(data == "login_success"){
                 await localStorage.setItem("logged",true)
           }})
           .then((data)=>{
               router.push("/Admin/Home")
           })
           .catch((error) => {
-            console.log(error)
+            setError(error)
           })
       }
 
