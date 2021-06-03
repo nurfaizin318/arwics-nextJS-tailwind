@@ -7,7 +7,7 @@ import TextArea from "../../../components/TextArea";
 import OptionButton from "../../../components/OptionButton";
 import config from "../../../constanta/index";
 import SuccessPopUp from "../../../components/SuccessPopUp";
-
+import firebase from "../../../Config/firebase";
 
 
 export default function Page({ banner, service, agreement, license, application }) {

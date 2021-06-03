@@ -1,11 +1,13 @@
 import Layout from '../../components/Layout';
 import React,{useState} from 'react'
-
+import firebase from "../../Config/firebase";
 const Gallery = () => {
 
 
 
-
+    React.useEffect(()=>{
+        firebase.database()
+    },[])
     return (
 
         <Layout title="Gallery">

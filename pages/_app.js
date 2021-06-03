@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import withAuth from '../HOC/withAuth'
 import React, { useRef } from 'react';
 import {useRouter} from 'next/router'
 import { route } from 'next/dist/next-server/server/router';

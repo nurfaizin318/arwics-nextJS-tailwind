@@ -10,6 +10,7 @@
     "prod": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "firebase": "^8.6.2",
     "next": "^10.0.9",
     "next-images": "^1.7.0",
