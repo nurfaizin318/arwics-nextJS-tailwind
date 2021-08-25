@@ -1,12 +1,15 @@
+const { target } = require("./webpack.config");
 
 
 module.exports = {
   
                    
-                   
+    
   trailingSlash: true,
   webpack: (config, options) => {
     config.optimization.minimize = true;
+    
+
   return config
   },
 
@@ -37,7 +40,15 @@ module.exports = {
           
         }
       },
-    
+      // env:{
+      //   REACT_APP_API_KEY= 'AIzaSyBUbEFwyJ53sR6Tff5Ie8A5iJpMWe8lV7I',
+      //   REACT_APP_AUTH_DOMAIN="newarwics.firebaseapp.com",
+      //   REACT_APP_PROJECT_ID="newarwics",
+      //   REACT_APP_STORAGE_BUCKET="newarwics.appspot.com",
+      //   REACT_APP_MESSAGING_SENDER_ID="655027417973",
+      //   REACT_APP_APP_ID="1:655027417973:web:3bfd2d0d28403fe905193c",
+      //   REACT_APP_MEASUREMENT_ID="G-52PFTY4EQ2"
+      // } ,
 
   };
   

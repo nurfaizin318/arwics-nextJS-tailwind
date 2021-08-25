@@ -57,7 +57,10 @@ const Contact = ({ profile }) => {
 
 
     return (
-        <Layout title="Contact">
+        <Layout
+        title="Contact"
+        pathName="/Contact"
+        >
             <div className="contact bg-yellow-400 flex justify-center items-center mx-1 xs:h-auto md:h-auto lg:h-auto xl:h-auto    xs:max-h-full xl:max-h-max " >
                 <div className=" xs:w-full  lg:w-4/6 bg-softWhite flex flex-wrap my-32 mx-1 " style={{ borderRadius: 25 }} >
                     <div className=" xs:w-full lg:w-1/2 h-full flex justify-center py-10  items-center">

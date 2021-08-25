@@ -1,53 +1,73 @@
 import Layout from '../../components/Layout';
-import React,{useState} from 'react'
-import firebase from "../../Config/firebase";
+import React, { useState } from 'react';
+import db from "../../Config/firebase";
+
+import FbImageLibrary from "@pierreneter/react-fb-image-grid";
+
+
 const Gallery = () => {
 
 
+    const [modal,setModal] = useState(false);
+    const image = ["https://unsplash.com/photos/DyQiNSgrM58"];
+    React.useEffect(() => {
+        
+    }, [])
 
-    React.useEffect(()=>{
-        firebase.database()
-    },[])
+    
     return (
 
-        <Layout title="Gallery">
-            {/* <div className="  grid xs:grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-1 " style={{minHeight:1000}}>
-                <div className="h-full  flex justify-center">
-                    <div className="xs:w-5/6 xs:h-full  md:w-2/4 lg:w-2/4 md:h-2/4  rounded-b-full flex justify-center bg-gray-50  pb-14 px-2"
-                    style={{maxHeight:500,minHeight:500}}
-                    >
-                        <div>
-                            <div className="w-full text-center mt-20">
-                                <span className=" xs:text-2xl lg:text-4xl text-yellow-500 font-bold ">Gallery</span>
+        <Layout
+            pathName="/Gallery"
+            title="Gallery">
 
+<div className="mx-auto p-8 py-32">
+<FbImageLibrary images={["https://images.unsplash.com/photo-1586478391200-7bbed1cebb56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80","https://images.unsplash.com/photo-1586478391200-7bbed1cebb56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"]}/>
+</div>                        
+              
+                          
+            {/* <div classNameName={` ${modal ? "visible" : "invisible"} w-5/6  z-50 h-4/5 bg-gray-50 shadow-lg fixed flex`} style={{ transform: "translate(-50%, -50%)", left: "50%", top: "50%" }}>
+                <div classNameName="w-4/6 flex items-center justify-center " style={{ fontSize: "100px" }}>
+                    Gambar Nih Bosssss
+                    </div>
+                <div classNameName="w-2/6  bg-red-200">
+                    <div classNameName="w-full h-2/6 flex justify-center items-center" style={{ fontSize: "100px" }}>
+                        Title
                             </div>
-                            <div className="p-5 xs:text-xs md:text-xs md:text-md lg:text-xs text-justify">
-                                <span>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                    <div classNameName="w-full h-4/6 bg-blue-200 p-2" style={{ fontSize: "20px" }}>
+                        ini adalah deskripsi gambar sebelah gambarnya belum ada karena otak belum stabil
                             </div>
-
+                </div>
+                <div onClick={()=>setModal(false)} classNameName=" absolute top-2 right-2 h-8 w-18 p-1" style={{cursor:"pointer"}}>
+                        close
+                </div>
+            </div>
+            <div classNameName="gallery  m-1" style={{ minHeight: 1000, backgroundSize: "100% 100%" }}>
+                <div classNameName="flex justify-end items-center flex-col" style={{ height: "30vh", backgroundColor: "rgba(255,225,225,0.4)" }}>
+                    <div classNameName="h-24 w-5/6 flex justify-center   " style={{fontSize:"70px"}}>
+                            Biutipull Gallery
+                    </div>
+                    <div classNameName="w-1/2 h-14 bg-gray-50 flex mb-5" style={{ borderRadius: "55px" }}>
+                        <div classNameName="w-5/6 h-full bg-blue-200" style={{ borderTopLeftRadius: "55px", borderBottomLeftRadius: "55px" }}>
+                            <input placeholder="search" classNameName="h-full w-full" style={{ borderTopLeftRadius: "55px", borderBottomLeftRadius: "55px", border: "none", outline: "none", textAlign: "center" }} />
                         </div>
+                        <div classNameName="w-1/6 h-full flex justify-center items-center hover:shadow-md" style={{ borderTopRightRadius: "55px", borderBottomRightRadius: "55px", borderLeft: "2px solid #CFD8DC", cursor: "pointer" }}>
+                            cari
+                            </div>
                     </div>
                 </div>
-                <div className=" p-3 grid xs:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 grid-flow-row auto-rows-max py-32  gap-2 my-10">
-                    {[1, 2, 3,8].map((data, index) => {
+                <div classNameName=" flex flex-wrap justify-center items-center py-16 " style={{ minHeight: "90vh", backgroundColor: "rgba(255,225,225,0.7)", borderLeft: "1px solid black" }} >
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((data, index) => {
                         return (
-                            <div key={index} className="text-center  my-2">
-                                <div className="h-72 bg-gray-50 rounded-md my-2 ">
+                            <div key={index} onClick={()=>{setModal(true)}} classNameName="w-96   h-72 bg-gray-50 m-2 shadow-lg" style={{ cursor: "pointer", marginTop: 1 }}>
 
-                                </div>
-                                Lorem Ipsum
                             </div>
                         )
                     })}
                 </div>
-
-
             </div> */}
 
-            <div className="h-screen w-full flex text-6xl font-bold items-center justify-center text-center ">
-                Gallery Coming Soon..
-            </div>
+
         </Layout>
     );
 }

@@ -5,7 +5,7 @@ import TextArea from '../../../components/TextArea';
 import OptionButton from '../../../components/OptionButton';
 import React, { useState, createRef } from 'react'
 import config from "../../../constanta/index";
-
+import ProtectRoute from "../../../HOC/Auth";
 
 
 const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clientList }) => {
@@ -381,7 +381,7 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clien
                             <b>Filosofi warna dan logo:</b><br></br>
                             <b> Merah : </b><br></br>
                             <TextInputs value={filosofi.merah || ""} onChange={(e) => { setFilosofi({ ...filosofi, merah: e.target.value }) }} />
-                            {/* <TextInputs value="Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin" onChange={() => { }} /> */}
+                            {/* <TextInputs value="Keberanian, Kekuatan, Energi, Gairah, Semangat dan Adrenalin" onChange={() => { }} /> */}z
                             <b>Kuning :</b><br></br>
                             <TextInputs value={"" || filosofi.kuning} onChange={(e) => { setFilosofi({ ...filosofi, kuning: e.target.value }) }} />
                             {/* <TextInputs value="Ceria, Bahagia, Energik dan Optimis" onChange={() => { }} /> */}
@@ -659,10 +659,10 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clien
 
 }
 
-export default About;
+export default ProtectRoute(About);
 
 
-About.getInitialProps = async (ctx) => {
+export async function getStaticProps()  {
     const options = {
         method: 'GET',
 
@@ -690,13 +690,13 @@ About.getInitialProps = async (ctx) => {
 
 
     return {
-
+        props:{
         filosofiList: resFilosofiJson.result,
         taglineList: resTaglineJson.result,
         jenislist: resjenisJson.result,
         typeList: resTypeJson.result,
         teamList: resTeamJson.result,
         clientList: resClientJson.result
-
+        }
     }
 }

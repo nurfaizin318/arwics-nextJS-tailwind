@@ -1,7 +1,7 @@
 import config from "../../constanta/index";
 import React,{useState} from "react";
 import { useRouter } from 'next/router'
-
+import Head from 'next/head'
 
 
 const Login = () => {

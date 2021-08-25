@@ -1,27 +1,33 @@
 import '../styles/globals.css'
+import "react-image-lightbox/style.css";
+import "@pierreneter/react-fb-image-grid/src/css/style.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import React, { useRef } from 'react';
+import React, { useRef,useEffect } from 'react';
 import {useRouter} from 'next/router'
-import { route } from 'next/dist/next-server/server/router';
+
 
 
 function MyApp({ Component, pageProps }) {
+
+
 
   const Router = useRouter()
   const auth = async() =>{
       const status = await localStorage.getItem("logged")
       return status;
   }
-  React.useEffect(()=>{
 
-      auth()
-      .then((status)=>{
-          if(!status && Router.pathname.startsWith("/Admin")){
-            return  Router.replace("/Login")
+  const handleRouteChange = () => {
+    window.gtag('config', '[Tracking ID]', {
+      page_path: location.pathname,
+    });
+  };
 
-          }
-          return  null
-      })
+
+useEffect(() => {
+    
+
+    
 
   },[])
   return <Component {...pageProps} />

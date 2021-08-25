@@ -36,9 +36,11 @@ const About = ({ filosofiList, taglineList, jenislist, typeList, teamList, clien
           // msig , mega insurance , Bni life
      ];
 
-
      return (
-          <Layout title="About">
+          <Layout 
+          title="About"
+          pathName="/About"
+          >
                <div className=" about xs:bg-gray-200 lg:bg-gray-50  xs:max-h-full lg:max-h-max xs:h-auto lg:h-screen grid xs:grid-cols-1 lg:grid-cols-2 pt-14 " >
                     <div className=" xs:w-full xs:h-auto lg:w-full lg:w-1/2  flex r justify-center xs:px-20 py-16 lg:p-0">
                          <div className="xs:my-0 md:my-32 lg:my-10    xl:my-0 xs:p-0 lg:p-16  ">

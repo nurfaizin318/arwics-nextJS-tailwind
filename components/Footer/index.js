@@ -1,5 +1,4 @@
-import Image from "next/image"
-
+import Link from 'next/link';
 const Footer = () => {
 
 
@@ -23,29 +22,32 @@ const Footer = () => {
                         082129222999
                  </div>
                 </div>
-                {/* <div className="text-gray-50 p-5 flex justify-center m-2 xs:w-full sm:w-screen md:w-1/2 lg:w-1/4 ">
+                <div className="text-gray-50 p-5 flex justify-center m-2 xs:w-full sm:w-screen md:w-1/2 lg:w-1/4 ">
                     <div className="w-44 h-44 grid grid-flow-col grid-cols-2 grid-rows-2 ">
-                        <div className=" flex justify-center items-center  ">
+                        <Link href="https://www.instagram.com/arwictech/">
+                        <div className=" flex justify-center items-center" style={{cursor:"pointer"}}>
                             <img
                                 src='/assets/instagram.png'
-
                                 style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
-                        <div className=" flex justify-center items-center  ">
+                        </Link>
+                        <Link href="https://www.facebook.com/Arwic-Technologi-Solusindo-101076522207650">
+                        <div className=" flex justify-center items-center" style={{cursor:"pointer"}}>
                             <img
                                 src='/assets/facebook.png'
 
                                 style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
-                        <div className=" flex justify-center items-center  ">
+                        </Link>
+                        <div className=" flex justify-center items-center" style={{cursor:"pointer"}}>
                             <img
                                 src='/assets/youtube.png'
                                 style={{ objectFit: "contain", width: 40, height: 40 }}
                             />
                         </div>
-                        <div className=" flex justify-center items-center  ">
+                        <div className=" flex justify-center items-center" style={{cursor:"pointer"}}>
                             <img
                                 src='/assets/twitter.png'
                                 style={{ objectFit: "contain", width: 40, height: 40 }}
@@ -54,7 +56,7 @@ const Footer = () => {
 
                     </div>
 
-                </div> */}
+                </div>
             </div>
             <div className="w-full h-24 flex justify-center items-center text-gray-50 text-lg">
                 Copyright Arwics {year}

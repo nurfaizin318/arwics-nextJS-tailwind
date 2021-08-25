@@ -25,7 +25,7 @@ const Navbar = () => {
     document.addEventListener("scroll", () => {
 
 
-      const backgroundcolor = window.scrollY < 200 ? "bg-transparent" : "bg-softWhite";
+      const backgroundcolor = window.scrollY < 100 ? "bg-transparent" : "bg-softWhite";
       if (mountedRef.current) {
         setNavColor(backgroundcolor);
       }

@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/analytics";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBUbEFwyJ53sR6Tff5Ie8A5iJpMWe8lV7I",

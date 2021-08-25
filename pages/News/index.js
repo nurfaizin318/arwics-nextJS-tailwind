@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 
 const News = () => {
     return (
-        <Layout title="Home">
+        <Layout pathName="/News" title="Home">
             {/* <div className="  overflow-auto xs:py-0 lg:py-24  grid xs:grid-cols-1 md:grid-cols-1 lg:grid-cols-6  xl:grid-cols-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500  mx-1 xs:max-h-full lg:max-h-max xs:h-auto lg:h-  xs:h-auto " style={{maxHeight:900}}>
                 <div className=" md:col-span-6  lg:col-span-2  xl:col-span-2  flex justify-center m-5  xs:mt-24 lg:mt-3">
                     <div className="bg-gray-100 rounded-lg" style={{height:"80vh",maxHeight:700,maxWidth:600}}>
@@ -43,8 +43,11 @@ const News = () => {
 
                 </div>
             </div> */}
-            <div className="h-screen w-full flex text-6xl font-bold items-center justify-center text-center ">
-                News Coming Soon..
+           <div className="h-screen w-screen absolute left-0 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 flex text-6xl font-bold items-center justify-center text-center ">
+                <div className="xs:w-9/12 h-1/2 md:w-3/5 md:h-2/3 lg: flex justify-center text-center">
+                <img src="/assets/commingsoon.png" style={{objectFit:"contain"}} />
+
+                </div>
             </div>
         </Layout>
 

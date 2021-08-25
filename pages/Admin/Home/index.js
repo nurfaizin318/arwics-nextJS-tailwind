@@ -6,11 +6,11 @@ import TextInputs from '../../../components/TextInputs';
 import TextArea from "../../../components/TextArea";
 import OptionButton from "../../../components/OptionButton";
 import config from "../../../constanta/index";
-import SuccessPopUp from "../../../components/SuccessPopUp";
-import firebase from "../../../Config/firebase";
+
+import ProtectRoute from "../../../HOC/Auth";
 
 
-export default function Page({ banner, service, agreement, license, application }) {
+function Page({ banner, service, agreement, license, application }) {
 
 
 
@@ -64,6 +64,7 @@ export default function Page({ banner, service, agreement, license, application 
     });
   }
 
+  
 
 
 
@@ -786,8 +787,13 @@ export default function Page({ banner, service, agreement, license, application 
 }
 
 
+export default ProtectRoute(Page);
 
-Page.getInitialProps = async (ctx) => {
+
+
+export async function getStaticProps()  {
+
+  
   const options = {
     method: 'GET',
 
@@ -810,11 +816,13 @@ Page.getInitialProps = async (ctx) => {
   const resAppListJson = await resAppList.json()
 
   return {
+    props:{
     banner: resBannerJson.result,
     service: resServiceJson.result,
     agreement: resAgreementJson.result,
     license: resLicensedJson.result,
     application: resAppListJson.result
+    }
   }
 }
 
