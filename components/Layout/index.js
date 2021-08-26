@@ -24,7 +24,7 @@ const Layout = ({ children, title }) => {
 
 
      return (
-          <div className="flex flex-col h-full justify-between  "  >
+          <div className="flex flex-col h-full justify-between  items-center "  >
                <Head>
                     <title>{title}</title>
                     <link rel="icon" href='/favicon.png' />
@@ -47,7 +47,7 @@ const Layout = ({ children, title }) => {
                {/* {login == true ? NavbarAdmin : Navbar    } */}
 
                <SetNavbar />
-               <div className="z-5 m-0 p-0" style={{ maxWidth: 1900,}} >
+               <div className="z-5 m-0 p-0 " style={{ maxWidth: 1900,}} >
                     {/* <ButtonToTop /> */}
                     {children}
                     <WhatsappButton />

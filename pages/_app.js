@@ -1,6 +1,5 @@
 import '../styles/globals.css'
-import "react-image-lightbox/style.css";
-import "@pierreneter/react-fb-image-grid/src/css/style.css";
+
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import React, { useRef,useEffect } from 'react';
 import {useRouter} from 'next/router'

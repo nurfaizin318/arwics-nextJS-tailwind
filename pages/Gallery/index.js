@@ -1,31 +1,119 @@
 import Layout from '../../components/Layout';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import db from "../../Config/firebase";
 
-import FbImageLibrary from "@pierreneter/react-fb-image-grid";
+// anywhere
+
+import Gallery from "react-photo-masonry";
+import Carousel, { Modal, ModalGateway } from "react-images";
+
+const Gallerys = () => {
 
 
-const Gallery = () => {
+    const [modal, setModal] = useState(false);
+
+    const photos = [
+        {
+            title: "anjay",
+            src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+            width: 2,
+            height: 1
+        },
+        {
+            src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+            width: 1,
+            height: 1
+        },
+        {
+            src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+            width: 4,
+            height: 3
+        },
+        {
+            src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+            width: 3,
+            height: 4
+        },
+        {
+            src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+            width: 4,
+            height: 3
+        },
+        {
+            src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
+            width: 4,
+            height: 3
+        },
+        {
+            src: "https://source.unsplash.com/XiDA78wAZVw/600x799",
+            width: 3,
+            height: 4
+        },
+     
+
+    ];
+
+    const [currentImage, setCurrentImage] = useState(0);
+    const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
 
-    const [modal,setModal] = useState(false);
-    const image = ["https://unsplash.com/photos/DyQiNSgrM58"];
-    React.useEffect(() => {
-        
-    }, [])
+    const openLightbox = useCallback((event, { photo, index }) => {
+        setCurrentImage(index);
+        setViewerIsOpen(true);
+    }, []);
 
-    
+    const closeLightbox = () => {
+        setCurrentImage(0);
+        setViewerIsOpen(false);
+    };
+
+
     return (
 
         <Layout
             pathName="/Gallery"
             title="Gallery">
+                <div className="mt-28">
 
-<div className="mx-auto p-8 py-32">
-<FbImageLibrary images={["https://images.unsplash.com/photo-1586478391200-7bbed1cebb56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80","https://images.unsplash.com/photo-1586478391200-7bbed1cebb56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"]}/>
-</div>                        
-              
-                          
+                </div>
+       
+            <div className="flex " style={{ margin: "0 auto" }}>
+                <Gallery photos={photos} onClick={openLightbox} />
+                <div className={`${viewerIsOpen?"":"hidden"} fixed h-full w-full  z-50 top-0  flex flex-col justify-center items-center`} style={{backgroundColor:"rgba(0,0,0,0.9)"}} >
+                    <div className="w-auto h-auto">
+                        <div className="w-full h-18 flex justify-end ">
+                        <div  className="h-12  w-28 bg-yellow-500  rounded lg flex justify-center items-center shadow-lg m-1 self-end" style={{cursor:"pointer"}} onClick={()=>{setViewerIsOpen(false)}}>close</div>
+                        </div>
+               
+                        <img src={photos[currentImage].src } style={{objectFit:"contain"}}  >
+
+                        </img>
+                        <div className="w-full h-auto bg-yellow-500 p-3">
+                                title anjayyyyyyyyyyy yyyyyyyyyyyyyy yyyyyyyyyyyyyyyy yy y y y
+                        </div>
+                   
+                        </div>
+                </div>
+            </div>
+  );
+
+
+
             {/* <div classNameName={` ${modal ? "visible" : "invisible"} w-5/6  z-50 h-4/5 bg-gray-50 shadow-lg fixed flex`} style={{ transform: "translate(-50%, -50%)", left: "50%", top: "50%" }}>
                 <div classNameName="w-4/6 flex items-center justify-center " style={{ fontSize: "100px" }}>
                     Gambar Nih Bosssss
@@ -72,4 +160,4 @@ const Gallery = () => {
     );
 }
 
-export default Gallery;
+export default Gallerys;
